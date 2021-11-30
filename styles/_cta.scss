@@ -1,0 +1,32 @@
+.containercta{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;  
+    justify-content: center;
+    gap: .5em;  
+}
+
+.input{
+    border: 4px solid #fff;
+    width: 60%;
+    background-color: transparent;
+    font-family: Poppins;
+    font-weight: 300;
+    font-style: italic;
+    padding: .5em 1em;
+}
+.input::placeholder{
+    color: white;
+}
+
+.button{
+    width: 40%;
+    padding: .5em 1em;
+    background-color: $accent;
+    border: none;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+}

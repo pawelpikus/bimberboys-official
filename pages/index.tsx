@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
-import { Layout } from "../components";
+import { Layout, CTA } from "../components";
 import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Bimber Boys - Official Page</title>
         <meta
@@ -16,16 +16,19 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Layout>
-        <Image
-          src="/bimber-logo2.png"
-          alt="Bimber Boys logo"
-          width={900}
-          height={900}
-        />
-      </Layout>
+      <div className={styles.container}>
+        <Layout>
+          <Image
+            src="/bimber-logo2.png"
+            alt="Bimber Boys logo"
+            layout="intrinsic"
+            width={600}
+            height={400}
+          />
+          <CTA />
+        </Layout>
     </div>
+    </>
   );
 };
 

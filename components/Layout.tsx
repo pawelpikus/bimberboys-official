@@ -7,7 +7,6 @@ const Layout = ({ children }: Props) => {
     <main className={styles.main}>
       <Navbar />
       {children}
-      <CTA />
       <Footer />
     </main>
   );
