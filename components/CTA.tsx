@@ -4,11 +4,12 @@ import { Props } from "../types/props";
 
 const CTA: FunctionComponent<Props> = () => {
   return (
-    <div className={styles.containercta}>
-      <input 
-        type="text" 
+    <div className={styles.container_cta}>
+      <input
+        type="text"
         className={styles.input}
-        placeholder="Wpisz swój email..." />
+        placeholder="Wpisz swój email..."
+      />
       <button className={styles.button}>Subskrybuj</button>
     </div>
   );

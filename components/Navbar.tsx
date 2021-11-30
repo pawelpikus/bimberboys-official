@@ -9,11 +9,14 @@ import Link from "next/link";
 const Navbar: FunctionComponent<Props> = ({ children }) => {
   return (
     <header className={styles.header}>
-      <nav className="nav">
-        <ul>
+      <button className={styles.nav_toggle} aria-label="toggle navigation">
+        <span className={styles.hamburger}></span>
+      </button>
+      <nav className={styles.nav}>
+        <ul className={styles.nav_list}>
           <li>
             <Link href="/">
-              <a>
+              <a className={styles.nav_link}>
                 <span className={styles.logo}>
                   <FontAwesomeIcon icon={faHome} />
                 </span>
@@ -22,31 +25,39 @@ const Navbar: FunctionComponent<Props> = ({ children }) => {
           </li>
           <li>
             <Link href="#">
-              <a>O nas</a>
+              <a className={styles.nav_link}>O nas</a>
             </Link>
           </li>
           <li>
             <Link href="#">
-              <a>Posłuchaj</a>
+              <a className={styles.nav_link}>Posłuchaj</a>
             </Link>
           </li>
           <li>
             <Link href="#">
-              <a>Galeria</a>
+              <a className={styles.nav_link}>Galeria</a>
             </Link>
           </li>
           <li>
             <Link href="#">
-              <a>Kontakt</a>
+              <a className={styles.nav_link}>Kontakt</a>
             </Link>
           </li>
         </ul>
         <ul>
           <li>
-            <FontAwesomeIcon icon={faFacebookF} />
+            <Link href="#">
+              <a className={styles.nav_link}>
+                <FontAwesomeIcon icon={faFacebookF} />
+              </a>
+            </Link>
           </li>
           <li>
-            <FontAwesomeIcon icon={faYoutube} />
+            <Link href="#">
+              <a className={styles.nav_link}>
+                <FontAwesomeIcon icon={faYoutube} />
+              </a>
+            </Link>
           </li>
         </ul>
         {children}

@@ -22,12 +22,12 @@ const Home: NextPage = () => {
             src="/bimber-logo2.png"
             alt="Bimber Boys logo"
             layout="intrinsic"
-            width={600}
-            height={400}
+            width={800}
+            height={600}
           />
           <CTA />
         </Layout>
-    </div>
+      </div>
     </>
   );
 };

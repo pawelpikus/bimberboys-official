@@ -2,13 +2,10 @@
 @import "footer";
 @import "title";
 @import "cta";
+@import "nav";
 
 .container {
   padding: 0 1rem;
-}
-
-.header {
-  display: none;
 }
 
 .main {
@@ -19,10 +16,11 @@
   justify-content: flex-end;
   align-items: center;
 }
+
 .cta {
   margin-bottom: 8em;
 }
 
 .logo {
-  height: 1.5em;
+  max-width: 100px;
 }
