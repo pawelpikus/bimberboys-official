@@ -49,6 +49,7 @@ const Navbar: FunctionComponent<Props> = ({ children }) => {
             <FontAwesomeIcon icon={faYoutube} />
           </li>
         </ul>
+        {children}
       </nav>
     </header>
   );
