@@ -20,18 +20,7 @@
   margin-bottom: 8em;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@import "footer";
 
 .title a {
   color: $primary;
