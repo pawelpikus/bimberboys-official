@@ -1,5 +1,5 @@
 import { Props } from "../types/props";
-import { Navbar, Footer, CTA } from "../components";
+import { Navbar, Footer } from "../components";
 import styles from "../styles/Home.module.scss";
 
 const Layout = ({ children }: Props) => {

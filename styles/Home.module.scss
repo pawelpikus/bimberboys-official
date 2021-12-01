@@ -1,24 +1,28 @@
 @import "variables";
-@import "footer";
+@import "nav";
 @import "title";
 @import "cta";
-@import "nav";
+@import "footer";
 
 .container {
-  padding: 0 1rem;
+  background-color: $primary;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/background_img-main.jpg") no-repeat center top;
+  background-size: cover;
 }
 
 .main {
   min-height: 100vh;
+  padding: 0 1rem;
   background-color: transparent;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
-.cta {
-  margin-bottom: 8em;
+.img_container {
+  margin-top: 6em;
 }
 
 .logo {
