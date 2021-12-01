@@ -36,13 +36,25 @@
   text-transform: uppercase;
 }
 
-.nav_link:hover {
+.nav_link:hover,
+.nav_link:focus {
   color: $accent;
+}
+
+.nav_link:hover {
+  transition: all 250ms ease-in-out;
+}
+
+.nav_link:focus {
+  color: #fff;
+  outline: 3px solid $accent;
+  outline-offset: 3px;
 }
 
 .container_social {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1em;
 }
 

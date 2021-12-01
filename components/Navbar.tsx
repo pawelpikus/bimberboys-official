@@ -29,7 +29,7 @@ const Navbar: FunctionComponent<Props> = ({ children }) => {
             <Link href="/">
               <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
                 <span className={styles.logo}>
-                  <FontAwesomeIcon icon={faHome} />
+                  <FontAwesomeIcon icon={faHome} size="lg" />
                 </span>
               </a>
             </Link>
@@ -66,14 +66,14 @@ const Navbar: FunctionComponent<Props> = ({ children }) => {
             <li>
               <Link href="/">
                 <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
-                  <FontAwesomeIcon icon={faFacebookF} />
+                  <FontAwesomeIcon icon={faFacebookF} size="lg" />
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/">
                 <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
-                  <FontAwesomeIcon icon={faYoutube} />
+                  <FontAwesomeIcon icon={faYoutube} size="lg" />
                 </a>
               </Link>
             </li>

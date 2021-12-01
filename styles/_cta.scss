@@ -39,6 +39,10 @@
   background-color: darken($accent, 10);
 }
 
+.button:hover {
+  transition: all 250ms ease-in-out;
+}
+
 .input:focus,
 .button:focus {
   outline: 3px solid $accent;
