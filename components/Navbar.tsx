@@ -35,7 +35,7 @@ const Navbar: FunctionComponent<Props> = ({ children }) => {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/about">
               <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
                 O nas
               </a>

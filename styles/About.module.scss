@@ -1,0 +1,23 @@
+@import "variables";
+@import "nav";
+@import "title";
+@import "cta";
+@import "footer";
+
+.container {
+  background-color: $secondary;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 0 1rem;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  color: $primary;
+}
