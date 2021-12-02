@@ -7,7 +7,7 @@ const Layout = ({ children, ...lightTheme }: Props) => {
     <main className={styles.main}>
       <Navbar {...lightTheme} />
       {children}
-      <Footer />
+      <Footer {...lightTheme} />
     </main>
   );
 };

@@ -6,14 +6,58 @@
 
 .container {
   background-color: $secondary;
+  text-align: center;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 0 1rem;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+.img {
+  box-shadow: $base-box-shadow;
+}
+
+.title_about {
+  color: $accent;
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.main_text {
+  margin: 0;
+}
+
+.name {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.caption {
+  margin: 0;
+  font-size: $font-size-sm;
+}
+
+.col:last-of-type {
+  margin-bottom: 2em;
+}
+
+@media (min-width: 850px) {
+  .container,
+  .title_about {
+    text-align: left;
+  }
+
+  .main_text {
+    margin: 1em 0;
+  }
+
+  .band_members_container {
+    width: 100%;
+    display: flex;
+    gap: 0.5em;
+    justify-content: space-between;
+  }
+
+  .col {
+    margin: 1em 0 3em 0;
+  }
 }

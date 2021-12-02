@@ -10,7 +10,14 @@ const CTA: FunctionComponent<Props> = ({ lightTheme }) => {
     //TODO handle submit
   };
   return (
-    <form className={styles.container_cta} onSubmit={handleSubmit}>
+    <form
+      className={
+        lightTheme
+          ? `${styles.container_cta} ${styles.container_cta__light}`
+          : `${styles.container_cta}`
+      }
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         className={

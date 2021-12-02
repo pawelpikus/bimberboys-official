@@ -12,17 +12,23 @@
 }
 
 .main {
+  max-width: 1000px;
+  width: 95%;
+  margin: 0 auto;
   min-height: 100vh;
-  padding: 0 1rem;
+  padding: 0;
   background-color: transparent;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 
 .img_container {
-  margin-top: 6em;
+  margin: 6em auto 2em auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .logo {
