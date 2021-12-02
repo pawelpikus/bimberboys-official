@@ -17,6 +17,15 @@
   transition: transform 250ms ease-in-out;
 }
 
+.nav_lightTheme {
+  color: $primary;
+  .nav_link:focus {
+    color: $primary;
+    outline: 3px solid $accent;
+    outline-offset: 3px;
+  }
+}
+
 .nav_list {
   display: flex;
   flex-direction: column;
@@ -34,6 +43,7 @@
   font-size: $font-size-lg;
   text-decoration: none;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .nav_link:hover,
@@ -72,6 +82,7 @@
 .nav_open {
   .nav {
     transform: translate(0);
+    color: #fff;
   }
 }
 
@@ -107,7 +118,7 @@
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-  background: #fff;
+  background: $accent;
   width: 2em;
   height: 3px;
   border-radius: 1em;

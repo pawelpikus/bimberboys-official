@@ -17,9 +17,9 @@ const About: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>
-        <Layout>
+        <Layout lightTheme>
           <h1 className={styles.title}>O nas</h1>
-          <CTA />
+          <CTA lightTheme />
         </Layout>
       </div>
     </>

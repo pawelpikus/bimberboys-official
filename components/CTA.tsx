@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState } from "react";
 import styles from "../styles/Home.module.scss";
 import { Props } from "../types/props";
 
-const CTA: FunctionComponent<Props> = () => {
+const CTA: FunctionComponent<Props> = ({ lightTheme }) => {
   const [input, setInput] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -13,7 +13,11 @@ const CTA: FunctionComponent<Props> = () => {
     <form className={styles.container_cta} onSubmit={handleSubmit}>
       <input
         type="text"
-        className={styles.input}
+        className={
+          lightTheme
+            ? `${styles.input} ${styles.input_dark}`
+            : `${styles.input}`
+        }
         placeholder="Wpisz swój email..."
         required
         onChange={(e) => {

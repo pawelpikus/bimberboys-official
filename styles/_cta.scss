@@ -18,8 +18,18 @@
   color: white;
   padding: 0.5em 1em;
 }
+
 .input::placeholder {
   color: white;
+}
+
+.input_dark {
+  border: 4px solid $primary;
+  color: $primary;
+}
+
+.input_dark::placeholder {
+  color: $primary;
 }
 
 .button {
@@ -30,6 +40,8 @@
   font-family: Poppins;
   font-weight: 400;
   font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   color: white;
   cursor: pointer;
 }

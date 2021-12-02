@@ -1,5 +1,6 @@
 import React from "react";
 
 export interface Props {
-    children?: React.ReactNode
+    lightTheme?: boolean;
+    children?: React.ReactNode;
 }

@@ -6,7 +6,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 
-const Navbar: FunctionComponent<Props> = ({ children }) => {
+const Navbar: FunctionComponent<Props> = ({ lightTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,13 @@ const Navbar: FunctionComponent<Props> = ({ children }) => {
       >
         <span className={styles.hamburger}></span>
       </button>
-      <nav className={styles.nav}>
+      <nav
+        className={
+          lightTheme
+            ? `${styles.nav} ${styles.nav_lightTheme}`
+            : `${styles.nav}`
+        }
+      >
         <ul className={styles.nav_list}>
           <li>
             <Link href="/">
@@ -64,22 +70,29 @@ const Navbar: FunctionComponent<Props> = ({ children }) => {
           </li>
           <div className={styles.container_social}>
             <li>
-              <Link href="/">
-                <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
-                  <FontAwesomeIcon icon={faFacebookF} size="lg" />
-                </a>
-              </Link>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.facebook.com/Bimber-Boys-620956691363884/"
+                onClick={() => setIsOpen(false)}
+                className={styles.nav_link}
+              >
+                <FontAwesomeIcon icon={faFacebookF} size="lg" />
+              </a>
             </li>
             <li>
-              <Link href="/">
-                <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
-                  <FontAwesomeIcon icon={faYoutube} size="lg" />
-                </a>
-              </Link>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.youtube.com/channel/UCaaWhs9s5f8kImfIML_zYRA"
+                onClick={() => setIsOpen(false)}
+                className={styles.nav_link}
+              >
+                <FontAwesomeIcon icon={faYoutube} size="lg" />
+              </a>
             </li>
           </div>
         </ul>
-        {children}
       </nav>
     </header>
   );
