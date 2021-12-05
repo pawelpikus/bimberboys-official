@@ -1,0 +1,80 @@
+@import "variables";
+@import "title";
+@import "nav";
+@import "cta";
+@import "footer";
+
+.container {
+  background-color: $secondary;
+  text-align: center;
+}
+
+.article_container {
+  text-align: center;
+}
+
+.img_wrapper > span {
+  box-shadow: $base-box-shadow;
+}
+
+.title_about {
+  color: $accent;
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.main_text {
+  margin: 0;
+}
+
+.name {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.caption {
+  margin: 0;
+  font-size: $font-size-sm;
+}
+
+.col:last-of-type {
+  margin-bottom: 2em;
+}
+
+@media (min-width: 850px) {
+  .container {
+    text-align: left;
+  }
+
+  .article_container h1,
+  .article_container p {
+    text-align: left;
+  }
+
+  .title_about {
+    font-size: $font-size-xxl;
+    align-self: flex-start;
+  }
+
+  .main_text {
+    margin-bottom: 1em;
+  }
+
+  .band_members_container {
+    width: 100%;
+    display: flex;
+    gap: 0.5em;
+    justify-content: space-between;
+  }
+
+  .col {
+    margin: 1em 0 3em 0;
+  }
+
+  .caption {
+    font-size: $font-size-sm * 1.2;
+  }
+}

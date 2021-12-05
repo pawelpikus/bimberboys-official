@@ -3,6 +3,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import { Layout, CTA } from "../components";
 import Image from "next/image";
+import logo from "../public/bimber-logo2.png";
 
 const Home: NextPage = () => {
   return (
@@ -20,11 +21,10 @@ const Home: NextPage = () => {
         <Layout>
           <div className={styles.img_container}>
             <Image
-              src="/bimber-logo2.png"
+              src={logo}
               alt="Bimber Boys logo"
               layout="intrinsic"
-              width={750}
-              height={488}
+              placeholder="blur"
               priority
             />
             <CTA />
