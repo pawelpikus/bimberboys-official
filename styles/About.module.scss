@@ -11,18 +11,11 @@
 
 .article_container {
   text-align: center;
+  justify-content: flex-start;
 }
 
 .img_wrapper > span {
   box-shadow: $base-box-shadow;
-}
-
-.title_about {
-  color: $accent;
-  margin-bottom: 0;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
 .main_text {
@@ -44,11 +37,7 @@
   margin-bottom: 2em;
 }
 
-@media (min-width: 850px) {
-  .container {
-    text-align: left;
-  }
-
+@media (min-width: 800px) {
   .article_container h1,
   .article_container p {
     text-align: left;
@@ -56,7 +45,6 @@
 
   .title_about {
     font-size: $font-size-xxl;
-    align-self: flex-start;
   }
 
   .main_text {

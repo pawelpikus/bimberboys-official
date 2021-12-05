@@ -28,7 +28,7 @@ const About: NextPage = () => {
                 placeholder="blur"
               />
             </div>
-            <h1 className={styles.title_about}>bimber boys</h1>
+            <h1 className={styles.title}>bimber boys</h1>
             <p className={styles.main_text}>
               ... czyli retro &#38; folk band. Naszą specjalnością są stare,
               niezapomniane przeboje w akustycznych aranżacjach. Inspirują nas
