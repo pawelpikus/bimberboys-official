@@ -9,7 +9,11 @@
   text-align: center;
 }
 
-.img {
+.article_container {
+  text-align: center;
+}
+
+.img_wrapper > span {
   box-shadow: $base-box-shadow;
 }
 
@@ -41,13 +45,22 @@
 }
 
 @media (min-width: 850px) {
-  .container,
-  .title_about {
+  .container {
     text-align: left;
   }
 
+  .article_container h1,
+  .article_container p {
+    text-align: left;
+  }
+
+  .title_about {
+    font-size: $font-size-xxl;
+    align-self: flex-start;
+  }
+
   .main_text {
-    margin: 1em 0;
+    margin-bottom: 1em;
   }
 
   .band_members_container {
@@ -59,5 +72,9 @@
 
   .col {
     margin: 1em 0 3em 0;
+  }
+
+  .caption {
+    font-size: $font-size-sm * 1.2;
   }
 }

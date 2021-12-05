@@ -55,7 +55,7 @@ const Navbar: FunctionComponent<Props> = ({ lightTheme }) => {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/gallery">
               <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
                 Galeria
               </a>
