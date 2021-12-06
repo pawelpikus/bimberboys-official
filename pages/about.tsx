@@ -49,7 +49,7 @@ const About: NextPage = () => {
                 <p className={styles.caption}>śpiew i gitara basowa</p>
               </div>
               <div className={styles.col}>
-                <p className={styles.name}>BarteK KAZIMERCZAK</p>
+                <p className={styles.name}>BarteK KAZIMIERCZAK</p>
                 <p className={styles.caption}>śpiew i gitara akustyczna</p>
               </div>
               <div className={styles.col}>

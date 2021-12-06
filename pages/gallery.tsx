@@ -192,13 +192,15 @@ const Gallery: NextPage = () => {
             {/* photo 8 */}
             <div
               className={styles.img_wrapper}
-              style={{ position: "relative", height: "auto" }}
+              style={{ position: "relative", height: "100%", width: "100%" }}
             >
               <Image
                 src={gallery_img8}
                 alt="członkowie zespołu Bimber Boys"
-                objectFit="cover"
                 placeholder="blur"
+                width={1890}
+                height={1260}
+                layout="responsive"
               />
               <div className={styles.description}>
                 <h3 className={styles.desc_title}>Image title</h3>
