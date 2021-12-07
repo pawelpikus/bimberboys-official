@@ -29,15 +29,9 @@ const Gallery: NextPage = () => {
           <h1 className={styles.title}>Galeria zdjęć</h1>
           <div className={styles.gallery_container}>
             {/* photo 1 */}
-            <div
-              className={styles.img_wrapper}
-              style={{ position: "relative", height: "fit-content" }}
-            >
+            <div className={styles.img_wrapper}>
               <Image
                 src={gallery_img1}
-                width={1170}
-                height={876}
-                layout="responsive"
                 alt="członkowie zespołu Bimber Boys"
                 placeholder="blur"
               />
@@ -52,16 +46,10 @@ const Gallery: NextPage = () => {
               </div>
             </div>
             {/* photo 2 */}
-            <div
-              className={styles.img_wrapper}
-              style={{ position: "relative", height: "fit-content" }}
-            >
+            <div className={styles.img_wrapper}>
               <Image
                 src={gallery_img2}
                 alt="członkowie zespołu Bimber Boys"
-                width={960}
-                height={720}
-                layout="responsive"
                 placeholder="blur"
               />
               <div className={styles.description}>
@@ -75,16 +63,10 @@ const Gallery: NextPage = () => {
               </div>
             </div>
             {/* photo 3 */}
-            <div
-              className={styles.img_wrapper}
-              style={{ position: "relative", height: "fit-content" }}
-            >
+            <div className={styles.img_wrapper}>
               <Image
                 src={gallery_img3}
                 alt="członkowie zespołu Bimber Boys"
-                width={1416}
-                height={944}
-                layout="responsive"
                 placeholder="blur"
               />
               <div className={styles.description}>
@@ -98,16 +80,10 @@ const Gallery: NextPage = () => {
               </div>
             </div>
             {/* photo 4 */}
-            <div
-              className={styles.img_wrapper}
-              style={{ position: "relative", height: "fit-content" }}
-            >
+            <div className={styles.img_wrapper}>
               <Image
                 src={gallery_img4}
                 alt="członkowie zespołu Bimber Boys"
-                width={1416}
-                height={944}
-                layout="responsive"
                 placeholder="blur"
               />
               <div className={styles.description}>
@@ -121,16 +97,10 @@ const Gallery: NextPage = () => {
               </div>
             </div>
             {/* photo 5 */}
-            <div
-              className={styles.img_wrapper}
-              style={{ position: "relative", height: "fit-content" }}
-            >
+            <div className={styles.img_wrapper}>
               <Image
                 src={gallery_img5}
                 alt="członkowie zespołu Bimber Boys"
-                width={1890}
-                height={1260}
-                layout="responsive"
                 placeholder="blur"
               />
               <div className={styles.description}>
@@ -144,15 +114,10 @@ const Gallery: NextPage = () => {
               </div>
             </div>
             {/* photo 6*/}
-            <div
-              className={styles.img_wrapper}
-              style={{ position: "relative", height: "fit-content" }}
-            >
+            <div className={styles.img_wrapper}>
               <Image
                 src={gallery_img6}
                 alt="członkowie zespołu Bimber Boys"
-                width={1890}
-                height={1260}
                 layout="responsive"
                 placeholder="blur"
               />
@@ -167,16 +132,10 @@ const Gallery: NextPage = () => {
               </div>
             </div>
             {/* photo 7 */}
-            <div
-              className={styles.img_wrapper}
-              style={{ position: "relative", height: "fit-content" }}
-            >
+            <div className={styles.img_wrapper}>
               <Image
                 src={gallery_img7}
                 alt="członkowie zespołu Bimber Boys"
-                width={1890}
-                height={1260}
-                layout="responsive"
                 placeholder="blur"
               />
               <div className={styles.description}>
@@ -190,17 +149,11 @@ const Gallery: NextPage = () => {
               </div>
             </div>
             {/* photo 8 */}
-            <div
-              className={styles.img_wrapper}
-              style={{ position: "relative", height: "100%", width: "100%" }}
-            >
+            <div className={styles.img_wrapper}>
               <Image
                 src={gallery_img8}
                 alt="członkowie zespołu Bimber Boys"
                 placeholder="blur"
-                width={1890}
-                height={1260}
-                layout="responsive"
               />
               <div className={styles.description}>
                 <h3 className={styles.desc_title}>Image title</h3>
