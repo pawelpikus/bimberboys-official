@@ -4,13 +4,53 @@
 @import "cta";
 @import "footer";
 
+.container {
+  background-color: $secondary;
+}
+
+.gallery_container {
+  margin-top: 1em;
+}
+
+.img_wrapper {
+  position: relative;
+  margin-bottom: $base-padding;
+}
+
+.img_wrapper:hover {
+  .description {
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
 .img_wrapper > span {
   box-shadow: $base-box-shadow;
 }
 
-.gallery_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em;
+.description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  visibility: hidden;
+  transition: 250ms ease-in-out;
+  text-align: left;
+  padding: $base-padding;
+  margin-bottom: 7px;
+  min-width: auto;
+}
+
+@media (min-width: 800px) {
+  .gallery_container {
+    display: grid;
+    gap: $base-padding;
+    grid-template-columns: 0.5fr 0.5fr;
+  }
+
+  .img_wrapper {
+    margin-bottom: 0;
+  }
 }

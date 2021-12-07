@@ -28,7 +28,7 @@ const About: NextPage = () => {
                 placeholder="blur"
               />
             </div>
-            <h1 className={styles.title_about}>bimber boys</h1>
+            <h1 className={styles.title}>bimber boys</h1>
             <p className={styles.main_text}>
               ... czyli retro &#38; folk band. Naszą specjalnością są stare,
               niezapomniane przeboje w akustycznych aranżacjach. Inspirują nas
@@ -49,7 +49,7 @@ const About: NextPage = () => {
                 <p className={styles.caption}>śpiew i gitara basowa</p>
               </div>
               <div className={styles.col}>
-                <p className={styles.name}>BarteK KAZIMERCZAK</p>
+                <p className={styles.name}>BarteK KAZIMIERCZAK</p>
                 <p className={styles.caption}>śpiew i gitara akustyczna</p>
               </div>
               <div className={styles.col}>

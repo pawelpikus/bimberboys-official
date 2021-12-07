@@ -10,11 +10,16 @@
 }
 
 .title {
+  color: $accent;
   margin: 0;
-  line-height: 1.15;
-  font-size: $font-size-sm;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.title {
-  text-align: center;
+@media (min-width: 800px) {
+  .title {
+    align-self: flex-start;
+    font-size: $font-size-xl;
+  }
 }

@@ -69,7 +69,6 @@ const Navbar: FunctionComponent<Props> = ({ lightTheme }) => {
             </Link>
           </li>
           <div className={styles.container_social}>
-            <li>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -79,8 +78,6 @@ const Navbar: FunctionComponent<Props> = ({ lightTheme }) => {
               >
                 <FontAwesomeIcon icon={faFacebookF} size="lg" />
               </a>
-            </li>
-            <li>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -88,9 +85,8 @@ const Navbar: FunctionComponent<Props> = ({ lightTheme }) => {
                 onClick={() => setIsOpen(false)}
                 className={styles.nav_link}
               >
-                <FontAwesomeIcon icon={faYoutube} size="lg" />
+                <FontAwesomeIcon icon={faYoutube} size="lg"/>
               </a>
-            </li>
           </div>
         </ul>
       </nav>

@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-between;
   padding: 1em 0 3em 0;
-  margin-bottom: 3em;
 }
 
 .nav {
@@ -54,7 +53,7 @@
 }
 
 .nav_link:hover {
-  transition: all 250ms ease-in-out;
+  transition: 250ms ease-in-out;
 }
 
 .nav_link:focus {
