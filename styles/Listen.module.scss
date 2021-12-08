@@ -10,48 +10,53 @@
   text-align: center;
 }
 
-.logo_wrapper{
-    position: relative;
-    width: 150px;
-    max-width: 100%;
-    margin-bottom: -1em;
+.logo_wrapper {
+  position: relative;
+  width: 150px;
+  max-width: 100%;
+  margin-bottom: -1em;
 }
 
-.col{
+.col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player_container {
+  background-color: bisque;
+}
+
+.title_light {
+  color: $accent;
+  line-height: 1.1;
+}
+// YT embed
+
+.video {
+  width: 320px;
+  height: 260px;
+}
+
+@media (min-width: 600px) {
+  .container {
+    text-align: left;
+  }
+
+  .listen_container {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    justify-content: space-between;
+    gap: $base-margin;
+  }
 
-.player_container{
-    background-color: bisque;
-}
+  .col {
+    align-items: flex-start;
+    width: 46%;
+  }
 
-.title_light{
-    color: $accent;
-    line-height: 1.1;
-}
-
-@media(min-width: 600px){
-
-    .container{
-        text-align: left;
-    }
-
-    .listen_container{
-        width: 100%;
-        display: flex;
-        justify-content: space-between ;
-        gap:$base-margin;
-    }
-
-    .col{
-        align-items: flex-start;
-        width: 46%;
-    }
-
-    .title_light{
-        text-align: left;
-    }
+  .title_light {
+    text-align: left;
+  }
 }
