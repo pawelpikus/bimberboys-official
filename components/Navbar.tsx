@@ -48,7 +48,7 @@ const Navbar: FunctionComponent<Props> = ({ lightTheme }) => {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/listen">
               <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
                 Posłuchaj
               </a>
