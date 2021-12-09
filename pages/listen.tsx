@@ -2,7 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Listen.module.scss";
-import { Layout, CTA } from "../components";
+import audioPlayerStyles from "../styles/AudioPlayer.module.scss";
+import { Layout, CTA, AudioPlayer } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import YouTube from "react-youtube";
 
@@ -62,10 +63,8 @@ const Listen: NextPage = () => {
                 </p>
               </article>
               <div
-                className={styles.player_container}
-                style={{ width: "300px", height: "300px" }}
-              >
-                This is the player
+                className={audioPlayerStyles.player_container}>
+                <AudioPlayer />
               </div>
             </section>
             <section className={styles.col}>
@@ -73,12 +72,18 @@ const Listen: NextPage = () => {
                 <YouTube
                   videoId="Y5xyvx4hAKg"
                   className={styles.video}
-                  opts={{
-                    playerVars: {
-                      // https://developers.google.com/youtube/player_parameters
-                      autoplay: 1,
-                    },
-                  }}
+                />
+              </div>
+              <div className={styles.video_wrapper}>
+                <YouTube
+                  videoId="T18j-gFLiCw"
+                  className={styles.video}
+                />
+              </div>
+              <div className={styles.video_wrapper}>
+                <YouTube
+                  videoId="d6X35Y30p2A"
+                  className={styles.video}
                 />
               </div>
             </section>

@@ -1,0 +1,50 @@
+@import "variables";
+@import "nav";
+@import "title";
+@import "cta";
+@import "footer";
+
+.audioPlayer{
+    width: 100%;
+    margin-top: $base-margin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+    justify-content: space-around;
+}
+
+.player_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.forwardBackward{
+    color: $accent;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover{
+        color:darken($accent, 10);
+        transition: 250ms ease-in-out;
+    }
+}
+
+.playPause{
+    color: $accent;
+    background: none;
+    border: none;
+    font-size: $font-size-xxl;
+    cursor: pointer;
+    &:hover{
+        color:darken($accent, 10);
+        transition: 250ms ease-in-out;
+    }
+}
