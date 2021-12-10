@@ -4,142 +4,158 @@
 @import "cta";
 @import "footer";
 
-.audioPlayer{
-    width: 100%;
-    margin-top: $base-margin;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;    
+.audioPlayer {
+  width: 100%;
+  margin-top: $base-margin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 
-.player_container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.player_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .forwardBackward,
-.volumeMute{
-    color: $accent;
-    font-size: $font-size-sm;
-    background: none;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
+.volumeMute {
+  color: $accent;
+  font-size: $font-size-xs;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 
-    &:hover{
-        color:darken($accent, 10);
-        transition: 250ms ease-in-out;
-    }
+  &:hover {
+    color: darken($accent, 10);
+    transition: 250ms ease-in-out;
+  }
 }
 
-.volumeMute{
-    font-size: $base-font-size;
+.volumeMute {
+  font-size: $font-size-sm;
 }
 
-.playPause{
-    color: $accent;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    &:hover{
-        color:darken($accent, 10);
-        transition: 250ms ease-in-out;
-    }
+.playPause {
+  color: $accent;
+  background: none;
+  border: none;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  &:hover {
+    color: darken($accent, 10);
+    transition: 250ms ease-in-out;
+  }
 }
 
-.currentTimeDuration{
-    font-size: $font-size-sm;
-    font-weight: 400;
+.currentTimeDuration {
+  font-size: $font-size-xs;
+  font-weight: 400;
 }
 
-.progressBar{
-    background: $bar-bg;
-    appearance: none;
-    border-radius: 5px;
-    position: relative;
-    width: 100%;
-    height:2px;
-    outline: none;
+.progressBar {
+  background: $bar-bg;
+  appearance: none;
+  border-radius: 5px;
+  position: relative;
+  width: 100%;
+  height: 2px;
+  outline: none;
 }
 
 // progressbar -firefox
-.progressBar::moz-range-track{
-    background: $bar-bg;
-    appearance: none;
-    border-radius: 5px;
-    position: relative;
-    width: 100%;
-    height:2px;
-    outline: none;
+.progressBar::moz-range-track {
+  background: $bar-bg;
+  appearance: none;
+  border-radius: 5px;
+  position: relative;
+  width: 100%;
+  height: 2px;
+  outline: none;
 }
 
-.progressBar::-moz-focus-outer{
-    border: 0;
+.progressBar::-moz-focus-outer {
+  border: 0;
 }
 
 // bar before - chrome and safari
-.progressBar::before{
-    content: "";
-    height: 2px;
-    width: $bar-before-width;
-    background: $bar-before-color;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    cursor: pointer;
+.progressBar::before {
+  content: "";
+  height: 2px;
+  width: var(--bar-before-width);
+  background: $bar-before-color;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
 }
 
 // bar before - firefox
-.progressBar::-moz-range-progress{
-    background: $bar-before-color;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    height: 2px;
-
+.progressBar::-moz-range-progress {
+  background: $bar-before-color;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: 2px;
 }
 
 // knob - safari and chrome
-.progressBar::-webkit-slider-thumb{
-    -webkit-appearance: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: none;
-    background: $knob;
-    cursor: pointer;
-    position: relative;
-    margin: -2px 0 0 0;
-    z-index: 3; 
+.progressBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: $knob;
+  cursor: pointer;
+  position: relative;
+  margin: -2px 0 0 0;
+  z-index: 3;
 }
 // knob while dragging
-.progressBar:active::-webkit-slider-thumb{
-    transform: scale(1.2);
-    background: $selectedKnob;
+.progressBar:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background: $selectedKnob;
 }
 
 // knob-firefox
-.progressBar::-moz-range-thumb{
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: transparent;
-    background: $knob;
-    cursor: pointer;
-    position: relative;
-    z-index: 3; 
+.progressBar::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: transparent;
+  background: $knob;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
 }
 // knob while dragging
-.progressBar:active::-moz-range-thumb{
-    transform: scale(1.2);
-    background: $selectedKnob;
+.progressBar:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background: $selectedKnob;
+}
+
+@media (min-width: 800px) {
+  .forwardBackward {
+    font-size: $font-size-sm;
+  }
+  .volumeMute {
+    font-size: $font-size-lg;
+  }
+
+  .currentTimeDuration {
+    font-size: $font-size-sm;
+  }
+
+  .playPause {
+    font-size: $font-size-xl;
+  }
 }

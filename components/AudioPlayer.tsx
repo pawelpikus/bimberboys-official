@@ -16,13 +16,18 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMute, setIsMute] = useState(false);
   const [duration, setDuration] = useState("");
-  const audioPlayer = useRef<HTMLAudioElement>(null);
+  const [currentTime, setCurrentTime] = useState("00:00");
+
+  const audioPlayer = useRef<HTMLAudioElement | null>(null);
+  const progressBar = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     let seconds = audioPlayer.current?.duration;
-    if (seconds) {
+    if (seconds && progressBar.current) {
       seconds = Math.floor(seconds);
       setDuration(calculateTime(seconds));
+      let inputRangeParsed = parseInt(progressBar.current.max);
+      inputRangeParsed = seconds;
     }
   }, [
     audioPlayer?.current?.readyState,
@@ -44,6 +49,17 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
       audioPlayer.current?.play();
     } else {
       audioPlayer.current?.pause();
+    }
+  };
+
+  const changeRange = () => {
+    if (audioPlayer.current && progressBar.current) {
+      audioPlayer.current.currentTime = parseInt(progressBar.current.value);
+      progressBar.current.style.setProperty(
+        "--bar-before-width",
+        `${(parseInt(progressBar.current.value) / parseInt(duration)) * 100}`
+      );
+      setCurrentTime(progressBar.current.value);
     }
   };
 
@@ -71,11 +87,17 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
       </button>
 
       {/* progress bar */}
-      <input type="range" className={styles.progressBar} />
+      <input
+        type="range"
+        defaultValue={0}
+        ref={progressBar}
+        className={styles.progressBar}
+        onChange={changeRange}
+      />
 
       {/* current time / duration*/}
       <div className={styles.currentTimeDuration}>
-        00:00/{duration && duration}
+        {currentTime}/{duration && duration}
       </div>
       <button className={styles.volumeMute} onClick={() => setIsMute(!isMute)}>
         {isMute ? (
