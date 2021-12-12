@@ -6,8 +6,10 @@ import audioPlayerStyles from "../styles/AudioPlayer.module.scss";
 import { Layout, CTA, AudioPlayer } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import YouTube from "react-youtube";
+import { useState } from "react";
 
 const Listen: NextPage = () => {
+  const [active, setActive] = useState(false);
   return (
     <>
       <Head>
@@ -64,6 +66,31 @@ const Listen: NextPage = () => {
               </article>
               <div className={audioPlayerStyles.player_container}>
                 <AudioPlayer src={"chlopcy_zli.mp3"} />
+                <div className={audioPlayerStyles.list_item}>
+                  <button
+                    type="button"
+                    className={
+                      active
+                        ? `${audioPlayerStyles.btn_item} ${audioPlayerStyles.active}`
+                        : `${audioPlayerStyles.btn_item}`
+                    }
+                  >
+                    <p>Chłopcy źli</p>
+                    <p>4:34</p>
+                  </button>
+                </div>
+                <div className={audioPlayerStyles.list_item}>
+                  <button type="button" className={audioPlayerStyles.btn_item}>
+                    <p>Trzy miłości</p>
+                    <p>2:34</p>
+                  </button>
+                </div>
+                <div className={audioPlayerStyles.list_item}>
+                  <button type="button" className={audioPlayerStyles.btn_item}>
+                    <p>Nie chciałem śpiewać ani pić</p>
+                    <p>3:03</p>
+                  </button>
+                </div>
               </div>
             </section>
             <section className={styles.col}>

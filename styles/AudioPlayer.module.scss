@@ -7,6 +7,7 @@
 .audioPlayer {
   width: 100%;
   margin-top: $base-margin;
+  margin-bottom: $base-margin * 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +16,7 @@
 
 .player_container {
   width: 100%;
+  margin-top: $base-margin;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,6 +42,8 @@
 
 .volumeMute {
   font-size: $font-size-sm;
+  min-width: 26px;
+  max-width: 26px;
 }
 
 .playPause {
@@ -54,9 +58,21 @@
   }
 }
 
+.forwardBackward:focus,
+.volumeMute:focus,
+.playPause:focus {
+  color: $accent;
+  outline: 3px solid $accent;
+  outline-offset: 3px;
+  transition: none;
+}
+
 .currentTimeDuration {
   font-size: $font-size-xs;
   font-weight: 400;
+  min-width: 53px;
+  max-width: 53px;
+  display: inline-block;
 }
 
 .progressBar {
@@ -144,16 +160,53 @@
   background: $selectedKnob;
 }
 
+.list_item {
+  width: 100%;
+  padding: $base-padding;
+  border-top: 1px solid rgba(256, 256, 256, 0.5);
+}
+
+.btn_item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: $secondary;
+  font-family: Poppins, sans-serif;
+  font-size: $font-size-xs;
+  cursor: pointer;
+  &:hover {
+    color: $accent;
+    transition: 250ms ease-in-out;
+  }
+}
+
+.active {
+  color: $accent;
+}
+
 @media (min-width: 800px) {
-  .forwardBackward {
+  .forwardBackward,
+  .list_item {
     font-size: $font-size-sm;
   }
+
+  .btn_item {
+    font-size: $font-size-sm;
+  }
+
   .volumeMute {
     font-size: $font-size-lg;
+    min-width: 40px;
+    max-width: 40px;
   }
 
   .currentTimeDuration {
     font-size: $font-size-sm;
+    min-width: 80px;
+    max-width: 80px;
   }
 
   .playPause {

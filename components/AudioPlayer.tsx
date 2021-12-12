@@ -13,7 +13,7 @@ import { AudioPlayerProps } from "../types/props";
 
 const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMute, setIsMute] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
@@ -45,8 +45,8 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
   const handleIsPlaying = () => {
     const prevState = !isPlaying;
     setIsPlaying((prevState) => !prevState);
-    if (prevState) {
-      audioPlayer.current?.play();
+    if (prevState && audioPlayer.current) {
+      audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
       audioPlayer.current?.pause();
@@ -98,14 +98,14 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
 
   const handleMute = () => {
     if (audioPlayer.current) {
-      if (!isMute) {
+      if (!isMuted) {
         audioPlayer.current.muted = true;
       } else {
         audioPlayer.current.muted = false;
       }
     }
 
-    setIsMute(!isMute);
+    setIsMuted(!isMuted);
   };
 
   return (
@@ -141,7 +141,7 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
         {calculateTime(currentTime)}/{calculateTime(duration && duration)}
       </div>
       <button className={styles.volumeMute} onClick={handleMute}>
-        {isMute ? (
+        {isMuted ? (
           <FontAwesomeIcon icon={faVolumeMute} />
         ) : (
           <FontAwesomeIcon icon={faVolumeUp} />
