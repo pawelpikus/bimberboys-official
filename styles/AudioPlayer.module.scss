@@ -60,6 +60,7 @@
 }
 
 .progressBar {
+  --bar-before-width: 0;
   background: $bar-bg;
   appearance: none;
   border-radius: 5px;
@@ -117,7 +118,7 @@
   background: $knob;
   cursor: pointer;
   position: relative;
-  margin: -2px 0 0 0;
+  margin: -1px 0 0 0;
   z-index: 3;
 }
 // knob while dragging

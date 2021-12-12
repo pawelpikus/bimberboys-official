@@ -8,3 +8,7 @@ export interface Props {
 export interface YoutubeProps{
     embedId: string;
 }
+
+export interface AudioPlayerProps {
+    src: string;
+  }

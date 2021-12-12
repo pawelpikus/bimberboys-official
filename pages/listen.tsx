@@ -62,29 +62,19 @@ const Listen: NextPage = () => {
                   gravida orci id feugiat.{" "}
                 </p>
               </article>
-              <div
-                className={audioPlayerStyles.player_container}>
-                <AudioPlayer />
+              <div className={audioPlayerStyles.player_container}>
+                <AudioPlayer src={"chlopcy_zli.mp3"} />
               </div>
             </section>
             <section className={styles.col}>
               <div className={styles.video_wrapper}>
-                <YouTube
-                  videoId="Y5xyvx4hAKg"
-                  className={styles.video}
-                />
+                <YouTube videoId="Y5xyvx4hAKg" className={styles.video} />
               </div>
               <div className={styles.video_wrapper}>
-                <YouTube
-                  videoId="T18j-gFLiCw"
-                  className={styles.video}
-                />
+                <YouTube videoId="T18j-gFLiCw" className={styles.video} />
               </div>
               <div className={styles.video_wrapper}>
-                <YouTube
-                  videoId="d6X35Y30p2A"
-                  className={styles.video}
-                />
+                <YouTube videoId="d6X35Y30p2A" className={styles.video} />
               </div>
             </section>
           </div>
