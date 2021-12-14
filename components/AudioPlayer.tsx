@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { AudioPlayerProps } from "../types/props";
 
-const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
+const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [duration, setDuration] = useState(0);
@@ -26,8 +26,8 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
     let seconds = audioPlayer.current?.duration;
     if (seconds && progressBar.current) {
       seconds = Math.floor(seconds);
-      setDuration(seconds);
       progressBar.current.max = seconds.toString();
+      setDuration(seconds);
     }
   }, [
     audioPlayer?.current?.readyState,
@@ -47,6 +47,7 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
     setIsPlaying((prevState) => !prevState);
     if (prevState && audioPlayer.current) {
       audioPlayer.current.play();
+      audioPlayer.current.volume = 0.25;
       animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
       audioPlayer.current?.pause();
@@ -59,7 +60,6 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
         "--bar-before-width",
         `${(parseFloat(progressBar.current.value) / duration) * 100}%`
       );
-      setCurrentTime(parseFloat(progressBar.current.value));
     }
   };
 
@@ -104,13 +104,19 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
         audioPlayer.current.muted = false;
       }
     }
-
     setIsMuted(!isMuted);
   };
 
   return (
     <div className={styles.audioPlayer}>
-      <audio ref={audioPlayer} src={`/audio/${src}`} preload="metadata"></audio>
+      <audio
+        ref={audioPlayer}
+        src={`/audio/chlopcy_zli.mp3`}
+        onTimeUpdate={(e: any) => setCurrentTime(e.target.currentTime)}
+        preload="metadata"
+      >
+        Cannot play audio file
+      </audio>
       <button className={styles.playPause} onClick={handleIsPlaying}>
         {isPlaying ? (
           <FontAwesomeIcon icon={faPause} />
@@ -135,10 +141,10 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({ src }) => {
         className={styles.progressBar}
         onChange={changeRange}
       />
-
       {/* current time / duration*/}
       <div className={styles.currentTimeDuration}>
-        {calculateTime(currentTime)}/{calculateTime(duration && duration)}
+        {currentTime ? calculateTime(currentTime) : "00:00"}/
+        {duration ? calculateTime(duration) : "00:00"}
       </div>
       <button className={styles.volumeMute} onClick={handleMute}>
         {isMuted ? (

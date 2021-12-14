@@ -10,5 +10,5 @@ export interface YoutubeProps{
 }
 
 export interface AudioPlayerProps {
-    src: string;
+    
   }

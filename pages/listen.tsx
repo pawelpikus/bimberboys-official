@@ -3,19 +3,19 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Listen.module.scss";
 import audioPlayerStyles from "../styles/AudioPlayer.module.scss";
-import { Layout, CTA, AudioPlayer } from "../components";
+import { Layout, CTA, AudioPlayer, PlayList } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import YouTube from "react-youtube";
 import React, { useState } from "react";
 
 const Listen: NextPage = () => {
   const [src, setSrc] = useState("chlopcy_zli.mp3");
-    
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
-    const {value} = e.target
-    setSrc(value)
-  }
-   return (
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSrc(value);
+  };
+  return (
     <>
       <Head>
         <title>Bimber Boys - Posłuchaj naszych piosenek</title>
@@ -70,37 +70,8 @@ const Listen: NextPage = () => {
                 </p>
               </article>
               <div className={audioPlayerStyles.player_container}>
-                <AudioPlayer src={src}/>
-                <div className={audioPlayerStyles.list_item}>
-                  <label>
-                    <input 
-                    type="radio" 
-                    value="chlopcy_zli.mp3" 
-                    checked={src === 'chlopcy_zli.mp3'} 
-                    onChange={(e) => handleChange(e)}/>
-                      <span>Chłopcy źli</span>
-                    </label>
-                </div>
-                <div className={audioPlayerStyles.list_item}>
-                <label>
-                    <input 
-                    type="radio" 
-                    value="trzy_milosci.mp3" 
-                    checked={src === 'trzy_milosci.mp3'} 
-                    onChange={(e) => handleChange(e)}/>
-                      <span>Trzy miłości</span>
-                    </label>
-                </div>
-                <div className={audioPlayerStyles.list_item}>
-                <label>
-                    <input 
-                    type="radio" 
-                    value="chlopcy.mp3" 
-                    checked={src === 'chlopcy.mp3'} 
-                    onChange={(e) => handleChange(e)}/>
-                      <span>Chłopcy z naszej ulicy</span>
-                    </label>
-                </div>
+                <AudioPlayer />
+                <PlayList />
               </div>
             </section>
             <section className={styles.col}>
