@@ -7,14 +7,9 @@ import { Layout, CTA, AudioPlayer, PlayList } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import YouTube from "react-youtube";
 import React, { useState } from "react";
+import PlayerState from "../context/playerState";
 
 const Listen: NextPage = () => {
-  const [src, setSrc] = useState("chlopcy_zli.mp3");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setSrc(value);
-  };
   return (
     <>
       <Head>
@@ -43,6 +38,7 @@ const Listen: NextPage = () => {
         />
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </Head>
+
       <div className={styles.container}>
         <Layout>
           <div className={styles.listen_container}>
@@ -70,8 +66,10 @@ const Listen: NextPage = () => {
                 </p>
               </article>
               <div className={audioPlayerStyles.player_container}>
-                <AudioPlayer />
-                <PlayList />
+                <PlayerState>
+                  <AudioPlayer />
+                  <PlayList />
+                </PlayerState>
               </div>
             </section>
             <section className={styles.col}>

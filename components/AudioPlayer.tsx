@@ -1,4 +1,10 @@
-import { FunctionComponent, useState, useRef, useEffect } from "react";
+import {
+  FunctionComponent,
+  useState,
+  useRef,
+  useEffect,
+  useContext,
+} from "react";
 import styles from "../styles/AudioPlayer.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,12 +16,16 @@ import {
   faVolumeMute,
 } from "@fortawesome/free-solid-svg-icons";
 import { AudioPlayerProps } from "../types/props";
+import playerContext from "../context/playerContext";
 
 const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+
+  // context
+  const { currentSong, songs, playing, handleEnd } = useContext(playerContext);
 
   // references
   const audioPlayer = useRef<HTMLAudioElement | null>(null);
@@ -30,6 +40,7 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
       setDuration(seconds);
     }
   }, [
+    currentSong,
     audioPlayer?.current?.readyState,
     audioPlayer?.current?.onloadedmetadata,
   ]);
@@ -111,7 +122,7 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
     <div className={styles.audioPlayer}>
       <audio
         ref={audioPlayer}
-        src={`/audio/chlopcy_zli.mp3`}
+        src={songs[currentSong].source}
         onTimeUpdate={(e: any) => setCurrentTime(e.target.currentTime)}
         preload="metadata"
       >
