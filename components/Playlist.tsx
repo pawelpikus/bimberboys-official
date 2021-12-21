@@ -3,17 +3,23 @@ import playerContext from "../context/playerContext";
 import styles from "../styles/AudioPlayer.module.scss";
 
 const PlayList: FunctionComponent = () => {
-  const { SetCurrent, songs } = useContext(playerContext);
+  const { songs, SetCurrentSong, setPlaying } = useContext(playerContext);
   return (
     <>
       <div className={styles.list_item}>
-        <ul>
+        <ol>
           {songs.map((song, i) => (
-            <li key={i} onClick={() => SetCurrent(i)}>
+            <li
+              key={i}
+              onClick={() => {
+                SetCurrentSong(i);
+                // setPlaying();
+              }}
+            >
               <span>{song.title}</span>
             </li>
           ))}
-        </ul>
+        </ol>
       </div>
     </>
   );

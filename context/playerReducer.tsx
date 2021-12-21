@@ -5,11 +5,13 @@ interface State {
   songs: { title: string; source: string }[];
   playing: boolean;
   audio: null;
+  currentTime: number;
+  duration: number;
 }
 
 interface Action {
   type: ActionTypes;
-  data: any;
+  data?: any;
 }
 
 const playerReducer = (state: State, action: Action): State => {
@@ -23,13 +25,27 @@ const playerReducer = (state: State, action: Action): State => {
       return {
         ...state,
         currentSong: action.data,
-        playing: true,
       };
     case ActionTypes.TOGGLE_PLAYING:
       return {
         ...state,
         playing: action.data,
       };
+    case ActionTypes.PLAY:
+      return {
+        ...state,
+        playing: true,
+        currentSong: action.data || state.currentSong,
+      };
+    case ActionTypes.PAUSE:
+      return {
+        ...state,
+        playing: false,
+      };
+    case ActionTypes.SET_CURRENT_TIME:
+      return { ...state, currentTime: action.data };
+    case ActionTypes.SET_DURATION:
+      return { ...state, duration: action.data };
     default:
       return state;
   }

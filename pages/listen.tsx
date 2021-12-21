@@ -7,7 +7,7 @@ import { Layout, CTA, AudioPlayer, PlayList } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import YouTube from "react-youtube";
 import React, { useState } from "react";
-import PlayerState from "../context/playerState";
+import PlayerState from "../context/playerStore";
 
 const Listen: NextPage = () => {
   return (

@@ -19,28 +19,42 @@ import { AudioPlayerProps } from "../types/props";
 import playerContext from "../context/playerContext";
 
 const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
 
   // context
-  const { currentSong, songs, playing, handleEnd } = useContext(playerContext);
+  const {
+    songs,
+    currentSong,
+    currentTime,
+    duration,
+    playing,
+    setDuration,
+    setCurrentTime,
+    setPlaying,
+    handleEnd,
+  } = useContext(playerContext);
 
   // references
   const audioPlayer = useRef<HTMLAudioElement | null>(null);
   const progressBar = useRef<HTMLInputElement | null>(null);
   const animationRef = useRef<number>(0);
 
+  console.log(progressBar.current?.value);
+
+  useEffect(() => {
+    if (playing && audioPlayer.current) {
+      audioPlayer.current.play();
+    } else audioPlayer.current?.pause();
+  }, [playing, currentSong]);
+
   useEffect(() => {
     let seconds = audioPlayer.current?.duration;
     if (seconds && progressBar.current) {
       seconds = Math.floor(seconds);
       progressBar.current.max = seconds.toString();
-      setDuration(seconds);
+      // setDuration(seconds);
     }
   }, [
-    currentSong,
     audioPlayer?.current?.readyState,
     audioPlayer?.current?.onloadedmetadata,
   ]);
@@ -54,14 +68,10 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
   };
 
   const handleIsPlaying = () => {
-    const prevState = !isPlaying;
-    setIsPlaying((prevState) => !prevState);
-    if (prevState && audioPlayer.current) {
-      audioPlayer.current.play();
-      audioPlayer.current.volume = 0.25;
+    setPlaying();
+    if (playing && audioPlayer.current) {
       animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
-      audioPlayer.current?.pause();
       cancelAnimationFrame(animationRef.current);
     }
   };
@@ -69,7 +79,7 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
     if (progressBar.current && audioPlayer.current) {
       progressBar.current.style.setProperty(
         "--bar-before-width",
-        `${(parseFloat(progressBar.current.value) / duration) * 100}%`
+        `${(parseInt(progressBar.current.value) / duration) * 100}%`
       );
     }
   };
@@ -124,12 +134,13 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
         ref={audioPlayer}
         src={songs[currentSong].source}
         onTimeUpdate={(e: any) => setCurrentTime(e.target.currentTime)}
-        preload="metadata"
+        preload="true"
+        onCanPlay={(e: any) => setDuration(e.target.duration)}
       >
         Cannot play audio file
       </audio>
       <button className={styles.playPause} onClick={handleIsPlaying}>
-        {isPlaying ? (
+        {playing ? (
           <FontAwesomeIcon icon={faPause} />
         ) : (
           <FontAwesomeIcon icon={faPlay} />

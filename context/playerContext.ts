@@ -1,15 +1,20 @@
-import { createContext } from 'react';
+import { createContext, ReactEventHandler } from 'react';
 import { songs } from "./songs";
 
 const initialState = {
     currentSong: 0,
+    currentTime: 0,
+    duration: 0,
     songs,
     playing: false,
     audio: null,
     nextSong: () => {} ,
     prevSong: () => {},
-    SetCurrent: (id: number) => {},
-    togglePlaying: () => {},
+    SetCurrentSong: (id: number) => {},
+    setCurrentTime: (time: number) => {},
+    setDuration: (duration: number | undefined) => {},
+    setPlaying: () => {},
+    playPause: () => {},
     handleEnd: () => {},
     songsSet: (songs: []) => {}
   };
