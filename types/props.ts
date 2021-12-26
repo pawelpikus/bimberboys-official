@@ -10,5 +10,20 @@ export interface YoutubeProps{
 }
 
 export interface AudioPlayerProps {
-    
+    src: string;
   }
+
+  export interface PlaylistProps{
+    playlist: { 
+        id: number;
+        title: string;
+        source: string;
+    }[]
+    onChangeTrack: (id: number) => void
+  }
+
+  export interface PlaylistContext{
+    handleNextTrack: () => void;
+    handlePrevTrack: () => void;
+  }
+  

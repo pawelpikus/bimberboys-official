@@ -3,11 +3,10 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Listen.module.scss";
 import audioPlayerStyles from "../styles/AudioPlayer.module.scss";
-import { Layout, CTA, AudioPlayer, PlayList } from "../components";
+import { Layout, CTA } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import YouTube from "react-youtube";
 import React, { useState } from "react";
-import PlayerState from "../context/playerStore";
 
 const Listen: NextPage = () => {
   return (
@@ -66,10 +65,7 @@ const Listen: NextPage = () => {
                 </p>
               </article>
               <div className={audioPlayerStyles.player_container}>
-                <PlayerState>
-                  <AudioPlayer />
-                  <PlayList />
-                </PlayerState>
+                {/* audioplayer component goes here */}
               </div>
             </section>
             <section className={styles.col}>
