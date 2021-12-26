@@ -39,25 +39,21 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
   const progressBar = useRef<HTMLInputElement | null>(null);
   const animationRef = useRef<number>(0);
 
-  console.log(progressBar.current?.value);
+  console.log(progressBar.current?.value, audioPlayer.current?.currentTime);
 
-  useEffect(() => {
-    if (playing && audioPlayer.current) {
-      audioPlayer.current.play();
-    } else audioPlayer.current?.pause();
-  }, [playing, currentSong]);
+  // useEffect(() => {
+  //   if (playing && audioPlayer.current) {
+  //     audioPlayer.current.play();
+  //   } else audioPlayer.current?.pause();
+  // }, [playing, currentSong]);
 
   useEffect(() => {
     let seconds = audioPlayer.current?.duration;
     if (seconds && progressBar.current) {
       seconds = Math.floor(seconds);
       progressBar.current.max = seconds.toString();
-      // setDuration(seconds);
     }
-  }, [
-    audioPlayer?.current?.readyState,
-    audioPlayer?.current?.onloadedmetadata,
-  ]);
+  }, [audioPlayer.current?.readyState, audioPlayer.current?.onloadedmetadata]);
 
   const calculateTime = (secs: number) => {
     const minutes = Math.floor(secs / 60);
@@ -70,17 +66,21 @@ const AudioPlayer: FunctionComponent<AudioPlayerProps> = () => {
   const handleIsPlaying = () => {
     setPlaying();
     if (playing && audioPlayer.current) {
+      audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
+      audioPlayer.current?.pause();
       cancelAnimationFrame(animationRef.current);
     }
   };
+
   const changePlayerCurrentTime = () => {
     if (progressBar.current && audioPlayer.current) {
       progressBar.current.style.setProperty(
         "--bar-before-width",
         `${(parseInt(progressBar.current.value) / duration) * 100}%`
       );
+      // setCurrentTime(parseFloat(progressBar.current?.value));
     }
   };
 
