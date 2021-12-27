@@ -27,7 +27,7 @@ const Player = () => {
   };
   return (
     <div>
-      <PlaylistContext.Provider value={{ handleNextTrack, handlePrevTrack }}>
+      <PlaylistContext.Provider value={{handleNextTrack, handlePrevTrack}}>
         <Controls src={songs[currentTrack].source} />
         <Playlist onChangeTrack={handleChangeTrack} playlist={songs} />
       </PlaylistContext.Provider>

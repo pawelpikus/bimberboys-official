@@ -1,4 +1,4 @@
-import React from "react";
+import { createContext } from "react";
 import { Props } from "../types/props";
 
 export const songs = [
@@ -19,9 +19,7 @@ export const songs = [
       }
 ]
 
-interface PlaylistContext{
-  handleNextTrack: () => void;
-  handlePrevTrack: () => void;
-}
-
-export const PlaylistContext = React.createContext<PlaylistContext | null>(null);
+export const PlaylistContext = createContext({
+  handleNextTrack: () => {},
+  handlePrevTrack: () => {},
+});
