@@ -11,13 +11,12 @@ import styles from "../../styles/AudioPlayer.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBackward, faForward, faPause, faPlay, faVolumeMute, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 
-const calculateTime = (time: number) => {
-  if (time === 0) {
-    return "0:00";
-  }
-  const minutes = Math.floor(time / 60);
-  const seconds = time - minutes * 60;
-  return `${minutes}:0${seconds}`;
+const calculateTime = (secs: number) => {
+  const minutes = Math.floor(secs / 60);
+  const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+  const seconds = Math.floor(secs % 60);
+  const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+  return `${returnedMinutes}:${returnedSeconds}`;
 };
 
 const Controls = ({ src }: AudioPlayerProps) => {
@@ -27,8 +26,8 @@ const Controls = ({ src }: AudioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false)
 
-  const audioPlayer = useRef<HTMLAudioElement | null>();
-  const progressBar = useRef();
+  const audioPlayer = useRef<HTMLAudioElement | null>(null);
+  const progressBar = useRef<HTMLInputElement | null>(null);
   const {handleNextTrack, handlePrevTrack} = useContext(PlaylistContext);
 
   const handleStop = () => {
@@ -71,17 +70,46 @@ const Controls = ({ src }: AudioPlayerProps) => {
     }
   };
 
-  const backThirty = () =>{
-    // to do
-    return 
+  const changePlayerCurrentTime = () => {
+    if (progressBar.current && audioPlayer.current) {
+      progressBar.current.style.setProperty("--bar-before-width", progressBarWidth);
+    }
+  };
+
+  const changeRange = () => {
+    if (audioPlayer.current && progressBar.current) {
+      audioPlayer.current.currentTime = parseFloat(progressBar.current.value);
+      changePlayerCurrentTime();
+    }
   }
 
-  const forwardThirty = () =>{
-    //to do
-    return 
-  }
+  const backThirty = () => {
+    if (progressBar.current) {
+      let backThirty = parseFloat(progressBar.current.value);
+      backThirty -= 30;
+      progressBar.current.value = backThirty.toString();
+      changeRange();
+    }
+  };
+
+  const forwardThirty = () => {
+    if (progressBar.current) {
+      let forwardThirty = parseFloat(progressBar.current.value);
+      forwardThirty += 30;
+      progressBar.current.value = forwardThirty.toString();
+      changeRange();
+    }
+  };
 
   const handleMute = () =>{
+    if(audioPlayer.current){
+      if(!isMuted){
+        audioPlayer.current.muted = true
+      } else{
+        audioPlayer.current.muted = false
+      }
+      
+    }
     setIsMuted(!isMuted)
   }
 

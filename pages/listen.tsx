@@ -6,7 +6,8 @@ import audioPlayerStyles from "../styles/AudioPlayer.module.scss";
 import { Layout, CTA } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import YouTube from "react-youtube";
-import React, { useState } from "react";
+import React from "react";
+import Player from "../components/Player/Player";
 
 const Listen: NextPage = () => {
   return (
@@ -65,7 +66,7 @@ const Listen: NextPage = () => {
                 </p>
               </article>
               <div className={audioPlayerStyles.player_container}>
-                {/* audioplayer component goes here */}
+                <Player />
               </div>
             </section>
             <section className={styles.col}>

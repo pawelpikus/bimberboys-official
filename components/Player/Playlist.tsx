@@ -3,6 +3,7 @@ import { PlaylistProps } from "../../types/props";
 import styles from "../../styles/AudioPlayer.module.scss";
 
 const Playlist = ({ playlist, onChangeTrack }: PlaylistProps) => {
+  console.log(playlist)
   return (
     <ul>
       {playlist.map((track) => {
