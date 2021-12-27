@@ -9,7 +9,14 @@ import { PlaylistContext } from "../../context/playlistContext";
 import { AudioPlayerProps } from "../../types/props";
 import styles from "../../styles/AudioPlayer.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBackward, faForward, faPause, faPlay, faVolumeMute, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBackward,
+  faForward,
+  faPause,
+  faPlay,
+  faVolumeMute,
+  faVolumeUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 const calculateTime = (secs: number) => {
   const minutes = Math.floor(secs / 60);
@@ -20,15 +27,22 @@ const calculateTime = (secs: number) => {
 };
 
 const Controls = ({ src }: AudioPlayerProps) => {
-  const [currentTrackDuration, setCurrentTrackDuration] = useState("0");
+  const [currentTrackDuration, setCurrentTrackDuration] = useState(0);
   const [currentTrackMoment, setCurrentTrackMoment] = useState(0);
   const [progressBarWidth, setProgressBarWidth] = useState("0");
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false)
+  const [isMuted, setIsMuted] = useState(false);
+
+  useEffect(() => {
+    // setCurrentTrackDuration(0);
+    // setCurrentTrackMoment(0);
+    // setProgressBarWidth("0");
+    handleMetadata();
+  }, [src]);
 
   const audioPlayer = useRef<HTMLAudioElement | null>(null);
   const progressBar = useRef<HTMLInputElement | null>(null);
-  const {handleNextTrack, handlePrevTrack} = useContext(PlaylistContext);
+  const { handleNextTrack, handlePrevTrack } = useContext(PlaylistContext);
 
   const handleStop = () => {
     if (audioPlayer.current) {
@@ -40,22 +54,19 @@ const Controls = ({ src }: AudioPlayerProps) => {
   };
 
   const handlePlay = () => {
-    const prevState = !isPlaying;
-    setIsPlaying((prevState) => !prevState);
-    if (prevState && audioPlayer.current) {
+    if (audioPlayer.current?.paused || audioPlayer.current?.ended) {
       audioPlayer.current.play();
-      audioPlayer.current.volume = 0.25;
-      // animationRef.current = requestAnimationFrame(whilePlaying);
+      setIsPlaying(true);
     } else {
       audioPlayer.current?.pause();
-      // cancelAnimationFrame(animationRef.current);
+      setIsPlaying(false);
     }
   };
 
   const handleMetadata = () => {
     if (audioPlayer.current) {
       const duration = Math.floor(audioPlayer.current.duration);
-      setCurrentTrackDuration(calculateTime(duration));
+      setCurrentTrackDuration(duration);
     }
   };
 
@@ -64,7 +75,7 @@ const Controls = ({ src }: AudioPlayerProps) => {
       setCurrentTrackMoment(Math.floor(audioPlayer.current.currentTime));
       setProgressBarWidth(
         Math.floor(
-          (audioPlayer.current.currentTime / audioPlayer.current.duration) * 100
+          (audioPlayer.current.currentTime / currentTrackDuration) * 100
         ) + "%"
       );
     }
@@ -75,7 +86,10 @@ const Controls = ({ src }: AudioPlayerProps) => {
 
   const changePlayerCurrentTime = () => {
     if (progressBar.current && audioPlayer.current) {
-      progressBar.current.style.setProperty("--bar-before-width", progressBarWidth);
+      progressBar.current.style.setProperty(
+        "--bar-before-width",
+        progressBarWidth
+      );
     }
   };
 
@@ -84,7 +98,7 @@ const Controls = ({ src }: AudioPlayerProps) => {
       audioPlayer.current.currentTime = parseFloat(progressBar.current.value);
       changePlayerCurrentTime();
     }
-  }
+  };
 
   const backThirty = () => {
     if (progressBar.current) {
@@ -104,38 +118,26 @@ const Controls = ({ src }: AudioPlayerProps) => {
     }
   };
 
-  const handleMute = () =>{
-    if(audioPlayer.current){
-      if(!isMuted){
-        audioPlayer.current.muted = true
-      } else{
-        audioPlayer.current.muted = false
+  const handleMute = () => {
+    if (audioPlayer.current) {
+      if (!isMuted) {
+        audioPlayer.current.muted = true;
+      } else {
+        audioPlayer.current.muted = false;
       }
-      
     }
-    setIsMuted(!isMuted)
-  }
-
-  useEffect(() => {
-    setCurrentTrackDuration("0");
-    setCurrentTrackMoment(0);
-    setProgressBarWidth("0");    
-  }, []);
-
-  // useLayoutEffect(() => {
-  //   audioPlayer;
-  // });
+    setIsMuted(!isMuted);
+  };
 
   return (
     <div className={styles.audioPlayer}>
       <audio
-        id="audioPlayer"
+        ref={audioPlayer}
         src={src}
         preload="metadata"
         onLoadedMetadata={handleMetadata}
         onTimeUpdate={() => handleTimeUpdate(handleNextTrack)}
       >
-        <source src={src} type="audio" />
         Sorry, your browser is outdated!
       </audio>
       <button className={styles.playPause} onClick={handlePlay}>
@@ -163,8 +165,8 @@ const Controls = ({ src }: AudioPlayerProps) => {
       />
       {/* current time / duration*/}
       <div className={styles.currentTimeDuration}>
-        {currentTrackMoment ? calculateTime(currentTrackMoment) : "00:00"}/
-        {currentTrackDuration ? calculateTime(parseFloat(currentTrackDuration)) : "00:00"}
+        {calculateTime(currentTrackMoment) || "00:00"}/
+        {calculateTime(currentTrackDuration) || "00:00"}
       </div>
       {/* mute button */}
       <button className={styles.volumeMute} onClick={handleMute}>
