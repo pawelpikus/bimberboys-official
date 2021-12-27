@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { PlaylistContext, songs } from "../../context/playlistContext";
 import Controls from "./Controls";
 import Playlist from "./Playlist";
+import styles from '../../styles/AudioPlayer.module.scss'
 
 const Player = () => {
   const [currentTrack, setCurrentTrack] = useState(0);
@@ -26,7 +27,7 @@ const Player = () => {
     setCurrentTrack(currentTrack - 1);
   };
   return (
-    <div>
+    <div className={styles.player_container}>
       <PlaylistContext.Provider value={{handleNextTrack, handlePrevTrack}}>
         <Controls src={songs[currentTrack].source}/>
         <Playlist onChangeTrack={handleChangeTrack} playlist={songs} />

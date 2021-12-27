@@ -5,17 +5,18 @@ import styles from "../../styles/AudioPlayer.module.scss";
 const Playlist = ({ playlist, onChangeTrack }: PlaylistProps) => {
   console.log(playlist)
   return (
-    <ul>
-      {playlist.map((track) => {
-        <li
-          key={track.id}
-          className={styles.list_item}
-          onClick={() => onChangeTrack(track.id)}
-        >
-          {track.title}
-        </li>;
-      })}
-    </ul>
+    <div className={styles.list_item}>
+      <ul>
+        {playlist.map((track) => {
+          <li
+            key={track.id}
+            onClick={() => onChangeTrack(track.id)}
+          >
+            <span>{track.title}</span>
+          </li>;
+        })}
+      </ul>
+    </div>
   );
 };
 

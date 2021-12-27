@@ -40,12 +40,15 @@ const Controls = ({ src }: AudioPlayerProps) => {
   };
 
   const handlePlay = () => {
-    if (audioPlayer.current?.paused || audioPlayer.current?.ended) {
+    const prevState = !isPlaying;
+    setIsPlaying((prevState) => !prevState);
+    if (prevState && audioPlayer.current) {
       audioPlayer.current.play();
-      setIsPlaying(true);
+      audioPlayer.current.volume = 0.25;
+      // animationRef.current = requestAnimationFrame(whilePlaying);
     } else {
       audioPlayer.current?.pause();
-      setIsPlaying(false);
+      // cancelAnimationFrame(animationRef.current);
     }
   };
 
@@ -116,26 +119,23 @@ const Controls = ({ src }: AudioPlayerProps) => {
   useEffect(() => {
     setCurrentTrackDuration("0");
     setCurrentTrackMoment(0);
-    setProgressBarWidth("0");
-    handlePlay();
-    return () => {
-      handleStop();
-    };
-  }, [src]);
+    setProgressBarWidth("0");    
+  }, []);
 
-  useLayoutEffect(() => {
-    audioPlayer;
-  });
+  // useLayoutEffect(() => {
+  //   audioPlayer;
+  // });
 
   return (
-    <div className={styles.audioplayer}>
+    <div className={styles.audioPlayer}>
       <audio
         id="audioPlayer"
+        src={src}
         preload="metadata"
         onLoadedMetadata={handleMetadata}
         onTimeUpdate={() => handleTimeUpdate(handleNextTrack)}
       >
-        <source src={src} type="audio/ogg" />
+        <source src={src} type="audio" />
         Sorry, your browser is outdated!
       </audio>
       <button className={styles.playPause} onClick={handlePlay}>

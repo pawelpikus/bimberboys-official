@@ -65,9 +65,7 @@ const Listen: NextPage = () => {
                   gravida orci id feugiat.{" "}
                 </p>
               </article>
-              <div className={audioPlayerStyles.player_container}>
-                <Player />
-              </div>
+              <Player />
             </section>
             <section className={styles.col}>
               <div className={styles.video_wrapper}>
