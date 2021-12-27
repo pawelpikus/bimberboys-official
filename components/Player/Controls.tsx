@@ -33,16 +33,29 @@ const Controls = ({ src }: AudioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
 
-  useEffect(() => {
-    // setCurrentTrackDuration(0);
-    // setCurrentTrackMoment(0);
-    // setProgressBarWidth("0");
-    handleMetadata();
-  }, [src]);
+  // useEffect(() => {
+  //   setCurrentTrackDuration(0);
+  //   setCurrentTrackMoment(0);
+  //   setProgressBarWidth("0");
+    
+  // }, [src]);
+  
+  
 
   const audioPlayer = useRef<HTMLAudioElement | null>(null);
   const progressBar = useRef<HTMLInputElement | null>(null);
+  const animationRef = useRef<number>(0);
+  
   const { handleNextTrack, handlePrevTrack } = useContext(PlaylistContext);
+
+  useEffect(() => {
+    if(audioPlayer.current&&progressBar.current){
+      const seconds = Math.floor(audioPlayer.current.duration);
+      setCurrentTrackDuration(seconds);
+      progressBar.current.max = seconds.toString();
+    }
+    
+  }, [src, audioPlayer?.current?.onloadedmetadata, audioPlayer?.current?.readyState]);
 
   const handleStop = () => {
     if (audioPlayer.current) {
@@ -54,48 +67,64 @@ const Controls = ({ src }: AudioPlayerProps) => {
   };
 
   const handlePlay = () => {
-    if (audioPlayer.current?.paused || audioPlayer.current?.ended) {
-      audioPlayer.current.play();
-      setIsPlaying(true);
-    } else {
-      audioPlayer.current?.pause();
-      setIsPlaying(false);
+    const prevValue = isPlaying;
+    setIsPlaying(!prevValue);
+    if(audioPlayer.current){
+      if (!prevValue) {
+        audioPlayer.current.play();
+        animationRef.current = requestAnimationFrame(whilePlaying)
+      } else {
+        audioPlayer.current.pause();
+        cancelAnimationFrame(animationRef.current);
+      }
     }
+    
   };
 
-  const handleMetadata = () => {
-    if (audioPlayer.current) {
-      const duration = Math.floor(audioPlayer.current.duration);
-      setCurrentTrackDuration(duration);
+  const whilePlaying = () => {
+    if(progressBar.current && audioPlayer.current){
+      progressBar.current.value = audioPlayer.current.currentTime.toString();
+      changePlayerCurrentTime();
+      animationRef.current = requestAnimationFrame(whilePlaying);
     }
-  };
+    
+    
+  }
 
-  const handleTimeUpdate = (playNext: () => void) => {
-    if (audioPlayer.current) {
-      setCurrentTrackMoment(Math.floor(audioPlayer.current.currentTime));
-      setProgressBarWidth(
-        Math.floor(
-          (audioPlayer.current.currentTime / currentTrackDuration) * 100
-        ) + "%"
-      );
-    }
-    if (audioPlayer.current?.currentTime === audioPlayer.current?.duration) {
-      playNext();
-    }
-  };
+  // const handleMetadata = () => {
+  //   if (audioPlayer.current) {
+  //     const duration = Math.floor(audioPlayer.current.duration);
+  //     setCurrentTrackDuration(duration);
+  //   }
+  // };
+
+  // const handleTimeUpdate = (playNext: () => void) => {
+  //   if (audioPlayer.current&&progressBar.current) {
+  //     setCurrentTrackMoment(Math.floor(audioPlayer.current.currentTime));
+  //     setProgressBarWidth(
+  //       Math.floor(
+  //         (parseFloat(progressBar.current.value) / currentTrackDuration) * 100
+  //       ) + "%"
+  //     );
+  //   }
+  //   if (audioPlayer.current?.currentTime === audioPlayer.current?.duration) {
+  //     playNext();
+  //   }
+  // };
 
   const changePlayerCurrentTime = () => {
     if (progressBar.current && audioPlayer.current) {
       progressBar.current.style.setProperty(
         "--bar-before-width",
-        progressBarWidth
+        `${parseInt(progressBar.current.value) / currentTrackDuration * 100}%`
       );
+      setCurrentTrackMoment(parseInt(progressBar.current.value))
     }
   };
 
   const changeRange = () => {
     if (audioPlayer.current && progressBar.current) {
-      audioPlayer.current.currentTime = parseFloat(progressBar.current.value);
+      audioPlayer.current.currentTime = parseInt(progressBar.current.value);
       changePlayerCurrentTime();
     }
   };
@@ -135,8 +164,8 @@ const Controls = ({ src }: AudioPlayerProps) => {
         ref={audioPlayer}
         src={src}
         preload="metadata"
-        onLoadedMetadata={handleMetadata}
-        onTimeUpdate={() => handleTimeUpdate(handleNextTrack)}
+        // onLoadedMetadata={handleMetadata}
+        // onTimeUpdate={() => handleTimeUpdate(handleNextTrack)}
       >
         Sorry, your browser is outdated!
       </audio>
