@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useContext,
-  useRef,
-} from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { PlaylistContext } from "../../context/playlistContext";
 import { AudioPlayerProps } from "../../types/props";
 import styles from "../../styles/AudioPlayer.module.scss";
@@ -29,33 +23,28 @@ const calculateTime = (secs: number) => {
 const Controls = ({ src }: AudioPlayerProps) => {
   const [currentTrackDuration, setCurrentTrackDuration] = useState(0);
   const [currentTrackMoment, setCurrentTrackMoment] = useState(0);
-  const [progressBarWidth, setProgressBarWidth] = useState("0");
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-
-  useEffect(() => {
-    setCurrentTrackDuration(0);
-    setCurrentTrackMoment(0);
-    setProgressBarWidth("0");
-    
-  }, [src]);
-  
-  console.log(progressBarWidth)
 
   const audioPlayer = useRef<HTMLAudioElement | null>(null);
   const progressBar = useRef<HTMLInputElement | null>(null);
   const animationRef = useRef<number>(0);
-  
+
   const { handleNextTrack, handlePrevTrack } = useContext(PlaylistContext);
 
   useEffect(() => {
-    if(audioPlayer.current&&progressBar.current){
+    if (audioPlayer.current && progressBar.current) {
+      progressBar.current.value = "0";
+      setIsPlaying(false);
       const seconds = Math.floor(audioPlayer.current.duration);
       setCurrentTrackDuration(seconds);
       progressBar.current.max = seconds.toString();
     }
-    
-  }, [audioPlayer?.current?.onloadedmetadata, audioPlayer?.current?.readyState]);
+  }, [
+    src,
+    audioPlayer?.current?.onloadedmetadata,
+    audioPlayer?.current?.readyState,
+  ]);
 
   const handleStop = () => {
     if (audioPlayer.current) {
@@ -69,27 +58,32 @@ const Controls = ({ src }: AudioPlayerProps) => {
   const handlePlay = () => {
     const prevValue = isPlaying;
     setIsPlaying(!prevValue);
-    if(audioPlayer.current){
+    if (audioPlayer.current) {
       if (!prevValue) {
         audioPlayer.current.play();
-        animationRef.current = requestAnimationFrame(whilePlaying)
+        animationRef.current = requestAnimationFrame(whilePlaying);
       } else {
         audioPlayer.current.pause();
         cancelAnimationFrame(animationRef.current);
       }
     }
-    
   };
 
   const whilePlaying = () => {
-    if(progressBar.current && audioPlayer.current){
+    if (progressBar.current && audioPlayer.current) {
       progressBar.current.value = audioPlayer.current.currentTime.toString();
       changePlayerCurrentTime();
       animationRef.current = requestAnimationFrame(whilePlaying);
     }
-    
-    
-  }
+  };
+
+  const handleMetadata = () => {
+    if (audioPlayer.current && progressBar.current) {
+      const duration = Math.floor(audioPlayer.current.duration);
+      setCurrentTrackDuration(duration);
+      progressBar.current.max = duration.toString();
+    }
+  };
 
   const handleTimeUpdate = (playNext: () => void) => {
     if (audioPlayer.current?.currentTime === audioPlayer.current?.duration) {
@@ -101,8 +95,10 @@ const Controls = ({ src }: AudioPlayerProps) => {
     if (progressBar.current && audioPlayer.current) {
       setProgressBarWidth(`${Math.floor(parseInt(progressBar.current.value) / currentTrackDuration * 100)}%`)
       progressBar.current.style.setProperty(
-        "--bar-before-width", progressBarWidth);
-      setCurrentTrackMoment(parseInt(progressBar.current.value))
+        "--bar-before-width",
+        `${(parseInt(progressBar.current.value) / currentTrackDuration) * 100}%`
+      );
+      setCurrentTrackMoment(parseInt(progressBar.current.value));
     }
   };
 
@@ -148,7 +144,7 @@ const Controls = ({ src }: AudioPlayerProps) => {
         ref={audioPlayer}
         src={src}
         preload="metadata"
-        onLoadedMetadata={()=>(audioPlayer.current && setCurrentTrackDuration(audioPlayer.current.duration))}
+        onLoadedMetadata={handleMetadata}
         onTimeUpdate={() => handleTimeUpdate(handleNextTrack)}
       >
         Sorry, your browser is outdated!
