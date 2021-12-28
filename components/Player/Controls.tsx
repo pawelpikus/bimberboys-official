@@ -20,7 +20,7 @@ const calculateTime = (secs: number) => {
   return `${returnedMinutes}:${returnedSeconds}`;
 };
 
-const Controls = ({ src }: AudioPlayerProps) => {
+const Controls = ({ src, trackId }: AudioPlayerProps) => {
   const [currentTrackDuration, setCurrentTrackDuration] = useState(0);
   const [currentTrackMoment, setCurrentTrackMoment] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -30,21 +30,24 @@ const Controls = ({ src }: AudioPlayerProps) => {
   const progressBar = useRef<HTMLInputElement | null>(null);
   const animationRef = useRef<number>(0);
 
-  const { handleNextTrack, handlePrevTrack } = useContext(PlaylistContext);
+  const { handleNextTrack, handlePrevTrack, setActive } = useContext(PlaylistContext);
 
   useEffect(() => {
     if (audioPlayer.current && progressBar.current) {
-      progressBar.current.value = "0";
-      setIsPlaying(false);
+      audioPlayer.current.volume = 0.25
       const seconds = Math.floor(audioPlayer.current.duration);
       setCurrentTrackDuration(seconds);
       progressBar.current.max = seconds.toString();
+      setActive(trackId)
     }
-  }, [
-    src,
+  }, [trackId,
     audioPlayer?.current?.onloadedmetadata,
     audioPlayer?.current?.readyState,
   ]);
+
+  useEffect(() =>{
+    handleStop()
+  }, [src])
 
   const handleStop = () => {
     if (audioPlayer.current) {
@@ -93,18 +96,17 @@ const Controls = ({ src }: AudioPlayerProps) => {
 
   const changePlayerCurrentTime = () => {
     if (progressBar.current && audioPlayer.current) {
-      setProgressBarWidth(`${Math.floor(parseInt(progressBar.current.value) / currentTrackDuration * 100)}%`)
       progressBar.current.style.setProperty(
         "--bar-before-width",
-        `${(parseInt(progressBar.current.value) / currentTrackDuration) * 100}%`
+        `${(parseFloat(progressBar.current.value) / currentTrackDuration) * 100}%`
       );
-      setCurrentTrackMoment(parseInt(progressBar.current.value));
+      setCurrentTrackMoment(parseFloat(progressBar.current.value));
     }
   };
 
   const changeRange = () => {
     if (audioPlayer.current && progressBar.current) {
-      audioPlayer.current.currentTime = parseInt(progressBar.current.value);
+      audioPlayer.current.currentTime = parseFloat(progressBar.current.value);
       changePlayerCurrentTime();
     }
   };
@@ -167,7 +169,7 @@ const Controls = ({ src }: AudioPlayerProps) => {
       {/* progress bar */}
       <input
         type="range"
-        defaultValue={0}
+        value={currentTrackMoment}
         ref={progressBar}
         className={styles.progressBar}
         onChange={changeRange}

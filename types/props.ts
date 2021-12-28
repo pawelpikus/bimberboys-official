@@ -11,6 +11,7 @@ export interface YoutubeProps{
 
 export interface AudioPlayerProps {
     src: string;
+    trackId: number;
   }
 
   export interface PlaylistProps{
@@ -18,6 +19,7 @@ export interface AudioPlayerProps {
         id: number;
         title: string;
         source: string;
+        duration: string;
     }[]
     onChangeTrack: (id: number) => void
   }

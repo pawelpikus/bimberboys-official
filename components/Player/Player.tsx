@@ -6,6 +6,7 @@ import styles from "../../styles/AudioPlayer.module.scss";
 
 const Player = () => {
   const [currentTrack, setCurrentTrack] = useState(0);
+  const [active, setActive] = useState(0)
 
   const handleChangeTrack = (id: number) => {
     setCurrentTrack(id);
@@ -28,8 +29,8 @@ const Player = () => {
   };
   return (
     <div className={styles.player_container}>
-      <PlaylistContext.Provider value={{ handleNextTrack, handlePrevTrack }}>
-        <Controls src={songs[currentTrack].source} />
+      <PlaylistContext.Provider value={{ handleNextTrack, handlePrevTrack, active, setActive }}>
+        <Controls src={songs[currentTrack].source} trackId={songs[currentTrack].id}/>
         <Playlist onChangeTrack={handleChangeTrack} playlist={songs} />
       </PlaylistContext.Provider>
     </div>

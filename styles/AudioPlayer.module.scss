@@ -60,7 +60,8 @@
 
 .forwardBackward:focus,
 .volumeMute:focus,
-.playPause:focus {
+.playPause:focus,
+.list_item:focus {
   color: $accent;
   outline: 3px solid $accent;
   outline-offset: 3px;
@@ -162,29 +163,25 @@
 
 .list_item {
   width: 100%;
-  padding: $base-padding;
+  padding: 2em .5em;
   border-top: 1px solid rgba(256, 256, 256, 0.5);
-}
-
-.btn_item {
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background: transparent;
-  border: none;
-  color: $secondary;
-  font-family: Poppins, sans-serif;
-  font-size: $font-size-xs;
-  cursor: pointer;
-  &:hover {
+  &:hover{
     color: $accent;
-    transition: 250ms ease-in-out;
+    cursor: pointer;
   }
 }
 
 .active {
   color: $accent;
+}
+
+.track_title{
+  span{
+    margin-right: 1em;
+  }
+  
 }
 
 @media (min-width: 800px) {
