@@ -33,14 +33,14 @@ const Controls = ({ src }: AudioPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
 
-  // useEffect(() => {
-  //   setCurrentTrackDuration(0);
-  //   setCurrentTrackMoment(0);
-  //   setProgressBarWidth("0");
+  useEffect(() => {
+    setCurrentTrackDuration(0);
+    setCurrentTrackMoment(0);
+    setProgressBarWidth("0");
     
-  // }, [src]);
+  }, [src]);
   
-  
+  console.log(progressBarWidth)
 
   const audioPlayer = useRef<HTMLAudioElement | null>(null);
   const progressBar = useRef<HTMLInputElement | null>(null);
@@ -55,7 +55,7 @@ const Controls = ({ src }: AudioPlayerProps) => {
       progressBar.current.max = seconds.toString();
     }
     
-  }, [src, audioPlayer?.current?.onloadedmetadata, audioPlayer?.current?.readyState]);
+  }, [audioPlayer?.current?.onloadedmetadata, audioPlayer?.current?.readyState]);
 
   const handleStop = () => {
     if (audioPlayer.current) {
@@ -91,33 +91,17 @@ const Controls = ({ src }: AudioPlayerProps) => {
     
   }
 
-  // const handleMetadata = () => {
-  //   if (audioPlayer.current) {
-  //     const duration = Math.floor(audioPlayer.current.duration);
-  //     setCurrentTrackDuration(duration);
-  //   }
-  // };
-
-  // const handleTimeUpdate = (playNext: () => void) => {
-  //   if (audioPlayer.current&&progressBar.current) {
-  //     setCurrentTrackMoment(Math.floor(audioPlayer.current.currentTime));
-  //     setProgressBarWidth(
-  //       Math.floor(
-  //         (parseFloat(progressBar.current.value) / currentTrackDuration) * 100
-  //       ) + "%"
-  //     );
-  //   }
-  //   if (audioPlayer.current?.currentTime === audioPlayer.current?.duration) {
-  //     playNext();
-  //   }
-  // };
+  const handleTimeUpdate = (playNext: () => void) => {
+    if (audioPlayer.current?.currentTime === audioPlayer.current?.duration) {
+      playNext();
+    }
+  };
 
   const changePlayerCurrentTime = () => {
     if (progressBar.current && audioPlayer.current) {
+      setProgressBarWidth(`${Math.floor(parseInt(progressBar.current.value) / currentTrackDuration * 100)}%`)
       progressBar.current.style.setProperty(
-        "--bar-before-width",
-        `${parseInt(progressBar.current.value) / currentTrackDuration * 100}%`
-      );
+        "--bar-before-width", progressBarWidth);
       setCurrentTrackMoment(parseInt(progressBar.current.value))
     }
   };
@@ -164,8 +148,8 @@ const Controls = ({ src }: AudioPlayerProps) => {
         ref={audioPlayer}
         src={src}
         preload="metadata"
-        // onLoadedMetadata={handleMetadata}
-        // onTimeUpdate={() => handleTimeUpdate(handleNextTrack)}
+        onLoadedMetadata={()=>(audioPlayer.current && setCurrentTrackDuration(audioPlayer.current.duration))}
+        onTimeUpdate={() => handleTimeUpdate(handleNextTrack)}
       >
         Sorry, your browser is outdated!
       </audio>
