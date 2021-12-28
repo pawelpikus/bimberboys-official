@@ -14,6 +14,10 @@
   justify-content: flex-start;
 }
 
+.img_wrapper {
+  margin-bottom: $base-margin;
+}
+
 .img_wrapper > span {
   box-shadow: $base-box-shadow;
 }

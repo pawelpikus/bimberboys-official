@@ -1,0 +1,66 @@
+@import "variables";
+@import "title";
+@import "nav";
+@import "cta";
+@import "footer";
+
+.container {
+  background-color: $primary;
+  color: #fff;
+  text-align: center;
+}
+
+.logo_wrapper {
+  position: relative;
+  width: 150px;
+  max-width: 100%;
+  margin: -1em 0;
+}
+
+.col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player_container {
+  background-color: bisque;
+}
+
+.title_light {
+  color: $accent;
+  line-height: 1.1;
+}
+// YT embed
+.video_wrapper{
+    min-width: 100%;
+    margin-bottom: $base-margin;
+    box-shadow: rgba(119, 119, 133, 0.1) 0px 4px 16px, rgba(136, 136, 156, 0.05) 0px 8px 32px;
+}
+
+.video {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .container {
+    text-align: left;
+  }
+
+  .listen_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: $base-margin;
+  }
+
+  .col {
+    align-items: flex-start;
+    width: 46%;
+  }
+
+  .title_light {
+    text-align: left;
+  }
+}

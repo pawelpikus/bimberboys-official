@@ -22,7 +22,24 @@ const Gallery: NextPage = () => {
           content="Oficjalna strona zespołu Bimber Boys... czyli retro and folk band. Naszą specjalnością są stare, niezapomniane przeboje w akustycznych aranżacjach. Inspirują nas szlagiery dwudziestolecia międzywojennego, miejski folk z różnych stron świata oraz... poetyckie ballady."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/favicons/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicons/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicons/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
       </Head>
       <div className={styles.container}>
         <Layout lightTheme>
@@ -34,6 +51,7 @@ const Gallery: NextPage = () => {
                 src={gallery_img1}
                 alt="członkowie zespołu Bimber Boys"
                 placeholder="blur"
+                priority
               />
               <div className={styles.description}>
                 <h3 className={styles.desc_title}>Image title</h3>
@@ -51,6 +69,7 @@ const Gallery: NextPage = () => {
                 src={gallery_img2}
                 alt="członkowie zespołu Bimber Boys"
                 placeholder="blur"
+                priority
               />
               <div className={styles.description}>
                 <h3 className={styles.desc_title}>Image title</h3>
@@ -68,6 +87,7 @@ const Gallery: NextPage = () => {
                 src={gallery_img3}
                 alt="członkowie zespołu Bimber Boys"
                 placeholder="blur"
+                priority
               />
               <div className={styles.description}>
                 <h3 className={styles.desc_title}>Image title</h3>
@@ -85,6 +105,7 @@ const Gallery: NextPage = () => {
                 src={gallery_img4}
                 alt="członkowie zespołu Bimber Boys"
                 placeholder="blur"
+                priority
               />
               <div className={styles.description}>
                 <h3 className={styles.desc_title}>Image title</h3>
