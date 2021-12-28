@@ -4,15 +4,14 @@ import Image from "next/image";
 import styles from "../styles/ListenContact.module.scss";
 import { Layout, CTA } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
-import YouTube from "react-youtube";
+import contact_img from "../public/contact_img.jpg";
 import React from "react";
-import Player from "../components/Player/Player";
 
-const Listen: NextPage = () => {
+const Contact: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Bimber Boys - Posłuchaj naszych piosenek</title>
+        <title>Bimber Boys - Kontakt</title>
         <meta
           name="description"
           content="Oficjalna strona zespołu Bimber Boys... czyli retro and folk band. Naszą specjalnością są stare, niezapomniane przeboje w akustycznych aranżacjach. Inspirują nas szlagiery dwudziestolecia międzywojennego, miejski folk z różnych stron świata oraz... poetyckie ballady."
@@ -51,30 +50,23 @@ const Listen: NextPage = () => {
               </div>
               <article className={styles.main_text}>
                 <h1 className={`${styles.title} ${styles.title_light}`}>
-                  Posłuchaj naszych piosenek
+                  Management i&nbsp;zamówienia
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  luctus convallis nisi et malesuada. Integer lobortis quam quis
-                  ante ultrices, vitae dignissim enim ultricies. Nam sit amet
-                  efficitur nulla. Nulla nulla neque, maximus a neque nec,
-                  convallis euismod dui. Cras eu velit a neque pretium cursus.
-                  Etiam feugiat lectus sed nulla pretium ultricies. Nulla
-                  aliquam neque placerat augue dapibus blandit. Proin efficitur
-                  gravida orci id feugiat.{" "}
+                  Email: bimberboys@gmail.com
+                  <br />
+                  Telefon: 503 340 408, 506 509 900
                 </p>
               </article>
-              <Player />
+              {/* <ContactForm /> */}
             </section>
             <section className={styles.col}>
-              <div className={styles.video_wrapper}>
-                <YouTube videoId="Y5xyvx4hAKg" className={styles.video} />
-              </div>
-              <div className={styles.video_wrapper}>
-                <YouTube videoId="T18j-gFLiCw" className={styles.video} />
-              </div>
-              <div className={styles.video_wrapper}>
-                <YouTube videoId="d6X35Y30p2A" className={styles.video} />
+              <div className={styles.img_wrapper}>
+                <Image
+                  src={contact_img}
+                  alt="kontakt zespołu Bimber Boys"
+                  placeholder="blur"
+                />
               </div>
             </section>
           </div>
@@ -85,4 +77,4 @@ const Listen: NextPage = () => {
   );
 };
 
-export default Listen;
+export default Contact;

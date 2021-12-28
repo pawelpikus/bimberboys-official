@@ -62,31 +62,31 @@ const Navbar: FunctionComponent<Props> = ({ lightTheme }) => {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/contact">
               <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
                 Kontakt
               </a>
             </Link>
           </li>
           <div className={styles.container_social}>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.facebook.com/Bimber-Boys-620956691363884/"
-                onClick={() => setIsOpen(false)}
-                className={styles.nav_link}
-              >
-                <FontAwesomeIcon icon={faFacebookF} size="lg" />
-              </a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.youtube.com/channel/UCaaWhs9s5f8kImfIML_zYRA"
-                onClick={() => setIsOpen(false)}
-                className={styles.nav_link}
-              >
-                <FontAwesomeIcon icon={faYoutube} size="lg"/>
-              </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.facebook.com/Bimber-Boys-620956691363884/"
+              onClick={() => setIsOpen(false)}
+              className={styles.nav_link}
+            >
+              <FontAwesomeIcon icon={faFacebookF} size="lg" />
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.youtube.com/channel/UCaaWhs9s5f8kImfIML_zYRA"
+              onClick={() => setIsOpen(false)}
+              className={styles.nav_link}
+            >
+              <FontAwesomeIcon icon={faYoutube} size="lg" />
+            </a>
           </div>
         </ul>
       </nav>
