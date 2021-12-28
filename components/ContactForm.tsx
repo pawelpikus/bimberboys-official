@@ -3,22 +3,31 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IFormInputs } from "../types/props";
+import { useState } from "react";
 
 const ContactForm = () => {
+  const [checked, setChecked] = useState(false);
+  const [message, setMessage] = useState("");
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IFormInputs>({
     criteriaMode: "all",
   });
 
-  const onSubmit: SubmitHandler<IFormInputs> = (data) =>
+  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
     console.log(JSON.stringify(data));
+    setMessage(`Dziękujemy ${data.name} za wysłanie wiadomości!`);
+    reset();
+    setChecked(false);
+  };
 
   return (
     <div className={styles.form_wrapper}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <p className={styles.message}>{message}</p>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className={styles.input_wrapper}>
           <label className={styles.label} htmlFor="name">
             Imię i nazwisko
@@ -75,12 +84,15 @@ const ContactForm = () => {
               id="acceptTerms"
               className={styles.terms}
               type="checkbox"
+              onClick={() => setChecked((prev) => !prev)}
               {...register("acceptTerms", {
                 required: "Zaakceptuj Warunki",
               })}
             />
 
-            <FontAwesomeIcon icon={faCheck} className={styles.check_icon} />
+            {checked && (
+              <FontAwesomeIcon icon={faCheck} className={styles.check_icon} />
+            )}
           </label>
           <span className={styles.label}>Zaakceptuj Warunki Użytkowania</span>
         </div>
