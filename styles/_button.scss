@@ -1,0 +1,27 @@
+.button {
+  width: 100%;
+  padding: 0.5em 1em;
+  background-color: $accent;
+  border: none;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: darken($accent, 10);
+}
+
+.button:hover {
+  transition: 250ms ease-in-out;
+}
+
+.button:focus {
+  outline: 3px solid $accent;
+  outline-offset: 3px;
+}

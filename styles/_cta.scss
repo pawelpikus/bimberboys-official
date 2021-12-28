@@ -1,3 +1,5 @@
+@import "button";
+
 .container_cta {
   margin: 0 auto 2em auto;
   padding-top: 1em;
@@ -61,8 +63,7 @@
   transition: 250ms ease-in-out;
 }
 
-.input:focus,
-.button:focus {
+.input:focus {
   outline: 3px solid $accent;
   outline-offset: 3px;
 }

@@ -29,3 +29,10 @@ export interface AudioPlayerProps {
     handlePrevTrack: () => void;
   }
   
+  export interface IFormInputs {
+    name: string
+    email: string
+    message: string
+    acceptTerms: boolean
+  }
+  

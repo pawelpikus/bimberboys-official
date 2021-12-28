@@ -1,0 +1,90 @@
+@import "variables";
+@import "button";
+
+.form_wrapper {
+  width: 100%;
+  margin-bottom: $base-margin;
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3em;
+  margin-top: $base-margin;
+}
+
+.terms_wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0.5em;
+  gap: 0.5em;
+}
+
+.terms {
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  border: 2px solid #fff;
+  border-radius: 1px;
+  position: relative;
+}
+
+.terms_label {
+  display: flex;
+  position: relative;
+}
+
+.check_icon {
+  width: 30px;
+  height: 30px;
+  font-size: $font-size-sm;
+  position: absolute;
+  left: 7px;
+  top: -2px;
+}
+
+.input_field,
+.textarea {
+  border: none;
+  width: 100%;
+  background-color: #fff;
+  font-family: Poppins;
+  font-weight: 400;
+  color: $primary;
+  padding: 0.5em 1em;
+
+  &:focus {
+    outline: 3px solid $accent;
+    outline-offset: 3px;
+  }
+}
+
+.label {
+  font-size: $font-size-sm;
+  font-weight: 300;
+}
+
+.textarea {
+  height: 100px;
+  resize: none;
+  overflow: auto;
+}
+
+.error {
+  font-size: $font-size-sm;
+  margin: 0;
+  color: $accent;
+  text-align: left;
+}
+
+@media (min-width: 600px) {
+  .textarea {
+    height: 180px;
+  }
+}
+
+.button {
+  margin-top: $base-margin;
+}
