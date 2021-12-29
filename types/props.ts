@@ -46,11 +46,11 @@ export interface AudioPlayerProps {
   }
 
   export interface CheckboxProps{
+    lightTheme:boolean;
     name: "register" | "name" | "email" | "acceptTerms" | "message";
     setChecked: (checked: boolean | ((prev: boolean) => boolean))=>void ;
     checked: boolean;
     checkboxMessage: string;
     requiredMessage: string;
-    register: UseFormRegister<ICheckboxInputs & IFormInputs>
-    errors: FieldError | undefined;
+    register: UseFormRegister<ICheckboxInputs & IFormInputs>;
     }

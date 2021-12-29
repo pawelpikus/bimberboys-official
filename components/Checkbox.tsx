@@ -6,17 +6,23 @@ import styles from "../styles/Form.module.scss";
 import { CheckboxProps } from "../types/props";
 
 const Checkbox: FunctionComponent<CheckboxProps> = ({
+  lightTheme,
   setChecked,
   checked,
   checkboxMessage,
   requiredMessage,
   register,
   name,
-  errors,
 }) => {
   return (
     <>
-      <div className={styles.terms_wrapper}>
+      <div
+        className={
+          lightTheme
+            ? `${styles.terms_wrapper} ${styles.light_theme}`
+            : `${styles.terms_wrapper}`
+        }
+      >
         <label className={styles.terms_label}>
           <input
             id={name}
@@ -27,18 +33,16 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
               required: requiredMessage,
             })}
           />
-
           {checked && (
             <FontAwesomeIcon icon={faCheck} className={styles.check_icon} />
           )}
         </label>
-        <section className={styles.label}>
-          <span>{checkboxMessage}</span>
-          <span> </span>
+        <div className={styles.label}>
+          <p className={styles.checkbox_msg}>{checkboxMessage}</p>
           <Link href="/">
             <a className={styles.link}>Polityka Prywatności</a>
           </Link>
-        </section>
+        </div>
       </div>
     </>
   );

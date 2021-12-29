@@ -2,7 +2,6 @@ import styles from "../styles/Form.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ICheckboxInputs, IFormInputs } from "../types/props";
 import { useState } from "react";
-import Link from "next/link";
 import Checkbox from "./Checkbox";
 
 const ContactForm = () => {
@@ -85,13 +84,13 @@ const ContactForm = () => {
             zapytania przedstawienia oferty.{" "}
           </span>
           <Checkbox
+            lightTheme
             name="acceptTerms"
             setChecked={setChecked}
             checked={checked}
-            checkboxMessage="Rozumiem i akceptuję."
+            checkboxMessage="Rozumiem i akceptuję. "
             requiredMessage="Zgoda jest wymagana!"
             register={register}
-            errors={errors.acceptTerms}
           />
           {errors.acceptTerms && (
             <span className={styles.error}>{errors.acceptTerms.message}</span>

@@ -46,13 +46,13 @@ const CTA: FunctionComponent<Props> = ({ lightTheme }) => {
           })}
         />
         <Checkbox
+          lightTheme
           name="acceptTerms"
           setChecked={setisChecked}
           checked={ischecked}
-          checkboxMessage="Wyrażam zgodę na newslettera."
+          checkboxMessage="Wyrażam zgodę na newsletter. "
           requiredMessage="Zgoda jest wymagana!"
           register={register}
-          errors={errors.acceptTerms}
         />
         {errors.acceptTerms && (
           <span className={styles.error}>{errors.acceptTerms.message}</span>
