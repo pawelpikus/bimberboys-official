@@ -36,3 +36,10 @@
 .logo {
   max-width: 100px;
 }
+
+.error {
+  font-size: $font-size-sm;
+  margin: 0;
+  color: $accent;
+  text-align: left;
+}

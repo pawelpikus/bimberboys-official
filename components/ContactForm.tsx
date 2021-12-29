@@ -1,27 +1,27 @@
 import styles from "../styles/Form.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IFormInputs } from "../types/props";
+import { ICheckboxInputs, IFormInputs } from "../types/props";
 import { useState } from "react";
+import Link from "next/link";
+import Checkbox from "./Checkbox";
 
 const ContactForm = () => {
-  const [checked, setChecked] = useState(false);
   const [message, setMessage] = useState("");
+  const [checked, setChecked] = useState(false);
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<IFormInputs>({
+  } = useForm<ICheckboxInputs & IFormInputs>({
     criteriaMode: "all",
   });
 
   const onSubmit: SubmitHandler<IFormInputs> = (data) => {
     console.log(JSON.stringify(data));
-    setMessage(`Dziękujemy ${data.name} za wysłanie wiadomości!`);
+    setMessage(`${data.name}, dziękujemy za wysłanie wiadomości!`);
     reset();
-    setChecked(false);
   };
 
   return (
@@ -77,29 +77,26 @@ const ContactForm = () => {
             <p className={styles.error}>{errors.message.message}</p>
           )}
         </div>
-
-        <div className={styles.terms_wrapper}>
-          <label className={styles.terms_label} htmlFor="acceptTerms">
-            <input
-              id="acceptTerms"
-              className={styles.terms}
-              type="checkbox"
-              onClick={() => setChecked((prev) => !prev)}
-              {...register("acceptTerms", {
-                required: "Zaakceptuj Warunki",
-              })}
-            />
-
-            {checked && (
-              <FontAwesomeIcon icon={faCheck} className={styles.check_icon} />
-            )}
-          </label>
-          <span className={styles.label}>Zaakceptuj Warunki Użytkowania</span>
-        </div>
-        {errors.acceptTerms && (
-          <p className={styles.error}>{errors.acceptTerms.message}</p>
-        )}
-
+        <section className={styles.label}>
+          <span>
+            Wypełnienie formularza oznacza wyrażenie zgody na przetwarzanie
+            przez Bimber Boys podanych w formularzu danych osobowych w celu
+            udzielenia odpowiedzi na zadane pytanie i w zależności od treści
+            zapytania przedstawienia oferty.{" "}
+          </span>
+          <Checkbox
+            name="acceptTerms"
+            setChecked={setChecked}
+            checked={checked}
+            checkboxMessage="Rozumiem i akceptuję."
+            requiredMessage="Zgoda jest wymagana!"
+            register={register}
+            errors={errors.acceptTerms}
+          />
+          {errors.acceptTerms && (
+            <span className={styles.error}>{errors.acceptTerms.message}</span>
+          )}
+        </section>
         <button className={styles.button}>Wyślij</button>
       </form>
     </div>

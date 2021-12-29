@@ -68,8 +68,17 @@
   outline-offset: 3px;
 }
 
+.col {
+  width: 100%;
+}
+
 @media (min-width: 600px) {
   .container_cta {
     flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .button {
+    align-self: flex-start;
   }
 }
