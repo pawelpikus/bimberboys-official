@@ -4,12 +4,19 @@
 @import "cta";
 @import "footer";
 
+.page_container {
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
 .container {
   background-color: $primary;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("/background_img-main.jpg") no-repeat center top;
+    url("/background_img-main.jpg") no-repeat center bottom;
   background-size: cover;
-  object-fit: cover;
   position: relative;
 }
 
@@ -17,7 +24,6 @@
   max-width: 1000px;
   width: 95%;
   margin: 0 auto;
-  min-height: 100vh;
   padding: 0;
   background-color: transparent;
   display: flex;
