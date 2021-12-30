@@ -5,21 +5,20 @@
 @import "footer";
 @import "layout";
 
-
 .main_container {
   background-color: $primary;
+  height: 95vh;
+  display: flex;
+  align-items: center;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("/background_img-main.jpg") no-repeat center center;
+    url("/background_img-main.jpg") no-repeat center top;
   background-size: cover;
   position: relative;
 }
 
 .img_container {
-  margin: 8em auto 2em auto;
-  max-width: 550px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;  
+  max-width: 90%;
+  margin-bottom: 3em;
 }
 
 .logo {
@@ -31,4 +30,10 @@
   margin: 0;
   color: $accent;
   text-align: left;
+}
+
+@media (min-width: 800px) {
+  .main_container {
+    align-items: flex-end;
+  }
 }
