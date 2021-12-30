@@ -36,9 +36,8 @@ const Contact: NextPage = () => {
         />
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </Head>
-
-      <div className={styles.container}>
-        <Layout>
+      <Layout>
+        <div className={styles.content}>
           <div className={styles.listen_container}>
             <section className={`${styles.col} ${styles.flex_between}`}>
               <div>
@@ -72,9 +71,8 @@ const Contact: NextPage = () => {
               </div>
             </section>
           </div>
-          <CTA />
-        </Layout>
-      </div>
+        </div>
+      </Layout>
     </>
   );
 };

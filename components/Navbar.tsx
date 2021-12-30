@@ -6,7 +6,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 
-const Navbar: FunctionComponent<Props> = ({ lightTheme }) => {
+const Navbar: FunctionComponent<Props> = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -24,11 +24,7 @@ const Navbar: FunctionComponent<Props> = ({ lightTheme }) => {
         <span className={styles.hamburger}></span>
       </button>
       <nav
-        className={
-          lightTheme
-            ? `${styles.nav} ${styles.nav_lightTheme}`
-            : `${styles.nav}`
-        }
+        className={`${styles.nav}`}
       >
         <ul className={styles.nav_list}>
           <li>

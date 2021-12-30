@@ -36,14 +36,18 @@ const Home: NextPage = () => {
       </Head>
 
       <Layout>
-        <div className={styles.img_container}>
-          <Image
-            src={logo}
-            alt="Bimber Boys logo"
-            layout="intrinsic"
-            placeholder="blur"
-            priority
-          />
+        <div className={styles.main_container}>
+          <div className={styles.content}>
+            <div className={styles.img_container}>
+              <Image
+                src={logo}
+                alt="Bimber Boys logo"
+                layout="intrinsic"
+                placeholder="blur"
+                priority
+              />
+            </div>
+          </div>          
         </div>
       </Layout>
     </>

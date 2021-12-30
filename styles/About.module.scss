@@ -3,11 +3,7 @@
 @import "nav";
 @import "cta";
 @import "footer";
-
-.container {
-  background-color: $secondary;
-  text-align: center;
-}
+@import "layout";
 
 .article_container {
   text-align: center;

@@ -3,41 +3,23 @@
 @import "title";
 @import "cta";
 @import "footer";
+@import "layout";
 
-.page_container {
-  background-color: $primary;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-}
 
-.container {
+.main_container {
   background-color: $primary;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("/background_img-main.jpg") no-repeat center bottom;
+    url("/background_img-main.jpg") no-repeat center center;
   background-size: cover;
   position: relative;
 }
 
-.main {
-  max-width: 1000px;
-  width: 95%;
-  margin: 0 auto;
-  padding: 0;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .img_container {
-  margin: 6em auto 0 auto;
-  width: auto;
+  margin: 8em auto 2em auto;
+  max-width: 550px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;  
 }
 
 .logo {

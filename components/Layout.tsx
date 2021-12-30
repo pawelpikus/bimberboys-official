@@ -5,19 +5,23 @@ import styles from "../styles/Home.module.scss";
 const Layout = ({ children, ...lightTheme }: Props) => {
   return (
     <div className={styles.page_container}>
-      <div className={styles.header_container}>
-        <main className={styles.main}>
-          <Navbar {...lightTheme} />
-        </main>
-      </div>
-      <div className={styles.container}>
-        <main className={styles.main}>{children}</main>
+      <div>
+        <div className={styles.header_container}>
+          <section className={styles.content}>
+            <Navbar {...lightTheme} />
+          </section>
+        </div>
+      
+        {children}
+      
+        <section className={styles.content}>
+            <CTA />
+        </section>
       </div>
       <div className={styles.footer_container}>
-        <main className={styles.main}>
-          <CTA />
+        <section className={styles.content}>
           <Footer />
-        </main>
+        </section>
       </div>
     </div>
   );

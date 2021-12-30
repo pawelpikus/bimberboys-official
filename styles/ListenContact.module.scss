@@ -3,12 +3,7 @@
 @import "nav";
 @import "cta";
 @import "footer";
-
-.container {
-  background-color: $primary;
-  color: #fff;
-  text-align: center;
-}
+@import "layout";
 
 .logo_wrapper {
   position: relative;

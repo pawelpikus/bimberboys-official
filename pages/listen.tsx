@@ -38,49 +38,49 @@ const Listen: NextPage = () => {
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </Head>
 
-      <div className={styles.container}>
+      
         <Layout>
-          <div className={styles.listen_container}>
-            <section className={styles.col}>
-              <div className={styles.logo_wrapper}>
-                <Image
-                  src={logo_sm}
-                  alt="logo Bimber Boys"
-                  placeholder="blur"
-                />
-              </div>
-              <article className={styles.main_text}>
-                <h1 className={`${styles.title} ${styles.title_light}`}>
-                  Posłuchaj naszych piosenek
-                </h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  luctus convallis nisi et malesuada. Integer lobortis quam quis
-                  ante ultrices, vitae dignissim enim ultricies. Nam sit amet
-                  efficitur nulla. Nulla nulla neque, maximus a neque nec,
-                  convallis euismod dui. Cras eu velit a neque pretium cursus.
-                  Etiam feugiat lectus sed nulla pretium ultricies. Nulla
-                  aliquam neque placerat augue dapibus blandit. Proin efficitur
-                  gravida orci id feugiat.{" "}
-                </p>
-              </article>
-              <Player />
-            </section>
-            <section className={styles.col}>
-              <div className={styles.video_wrapper}>
-                <YouTube videoId="Y5xyvx4hAKg" className={styles.video} />
-              </div>
-              <div className={styles.video_wrapper}>
-                <YouTube videoId="T18j-gFLiCw" className={styles.video} />
-              </div>
-              <div className={styles.video_wrapper}>
-                <YouTube videoId="d6X35Y30p2A" className={styles.video} />
-              </div>
-            </section>
+          <div className={styles.content}>
+            <div className={styles.listen_container}>
+              <section className={styles.col}>
+                <div className={styles.logo_wrapper}>
+                  <Image
+                    src={logo_sm}
+                    alt="logo Bimber Boys"
+                    placeholder="blur"
+                  />
+                </div>
+                <article className={styles.main_text}>
+                  <h1 className={`${styles.title} ${styles.title_light}`}>
+                    Posłuchaj naszych piosenek
+                  </h1>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    luctus convallis nisi et malesuada. Integer lobortis quam quis
+                    ante ultrices, vitae dignissim enim ultricies. Nam sit amet
+                    efficitur nulla. Nulla nulla neque, maximus a neque nec,
+                    convallis euismod dui. Cras eu velit a neque pretium cursus.
+                    Etiam feugiat lectus sed nulla pretium ultricies. Nulla
+                    aliquam neque placerat augue dapibus blandit. Proin efficitur
+                    gravida orci id feugiat.{" "}
+                  </p>
+                </article>
+                <Player />
+              </section>
+              <section className={styles.col}>
+                <div className={styles.video_wrapper}>
+                  <YouTube videoId="Y5xyvx4hAKg" className={styles.video} />
+                </div>
+                <div className={styles.video_wrapper}>
+                  <YouTube videoId="T18j-gFLiCw" className={styles.video} />
+                </div>
+                <div className={styles.video_wrapper}>
+                  <YouTube videoId="d6X35Y30p2A" className={styles.video} />
+                </div>
+              </section>
+            </div>
           </div>
-          <CTA />
         </Layout>
-      </div>
     </>
   );
 };
