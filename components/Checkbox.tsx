@@ -39,7 +39,7 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
         </label>
         <div className={styles.label}>
           <p className={styles.checkbox_msg}>{checkboxMessage}</p>
-          <Link href="/">
+          <Link href="/polityka-prywatnosci">
             <a className={styles.link}>Polityka Prywatności</a>
           </Link>
         </div>
