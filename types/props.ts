@@ -1,4 +1,6 @@
 import React from "react";
+import { FieldError, UseFormRegister } from "react-hook-form";
+
 
 export interface Props {
     lightTheme?: boolean;
@@ -29,3 +31,26 @@ export interface AudioPlayerProps {
     handlePrevTrack: () => void;
   }
   
+  export interface IFormInputs {
+    name: "register" | "name" | "email" | "acceptTerms" | "message"
+    email: string
+    message: string
+    acceptTerms: boolean
+    register: UseFormRegister<ICheckboxInputs & IFormInputs>
+    
+  }
+  
+  export interface ICheckboxInputs {
+    acceptTerms: boolean
+    
+  }
+
+  export interface CheckboxProps{
+    lightTheme:boolean;
+    name: "register" | "name" | "email" | "acceptTerms" | "message";
+    setChecked: (checked: boolean | ((prev: boolean) => boolean))=>void ;
+    checked: boolean;
+    checkboxMessage: string;
+    requiredMessage: string;
+    register: UseFormRegister<ICheckboxInputs & IFormInputs>;
+    }

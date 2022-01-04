@@ -1,0 +1,25 @@
+@import "variables";
+@import "title";
+@import "nav";
+@import "cta";
+@import "footer";
+@import "layout";
+
+.content {
+  display: block;
+}
+
+.ol {
+  padding: 1em;
+}
+
+.i + p {
+  margin-top: 0;
+}
+
+.a {
+  text-decoration: underline;
+  &:hover {
+    color: $accent;
+  }
+}

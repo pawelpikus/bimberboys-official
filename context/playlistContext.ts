@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { Props } from "../types/props";
 
 export const songs = [
     { 

@@ -3,36 +3,44 @@
 @import "title";
 @import "cta";
 @import "footer";
+@import "layout";
 
-.container {
+.main_container {
   background-color: $primary;
+  height: 95vh;
+  display: flex;
+  align-items: center;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("/background_img-main.jpg") no-repeat center top;
   background-size: cover;
   position: relative;
 }
 
-.main {
-  max-width: 1000px;
-  width: 95%;
-  margin: 0 auto;
-  min-height: 100vh;
-  padding: 0;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .img_container {
-  margin: 6em auto 0 auto;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  max-width: 90%;
+  margin-bottom: 3em;
 }
 
 .logo {
   max-width: 100px;
+}
+
+.error {
+  font-size: $font-size-sm;
+  margin: 0;
+  color: $accent;
+  text-align: left;
+}
+
+.link {
+  text-decoration: underline;
+  &:hover {
+    color: $accent;
+  }
+}
+
+@media (min-width: 800px) {
+  .main_container {
+    align-items: flex-end;
+  }
 }

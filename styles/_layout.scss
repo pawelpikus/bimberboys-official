@@ -1,0 +1,21 @@
+.page_container {
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.content {
+  color: $secondary;
+  max-width: 1000px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

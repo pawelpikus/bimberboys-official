@@ -1,5 +1,7 @@
+@import "button";
+
 .container_cta {
-  margin: 0 auto 2em auto;
+  margin: 1em auto 2em auto;
   padding-top: 1em;
   width: 100%;
   max-width: 1000px;
@@ -61,14 +63,22 @@
   transition: 250ms ease-in-out;
 }
 
-.input:focus,
-.button:focus {
+.input:focus {
   outline: 3px solid $accent;
   outline-offset: 3px;
+}
+
+.col {
+  width: 100%;
 }
 
 @media (min-width: 600px) {
   .container_cta {
     flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .button {
+    align-self: flex-start;
   }
 }

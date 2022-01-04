@@ -3,10 +3,7 @@
 @import "nav";
 @import "cta";
 @import "footer";
-
-.container {
-  background-color: $secondary;
-}
+@import "layout";
 
 .gallery_container {
   margin: $base-margin 0;

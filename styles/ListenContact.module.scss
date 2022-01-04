@@ -3,18 +3,17 @@
 @import "nav";
 @import "cta";
 @import "footer";
-
-.container {
-  background-color: $primary;
-  color: #fff;
-  text-align: center;
-}
+@import "layout";
 
 .logo_wrapper {
   position: relative;
   width: 150px;
   max-width: 100%;
-  margin: -1em 0;
+  margin: -1em auto;
+}
+
+.main_text {
+  text-align: center;
 }
 
 .col {
@@ -22,6 +21,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.flex_between {
+  justify-content: space-between;
 }
 
 .player_container {
@@ -33,12 +36,16 @@
   line-height: 1.1;
 }
 // YT embed
-.video_wrapper{
-    min-width: 100%;
-    margin-bottom: $base-margin;
-    box-shadow: rgba(119, 119, 133, 0.1) 0px 4px 16px, rgba(136, 136, 156, 0.05) 0px 8px 32px;
+.video_wrapper,
+.img_wrapper > span {
+  min-width: 100%;
+  margin-bottom: $base-margin;
+  box-shadow: $base-box-shadow;
 }
 
+.img_wrapper {
+  margin-bottom: $base-margin;
+}
 .video {
   width: 100%;
 }
@@ -53,6 +60,14 @@
     display: flex;
     justify-content: space-between;
     gap: $base-margin;
+  }
+
+  .logo_wrapper {
+    margin: -1em 0;
+  }
+
+  .main_text {
+    text-align: left;
   }
 
   .col {
