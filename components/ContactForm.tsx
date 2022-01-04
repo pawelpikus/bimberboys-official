@@ -3,11 +3,17 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ICheckboxInputs, IFormInputs } from "../types/props";
 import { useState } from "react";
 import Checkbox from "./Checkbox";
+import Botpoison from "@botpoison/browser";
+import axios from "axios";
+
+const FORMSPARK_ACTION_URL = "https://submit-form.com/H4gj2GtK";
+const botpoison = new Botpoison({
+  publicKey: "pk_62e6f8fe-3509-4f52-bac4-4e95be8b1876",
+});
 
 const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [checked, setChecked] = useState(false);
-
   const {
     register,
     handleSubmit,
@@ -16,11 +22,22 @@ const ContactForm = () => {
   } = useForm<ICheckboxInputs & IFormInputs>({
     criteriaMode: "all",
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-    console.log(JSON.stringify(data));
+  const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
+    setSubmitting(true);
+    const { solution } = await botpoison.challenge();
+
+    await axios.post(FORMSPARK_ACTION_URL, {
+      name: data.name,
+      email: data.email,
+      message: data.message,
+      _botpoison: solution,
+    });
     setMessage(`${data.name}, dziękujemy za wysłanie wiadomości!`);
     reset();
+    setSubmitting(false);
+    setChecked(false);
   };
 
   return (
@@ -96,7 +113,16 @@ const ContactForm = () => {
             <span className={styles.error}>{errors.acceptTerms.message}</span>
           )}
         </section>
-        <button className={styles.button}>Wyślij</button>
+        <button
+          disabled={submitting}
+          className={
+            submitting
+              ? `${styles.button} ${styles.disabled}`
+              : `${styles.button}`
+          }
+        >
+          {submitting ? "Wysyłanie..." : "Wyślij"}
+        </button>
       </form>
     </div>
   );
