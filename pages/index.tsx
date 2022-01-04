@@ -4,6 +4,8 @@ import styles from "../styles/Home.module.scss";
 import { Layout } from "../components";
 import Image from "next/image";
 import logo from "../public/bimber-logo2.png";
+import CookieConsent from "react-cookie-consent";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -47,7 +49,28 @@ const Home: NextPage = () => {
                 priority
               />
             </div>
-          </div>          
+          </div>
+          <CookieConsent
+            location="bottom"
+            buttonText="Rozumiem"
+            cookieName="cookieConsent"
+            style={{ background: "#2B373B", fontSize: "13px" }}
+            buttonStyle={{
+              background: "#e5383b",
+              color: "#f5f3f4",
+              fontSize: "13px",
+            }}
+            expires={150}
+          >
+            Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym
+            poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na
+            ich użycie.{" "}
+            <span style={{ fontSize: "10px" }}>
+              <Link href="/polityka-cookies">
+                <a className={styles.link}>Polityka Cookies</a>
+              </Link>
+            </span>
+          </CookieConsent>
         </div>
       </Layout>
     </>

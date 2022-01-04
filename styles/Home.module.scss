@@ -32,6 +32,13 @@
   text-align: left;
 }
 
+.link {
+  text-decoration: underline;
+  &:hover {
+    color: $accent;
+  }
+}
+
 @media (min-width: 800px) {
   .main_container {
     align-items: flex-end;

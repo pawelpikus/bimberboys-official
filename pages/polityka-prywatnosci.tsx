@@ -35,7 +35,7 @@ const RODOPolicy: NextPage = () => {
       </Head>
       <Layout>
         <div className={styles.content}>
-          <h1>Polityka Prywatności</h1>
+          <h1 className={styles.title}>Polityka Prywatności</h1>
           <p>
             Respektujemy i chronimy bezpieczeństwo i prywatność naszych
             kontrahentów, dlatego opracowaliśmy ten dokument, w którym wyjaśnimy
@@ -90,31 +90,31 @@ const RODOPolicy: NextPage = () => {
             </li>
             <li>
               Podmiot, którego dane są przetwarzane.
-              <div>
+              <p>
                 W związku z przetwarzaniem przez Bimber Boys Twoich danych
                 osobowych, przysługują Ci następujące uprawnienia:
-                <ol type="a">
-                  <li>
-                    prawo do żądania dostępu do swoich danych osobowych, ich
-                    sprostowania, usunięcia lub ograniczenia przetwarzania,
-                  </li>
-                  <li>prawo do wniesienia sprzeciwu wobec przetwarzania,</li>
-                  <li>prawo do przenoszenia danych,</li>
-                  <li>
-                    prawo do cofnięcia zgody na przetwarzanie danych osobowych w
-                    określonym celu, jeżeli uprzednio wyraziłeś taką zgodę,
-                  </li>
-                  <li>
-                    prawo do wniesienia skargi do organu nadzorczego w związku z
-                    przetwarzaniem przez nas danych osobowych.
-                  </li>
-                </ol>
-                <p>
-                  Powyższe uprawnienia możesz zrealizować zgodnie z zasadami
-                  opisanymi w art. 16 – 21 RODO, wysyłając wiadomość na adres
-                  e-mail: bimberboys@gmail.com
-                </p>
-              </div>
+              </p>
+              <ol type="a">
+                <li>
+                  prawo do żądania dostępu do swoich danych osobowych, ich
+                  sprostowania, usunięcia lub ograniczenia przetwarzania,
+                </li>
+                <li>prawo do wniesienia sprzeciwu wobec przetwarzania,</li>
+                <li>prawo do przenoszenia danych,</li>
+                <li>
+                  prawo do cofnięcia zgody na przetwarzanie danych osobowych w
+                  określonym celu, jeżeli uprzednio wyraziłeś taką zgodę,
+                </li>
+                <li>
+                  prawo do wniesienia skargi do organu nadzorczego w związku z
+                  przetwarzaniem przez nas danych osobowych.
+                </li>
+              </ol>
+              <p>
+                Powyższe uprawnienia możesz zrealizować zgodnie z zasadami
+                opisanymi w art. 16 – 21 RODO, wysyłając wiadomość na adres
+                e-mail: bimberboys@gmail.com
+              </p>
             </li>
             <p>
               Wszystkie otrzymane zgłoszenia potraktowane będą ze szczególną
@@ -152,105 +152,101 @@ const RODOPolicy: NextPage = () => {
             <li>
               Rodzaj i cel przetwarzania danych oraz podstawa prawna
               przetwarzania.
-              <div>
-                <ol className={styles.ol} type="a">
-                  <li>
-                    Kontakt e-mailowy.
-                    <p>
-                      Prowadząc z nami korespondencję mailową za pośrednictwem
-                      poczty elektronicznej, w tym również przesyłając nam
-                      zapytanie poprzez formularz kontaktowy, w sposób naturalny
-                      przekazujesz nam swoje dane. Celem przetwarzania Twoich
-                      danych jest utrzymanie kontaktu z Tobą, a podstawą
-                      przetwarzania jest art. 6 ust. 1 lit. a RODO, czyli Twoja
-                      zgoda wynikające z prowadzenia z nami korespondencji.
-                      Podstawą prawną przetwarzania po zakończeniu kontaktu jest
-                      usprawiedliwiony cel w postaci archiwizacji korespondencji
-                      na potrzeby wewnętrzne (art. 6 ust. 1 lit. c RODO). Treść
-                      korespondencji może podlegać archiwizacji przez czas
-                      prowadzenia działalności przez Bimber Boys lub do czasu
-                      otrzymania Twojego żądania jej usunięcia, chyba że jej
-                      usunięcie będzie niemożliwe, ze względu na nasze
-                      usprawiedliwione interesy polegające np. na obronie przed
-                      potencjalnymi roszczeniami.
-                    </p>
-                  </li>
-                  <li>
-                    Współpraca i realizacja umowy.{" "}
-                    <p>
-                      Jeżeli prowadzona przez nas korespondencja lub inna forma
-                      kontaktu doprowadzi do nawiązania współpracy, Twoje dane
-                      będą następnie przetwarzane w celu zawarcia i wykonania
-                      umowy oraz zrealizowania usługi, co wiąże się z
-                      przechowywaniem Twoich danych w naszym zbiorze
-                      Kontrahentów. Podstawą prawną przetwarzania będzie art. 6
-                      ust. 1 lit. b RODO, czyli realizacja łączącej nas umowy
-                      lub czynności, których podjęcie jest konieczne do jej
-                      zawarcia. W związku z naszą współpracą Twoje dane mogą być
-                      także przetwarzane w celach księgowych oraz archiwalnych i
-                      statystycznych. Poniżej znajdziesz dokładne informacje
-                      opisujące przetwarzanie danych w tych celach.
-                    </p>{" "}
-                  </li>
-                </ol>
-              </div>
-              <li>
-                Rozliczenia.{" "}
-                <p>
-                  Jeżeli korzystasz z naszych usług płatnych i zawrzemy w
-                  związku z tym umowę, będziemy przetwarzać Twoje dane osobowe w
-                  zakresie niezbędnym do dokonania rozliczeń, np. wystawienia
-                  faktury. Podstawą prawną przetwarzania Twoich danych osobowych
-                  zawartych w dokumentach rozliczeniowych jest 6 ust. 1 lit. c
-                  RODO (wypełnienie prawnego obowiązku ciążącego na
-                  administratorze (np. wystawienia faktury). Dane w tym zakresie
-                  będą przetwarzane do czasu przedawnienia roszczeń z tytułu
-                  zawartych umów. Ponadto wszystkie wystawione dokumenty
-                  księgowe, np. faktury, uwzględniane są w prowadzonej przez
-                  Bimber Boys dokumentacji księgowej, w związku z czym Twoje
-                  dane będą w tym zakresie przetwarzane przez okres czasu,
-                  wymagany przez przepisy prawa.
-                </p>{" "}
-              </li>
-              <li>
-                Pliki cookies i inne technologie.{" "}
-                <p>
-                  Wykorzystujemy pliki cookies w zakresie i zgodnie z celami
-                  określonymi w naszej “Polityce Cookies”. Monitorujemy jakość
-                  naszych usług, ponieważ chcemy by była ona jak najlepsza.
-                  Przetwarzamy Twoje dane osobowe w celu tworzenia statystyk
-                  korzystania z poszczególnych funkcjonalności i stron oraz
-                  aplikacji mobilnych należących do Bimber Boys. Dla
-                  zrealizowania tego celu, przetwarzamy dane dotyczące Twojej
-                  aktywności na stronie www.bimberboys.pl, ilość czasu
-                  spędzonego na stronie, Twój adres IP, lokalizacja, ID
-                  urządzenia oraz dane dotyczące przeglądarki i systemu
-                  operacyjnego, z którego korzystasz. Podstawą prawną
-                  przetwarzania danych jest art. 6 ust. 1 lit. f RODO, czyli
-                  jest nasz prawnie uzasadniony interes, polegający na
-                  ułatwieniu użytkownikom korzystania z usług świadczonych przez
-                  nas drogą elektroniczną oraz na poprawie funkcjonalności tych
-                  usług.
-                </p>{" "}
-              </li>
-              <p>
-                Wykorzystujemy również technologie plików cookies.Cookies to
-                niewielkie informacje tekstowe, przechowywane na Twoim
-                urządzeniu końcowym (np. komputerze, smartfonie), które mogą być
-                odczytywane przez nasz system informatyczny. Można wyróżnić dwa
-                rodzaje plików cookies: własne oraz cookies podmiotów trzecich.
-              </p>
-              <p>Wyrażenie zgody na cookies.</p>
-              <p>
-                Podczas pierwszej wizyty na stronie wyświetlana jest Ci
-                informacja na temat stosowania przez nas plików cookies. W
-                każdej chwili masz możliwość zarządzania plikami cookies,
-                poprzez zmianę ustawień Twojej przeglądarki. Możesz także
-                zupełnie je usunąć. Korzystając ze strony bez zmiany ustawień
-                przeglądarki, wyrażasz zgodę na wykorzystywanie przez nas plików
-                cookies. Nie korzystamy z narzędzi marketingowych.
-              </p>
             </li>
+            <ol className={styles.ol} type="a">
+              <li>
+                Kontakt e-mailowy.
+                <p>
+                  Prowadząc z nami korespondencję mailową za pośrednictwem
+                  poczty elektronicznej, w tym również przesyłając nam zapytanie
+                  poprzez formularz kontaktowy, w sposób naturalny przekazujesz
+                  nam swoje dane. Celem przetwarzania Twoich danych jest
+                  utrzymanie kontaktu z Tobą, a podstawą przetwarzania jest art.
+                  6 ust. 1 lit. a RODO, czyli Twoja zgoda wynikające z
+                  prowadzenia z nami korespondencji. Podstawą prawną
+                  przetwarzania po zakończeniu kontaktu jest usprawiedliwiony
+                  cel w postaci archiwizacji korespondencji na potrzeby
+                  wewnętrzne (art. 6 ust. 1 lit. c RODO). Treść korespondencji
+                  może podlegać archiwizacji przez czas prowadzenia działalności
+                  przez Bimber Boys lub do czasu otrzymania Twojego żądania jej
+                  usunięcia, chyba że jej usunięcie będzie niemożliwe, ze
+                  względu na nasze usprawiedliwione interesy polegające np. na
+                  obronie przed potencjalnymi roszczeniami.
+                </p>
+              </li>
+              <li>
+                Współpraca i realizacja umowy.{" "}
+                <p>
+                  Jeżeli prowadzona przez nas korespondencja lub inna forma
+                  kontaktu doprowadzi do nawiązania współpracy, Twoje dane będą
+                  następnie przetwarzane w celu zawarcia i wykonania umowy oraz
+                  zrealizowania usługi, co wiąże się z przechowywaniem Twoich
+                  danych w naszym zbiorze Kontrahentów. Podstawą prawną
+                  przetwarzania będzie art. 6 ust. 1 lit. b RODO, czyli
+                  realizacja łączącej nas umowy lub czynności, których podjęcie
+                  jest konieczne do jej zawarcia. W związku z naszą współpracą
+                  Twoje dane mogą być także przetwarzane w celach księgowych
+                  oraz archiwalnych i statystycznych. Poniżej znajdziesz
+                  dokładne informacje opisujące przetwarzanie danych w tych
+                  celach.
+                </p>{" "}
+              </li>
+            </ol>
+            <li>
+              Rozliczenia.{" "}
+              <p>
+                Jeżeli korzystasz z naszych usług płatnych i zawrzemy w związku
+                z tym umowę, będziemy przetwarzać Twoje dane osobowe w zakresie
+                niezbędnym do dokonania rozliczeń, np. wystawienia faktury.
+                Podstawą prawną przetwarzania Twoich danych osobowych zawartych
+                w dokumentach rozliczeniowych jest 6 ust. 1 lit. c RODO
+                (wypełnienie prawnego obowiązku ciążącego na administratorze
+                (np. wystawienia faktury). Dane w tym zakresie będą przetwarzane
+                do czasu przedawnienia roszczeń z tytułu zawartych umów. Ponadto
+                wszystkie wystawione dokumenty księgowe, np. faktury,
+                uwzględniane są w prowadzonej przez Bimber Boys dokumentacji
+                księgowej, w związku z czym Twoje dane będą w tym zakresie
+                przetwarzane przez okres czasu, wymagany przez przepisy prawa.
+              </p>{" "}
+            </li>
+            <li>
+              Pliki cookies i inne technologie.{" "}
+              <p>
+                Wykorzystujemy pliki cookies w zakresie i zgodnie z celami
+                określonymi w naszej “Polityce Cookies”. Monitorujemy jakość
+                naszych usług, ponieważ chcemy by była ona jak najlepsza.
+                Przetwarzamy Twoje dane osobowe w celu tworzenia statystyk
+                korzystania z poszczególnych funkcjonalności i stron oraz
+                aplikacji mobilnych należących do Bimber Boys. Dla zrealizowania
+                tego celu, przetwarzamy dane dotyczące Twojej aktywności na
+                stronie www.bimberboys.pl, ilość czasu spędzonego na stronie,
+                Twój adres IP, lokalizacja, ID urządzenia oraz dane dotyczące
+                przeglądarki i systemu operacyjnego, z którego korzystasz.
+                Podstawą prawną przetwarzania danych jest art. 6 ust. 1 lit. f
+                RODO, czyli jest nasz prawnie uzasadniony interes, polegający na
+                ułatwieniu użytkownikom korzystania z usług świadczonych przez
+                nas drogą elektroniczną oraz na poprawie funkcjonalności tych
+                usług.
+              </p>{" "}
+            </li>
+            <p>
+              Wykorzystujemy również technologie plików cookies.Cookies to
+              niewielkie informacje tekstowe, przechowywane na Twoim urządzeniu
+              końcowym (np. komputerze, smartfonie), które mogą być odczytywane
+              przez nasz system informatyczny. Można wyróżnić dwa rodzaje plików
+              cookies: własne oraz cookies podmiotów trzecich.
+            </p>
+            <p>Wyrażenie zgody na cookies.</p>
+            <p>
+              Podczas pierwszej wizyty na stronie wyświetlana jest Ci informacja
+              na temat stosowania przez nas plików cookies. W każdej chwili masz
+              możliwość zarządzania plikami cookies, poprzez zmianę ustawień
+              Twojej przeglądarki. Możesz także zupełnie je usunąć. Korzystając
+              ze strony bez zmiany ustawień przeglądarki, wyrażasz zgodę na
+              wykorzystywanie przez nas plików cookies. Nie korzystamy z
+              narzędzi marketingowych.
+            </p>
+
             <li>
               Zabezpieczenie roszczeń jako inny cel przetwarzania danych.{" "}
               <p>

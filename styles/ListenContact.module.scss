@@ -9,7 +9,11 @@
   position: relative;
   width: 150px;
   max-width: 100%;
-  margin: -1em 0;
+  margin: -1em auto;
+}
+
+.main_text {
+  text-align: center;
 }
 
 .col {
@@ -56,6 +60,14 @@
     display: flex;
     justify-content: space-between;
     gap: $base-margin;
+  }
+
+  .logo_wrapper {
+    margin: -1em 0;
+  }
+
+  .main_text {
+    text-align: left;
   }
 
   .col {
