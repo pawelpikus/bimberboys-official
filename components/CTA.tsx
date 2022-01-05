@@ -45,6 +45,9 @@ const CTA: FunctionComponent<Props> = ({ lightTheme }) => {
             },
           })}
         />
+        {errors.email && (
+          <span className={styles.error}>{errors.email.message}</span>
+        )}
         <Checkbox
           lightTheme
           name="acceptTerms"
