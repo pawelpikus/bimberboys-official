@@ -1,7 +1,8 @@
+import axios from "axios";
 import React, { FunctionComponent, useState } from "react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import styles from "../styles/Home.module.scss";
-import { ICheckboxInputs, IFormInputs, Props } from "../types/props";
+import { ICheckboxInputs, IFormInputs, ISubscribeInputs, Props } from "../types/props";
 import Checkbox from "./Checkbox";
 
 const CTA: FunctionComponent<Props> = ({ lightTheme }) => {
@@ -14,10 +15,16 @@ const CTA: FunctionComponent<Props> = ({ lightTheme }) => {
   } = useForm<ICheckboxInputs & IFormInputs>({
     criteriaMode: "all",
   });
-  const onSubmit = (data: {}) => {
-    console.log(JSON.stringify(data));
-    //TODO handle submit
+  const onSubmit: SubmitHandler<ISubscribeInputs> = async (data) => {
+    try {
+      const response = await axios.post('/api/subscribe', {email: data.email})
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   };
+
+  const onError = (errors, e) => console.log(errors, e);
   return (
     <form
       className={
@@ -25,7 +32,7 @@ const CTA: FunctionComponent<Props> = ({ lightTheme }) => {
           ? `${styles.container_cta} ${styles.container_cta__light}`
           : `${styles.container_cta}`
       }
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, onError)}
     >
       <div className={styles.col}>
         <input

@@ -54,3 +54,7 @@ export interface AudioPlayerProps {
     requiredMessage: string;
     register: UseFormRegister<ICheckboxInputs & IFormInputs>;
     }
+
+    export interface ISubscribeInputs{
+      email: string
+    }

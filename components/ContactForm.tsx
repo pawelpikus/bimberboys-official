@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ICheckboxInputs, IFormInputs } from "../types/props";
 import { useState } from "react";
 import Checkbox from "./Checkbox";
-import Botpoison from "@botpoison/browser";
+import Botpoison from "@botpoison/browser"
 import axios from "axios";
 
 const FORMSPARK_ACTION_URL = "https://submit-form.com/H4gj2GtK";
@@ -27,17 +27,21 @@ const ContactForm = () => {
   const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
     setSubmitting(true);
     const { solution } = await botpoison.challenge();
-
-    await axios.post(FORMSPARK_ACTION_URL, {
-      name: data.name,
-      email: data.email,
-      message: data.message,
-      _botpoison: solution,
-    });
-    setMessage(`${data.name}, dziękujemy za wysłanie wiadomości!`);
-    reset();
-    setSubmitting(false);
-    setChecked(false);
+    try{
+      await axios.post(FORMSPARK_ACTION_URL, {
+        name: data.name,
+        email: data.email,
+        message: data.message,
+        _botpoison: solution,
+      });
+      setMessage(`${data.name}, dziękujemy za wysłanie wiadomości!`);
+      reset();
+      setSubmitting(false);
+      setChecked(false);
+    } catch(error){
+        console.log(error)
+    }
+    
   };
 
   return (
