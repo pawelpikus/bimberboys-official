@@ -84,7 +84,6 @@
 
 .textarea {
   height: 100px;
-  margin-bottom: $base-margin;
   resize: none;
   overflow: auto;
 }
@@ -98,7 +97,6 @@
 
 .message {
   font-size: $base-font-size;
-  color: $accent;
   text-align: center;
 }
 
