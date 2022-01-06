@@ -45,6 +45,6 @@ export default async function handler(
     return res.status(201).json({ ...email, message: 'success' })
   } catch (error) {
     console.log(error)
-    return res.status(500).json({ ...email, error: email.error.message })
+    return res.status(500).json({ ...email, error: email.message })
   }
 }
