@@ -7,6 +7,12 @@ export interface Props {
     children?: React.ReactNode;
 }
 
+export interface CTAProps{
+  status: "error" | "success" | "sending" | null;
+  message: string | Error | null
+  onValidated: (formData: any) => void 
+}
+
 export interface YoutubeProps{
     embedId: string;
 }
@@ -53,4 +59,8 @@ export interface AudioPlayerProps {
     checkboxMessage: string;
     requiredMessage: string;
     register: UseFormRegister<ICheckboxInputs & IFormInputs>;
+    }
+
+    export interface ISubscribeInputs{
+      email: string
     }

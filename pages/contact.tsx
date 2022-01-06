@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/ListenContact.module.scss";
-import { Layout, CTA, ContactForm } from "../components";
+import { Layout, ContactForm } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import contact_img from "../public/contact_img.jpg";
 import React from "react";

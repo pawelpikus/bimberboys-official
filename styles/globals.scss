@@ -2,7 +2,7 @@
 @import "variables";
 
 :root {
-  --bar-before-width: 150px;
+  --bar-before-width: 0;
 }
 
 html,
@@ -16,7 +16,6 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 * {
