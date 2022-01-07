@@ -25,7 +25,7 @@
 
 .forwardBackward,
 .volumeMute {
-  color: $accent;
+  color: $highlight;
   font-size: $font-size-xs;
   background: none;
   border: none;
@@ -47,7 +47,7 @@
 }
 
 .playPause {
-  color: $accent;
+  color: $highlight;
   background: none;
   border: none;
   font-size: $font-size-lg;
@@ -62,8 +62,8 @@
 .volumeMute:focus,
 .playPause:focus,
 .list_item:focus {
-  color: $accent;
-  outline: 3px solid $accent;
+  color: $highlight;
+  outline: 3px solid $highlight;
   outline-offset: 3px;
   transition: none;
 }
@@ -174,7 +174,8 @@
 }
 
 .active {
-  color: $accent;
+  color: $highlight;
+  font-weight: 700;
 }
 
 .track_title {

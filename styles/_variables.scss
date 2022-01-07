@@ -1,8 +1,9 @@
 // theme colors
 $primary: #161a1d !default;
 $secondary: #f5f3f4 !default;
-$error: #ffba08 !default;
-$accent: #e5383b !default;
+$highlight: #ffba08 !default;
+$accent: #e5383bda !default;
+$bg-lighter: #000000 !default;
 
 // spacing
 $base-padding: 1em;
@@ -28,6 +29,6 @@ $font-size-xxl: $base-font-size * 3;
 
 $bar-bg: $secondary;
 $bar-before-width: 150px;
-$bar-before-color: $accent;
-$knob: $accent;
+$bar-before-color: $highlight;
+$knob: $highlight;
 $selectedKnob: darken($accent, 10);
