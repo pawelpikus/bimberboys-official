@@ -23,8 +23,8 @@
 }
 
 .terms {
-  width: 20px;
-  height: 20px;
+  width: 48px;
+  height: 48px;
   appearance: none;
   border: 2px solid #fff;
   border-radius: 1px;
@@ -44,12 +44,10 @@
 }
 
 .check_icon {
-  width: 30px;
-  height: 30px;
-  font-size: $font-size-sm;
+  font-size: $font-size-xl;
   position: absolute;
-  left: 7px;
-  top: -2px;
+  left: 12px;
+  top: 10px;
 }
 
 .checkbox_msg {
@@ -87,6 +85,9 @@
   resize: none;
   overflow: auto;
 }
+.button {
+  margin-top: $base-margin;
+}
 
 .error {
   font-size: $font-size-sm;
@@ -98,6 +99,7 @@
 .message {
   font-size: $base-font-size;
   text-align: center;
+  color: $highlight;
 }
 
 .link {
@@ -119,8 +121,15 @@
   .textarea {
     height: 180px;
   }
-}
 
-.button {
-  margin-top: $base-margin;
+  .check_icon {
+    font-size: $font-size-sm;
+    left: 8px;
+    top: 6px;
+  }
+
+  .terms {
+    width: 20px;
+    height: 20px;
+  }
 }

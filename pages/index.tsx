@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             cookieName="cookieConsent"
             style={{ background: "#2B373B", fontSize: "13px" }}
             buttonStyle={{
-              background: "#e5383b",
+              background: "#e5383bda",
               color: "#f5f3f4",
               fontSize: "13px",
             }}
