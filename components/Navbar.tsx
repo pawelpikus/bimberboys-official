@@ -23,9 +23,7 @@ const Navbar: FunctionComponent<Props> = () => {
       >
         <span className={styles.hamburger}></span>
       </button>
-      <nav
-        className={`${styles.nav}`}
-      >
+      <nav className={`${styles.nav}`}>
         <ul className={styles.nav_list}>
           <li>
             <Link href="/">

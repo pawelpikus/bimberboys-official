@@ -2,15 +2,9 @@ import styles from "../styles/Home.module.scss";
 import { FunctionComponent } from "react";
 import { Props } from "../types/props";
 
-const Footer: FunctionComponent<Props> = ({ lightTheme }) => {
+const Footer: FunctionComponent<Props> = () => {
   return (
-    <footer
-      className={
-        lightTheme
-          ? `${styles.footer} ${styles.footer_lightTheme}`
-          : `${styles.footer}`
-      }
-    >
+    <footer className={styles.footer}>
       <p>
         © 2022 by Bimber Boys. <br />
         Proudly created by Pawel Pikus

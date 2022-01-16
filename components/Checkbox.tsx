@@ -6,7 +6,6 @@ import styles from "../styles/Form.module.scss";
 import { CheckboxProps } from "../types/props";
 
 const Checkbox: FunctionComponent<CheckboxProps> = ({
-  lightTheme,
   setChecked,
   checked,
   checkboxMessage,
@@ -16,13 +15,7 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
 }) => {
   return (
     <>
-      <div
-        className={
-          lightTheme
-            ? `${styles.terms_wrapper} ${styles.light_theme}`
-            : `${styles.terms_wrapper}`
-        }
-      >
+      <div className={styles.terms_wrapper}>
         <label className={styles.terms_label}>
           <input
             id={name}

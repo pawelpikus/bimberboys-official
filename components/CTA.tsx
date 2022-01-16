@@ -61,7 +61,6 @@ const CTA: FunctionComponent<CTAProps> = ({ status, message, onValidated }) => {
             <span className={styles.error}>{errors.email.message}</span>
           )}
           <Checkbox
-            lightTheme
             name="acceptTerms"
             setChecked={setisChecked}
             checked={ischecked}
