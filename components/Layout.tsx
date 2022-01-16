@@ -3,7 +3,7 @@ import { Navbar, Footer, CTA } from "../components";
 import styles from "../styles/Home.module.scss";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
-const Layout = ({ children, ...lightTheme }: Props) => {
+const Layout = ({ children }: Props) => {
   const postUrl = `https://gmail.us20.list-manage.com/subscribe/post?u=${process.env.NEXT_PUBLIC_MAILCHIMP_U}&id=${process.env.NEXT_PUBLIC_MAILCHIMP_ID}`;
 
   return (
@@ -11,7 +11,7 @@ const Layout = ({ children, ...lightTheme }: Props) => {
       <div>
         <div className={styles.header_container}>
           <section className={styles.content}>
-            <Navbar {...lightTheme} />
+            <Navbar />
           </section>
         </div>
 

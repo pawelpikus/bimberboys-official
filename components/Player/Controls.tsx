@@ -30,24 +30,26 @@ const Controls = ({ src, trackId }: AudioPlayerProps) => {
   const progressBar = useRef<HTMLInputElement | null>(null);
   const animationRef = useRef<number>(0);
 
-  const { handleNextTrack, handlePrevTrack, setActive } = useContext(PlaylistContext);
+  const { handleNextTrack, setActive } = useContext(PlaylistContext);
 
   useEffect(() => {
     if (audioPlayer.current && progressBar.current) {
-      audioPlayer.current.volume = 0.25
+      audioPlayer.current.volume = 0.25;
       const seconds = Math.floor(audioPlayer.current.duration);
       setCurrentTrackDuration(seconds);
       progressBar.current.max = seconds.toString();
-      setActive(trackId)
+      setActive(trackId);
     }
-  }, [trackId,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    trackId,
     audioPlayer?.current?.onloadedmetadata,
     audioPlayer?.current?.readyState,
   ]);
 
-  useEffect(() =>{
-    handleStop()
-  }, [src])
+  useEffect(() => {
+    handleStop();
+  }, [src]);
 
   const handleStop = () => {
     if (audioPlayer.current) {
@@ -98,7 +100,9 @@ const Controls = ({ src, trackId }: AudioPlayerProps) => {
     if (progressBar.current && audioPlayer.current) {
       progressBar.current.style.setProperty(
         "--bar-before-width",
-        `${(parseFloat(progressBar.current.value) / currentTrackDuration) * 100}%`
+        `${
+          (parseFloat(progressBar.current.value) / currentTrackDuration) * 100
+        }%`
       );
       setCurrentTrackMoment(parseFloat(progressBar.current.value));
     }

@@ -10,18 +10,21 @@
   letter-spacing: 1px;
   color: white;
   cursor: pointer;
+
+  &:hover {
+    background-color: darken($accent, 10);
+    transition: 250ms ease-in-out;
+  }
+
+  &:focus {
+    background-color: darken($accent, 10);
+    outline: 3px solid $accent;
+    outline-offset: 3px;
+  }
 }
 
-.button:hover,
-.button:focus {
-  background-color: darken($accent, 10);
-}
-
-.button:hover {
-  transition: 250ms ease-in-out;
-}
-
-.button:focus {
-  outline: 3px solid $accent;
-  outline-offset: 3px;
+@media (min-width: 600px) {
+  .button {
+    align-self: flex-start;
+  }
 }

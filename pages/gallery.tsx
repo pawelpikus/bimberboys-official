@@ -41,155 +41,155 @@ const Gallery: NextPage = () => {
         />
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </Head>
-      
-        <Layout lightTheme>
-          <div className={styles.content}>
-            <h1 className={styles.title}>Galeria zdjęć</h1>
-            <div className={styles.gallery_container}>
-              {/* photo 1 */}
-              <div className={styles.img_wrapper}>
-                <Image
-                  src={gallery_img1}
-                  alt="członkowie zespołu Bimber Boys"
-                  placeholder="blur"
-                  priority
-                />
-                <div className={styles.description}>
-                  <h3 className={styles.desc_title}>Image title</h3>
-                  <p className={styles.desc_text}>
-                    Short description..., sit amet consectetur adipisicing elit.
-                    Odio culpa dicta distinctio quos eveniet qui tenetur ad
-                    impedit officia, expedita sed est necessitatibus, eligendi
-                    quam perspiciatis maiores in saepe beatae.
-                  </p>
-                </div>
+
+      <Layout>
+        <div className={styles.content}>
+          <h1 className={styles.title}>Galeria zdjęć</h1>
+          <div className={styles.gallery_container}>
+            {/* photo 1 */}
+            <div className={styles.img_wrapper}>
+              <Image
+                src={gallery_img1}
+                alt="członkowie zespołu Bimber Boys"
+                placeholder="blur"
+                priority
+              />
+              <div className={styles.description}>
+                <h3 className={styles.desc_title}>Image title</h3>
+                <p className={styles.desc_text}>
+                  Short description..., sit amet consectetur adipisicing elit.
+                  Odio culpa dicta distinctio quos eveniet qui tenetur ad
+                  impedit officia, expedita sed est necessitatibus, eligendi
+                  quam perspiciatis maiores in saepe beatae.
+                </p>
               </div>
-              {/* photo 2 */}
-              <div className={styles.img_wrapper}>
-                <Image
-                  src={gallery_img2}
-                  alt="członkowie zespołu Bimber Boys"
-                  placeholder="blur"
-                  priority
-                />
-                <div className={styles.description}>
-                  <h3 className={styles.desc_title}>Image title</h3>
-                  <p className={styles.desc_text}>
-                    Short description..., sit amet consectetur adipisicing elit.
-                    Odio culpa dicta distinctio quos eveniet qui tenetur ad
-                    impedit officia, expedita sed est necessitatibus, eligendi
-                    quam perspiciatis maiores in saepe beatae.
-                  </p>
-                </div>
+            </div>
+            {/* photo 2 */}
+            <div className={styles.img_wrapper}>
+              <Image
+                src={gallery_img2}
+                alt="członkowie zespołu Bimber Boys"
+                placeholder="blur"
+                priority
+              />
+              <div className={styles.description}>
+                <h3 className={styles.desc_title}>Image title</h3>
+                <p className={styles.desc_text}>
+                  Short description..., sit amet consectetur adipisicing elit.
+                  Odio culpa dicta distinctio quos eveniet qui tenetur ad
+                  impedit officia, expedita sed est necessitatibus, eligendi
+                  quam perspiciatis maiores in saepe beatae.
+                </p>
               </div>
-              {/* photo 3 */}
-              <div className={styles.img_wrapper}>
-                <Image
-                  src={gallery_img3}
-                  alt="członkowie zespołu Bimber Boys"
-                  placeholder="blur"
-                  priority
-                />
-                <div className={styles.description}>
-                  <h3 className={styles.desc_title}>Image title</h3>
-                  <p className={styles.desc_text}>
-                    Short description..., sit amet consectetur adipisicing elit.
-                    Odio culpa dicta distinctio quos eveniet qui tenetur ad
-                    impedit officia, expedita sed est necessitatibus, eligendi
-                    quam perspiciatis maiores in saepe beatae.
-                  </p>
-                </div>
+            </div>
+            {/* photo 3 */}
+            <div className={styles.img_wrapper}>
+              <Image
+                src={gallery_img3}
+                alt="członkowie zespołu Bimber Boys"
+                placeholder="blur"
+                priority
+              />
+              <div className={styles.description}>
+                <h3 className={styles.desc_title}>Image title</h3>
+                <p className={styles.desc_text}>
+                  Short description..., sit amet consectetur adipisicing elit.
+                  Odio culpa dicta distinctio quos eveniet qui tenetur ad
+                  impedit officia, expedita sed est necessitatibus, eligendi
+                  quam perspiciatis maiores in saepe beatae.
+                </p>
               </div>
-              {/* photo 4 */}
-              <div className={styles.img_wrapper}>
-                <Image
-                  src={gallery_img4}
-                  alt="członkowie zespołu Bimber Boys"
-                  placeholder="blur"
-                  priority
-                />
-                <div className={styles.description}>
-                  <h3 className={styles.desc_title}>Image title</h3>
-                  <p className={styles.desc_text}>
-                    Short description..., sit amet consectetur adipisicing elit.
-                    Odio culpa dicta distinctio quos eveniet qui tenetur ad
-                    impedit officia, expedita sed est necessitatibus, eligendi
-                    quam perspiciatis maiores in saepe beatae.
-                  </p>
-                </div>
+            </div>
+            {/* photo 4 */}
+            <div className={styles.img_wrapper}>
+              <Image
+                src={gallery_img4}
+                alt="członkowie zespołu Bimber Boys"
+                placeholder="blur"
+                priority
+              />
+              <div className={styles.description}>
+                <h3 className={styles.desc_title}>Image title</h3>
+                <p className={styles.desc_text}>
+                  Short description..., sit amet consectetur adipisicing elit.
+                  Odio culpa dicta distinctio quos eveniet qui tenetur ad
+                  impedit officia, expedita sed est necessitatibus, eligendi
+                  quam perspiciatis maiores in saepe beatae.
+                </p>
               </div>
-              {/* photo 5 */}
-              <div className={styles.img_wrapper}>
-                <Image
-                  src={gallery_img5}
-                  alt="członkowie zespołu Bimber Boys"
-                  placeholder="blur"
-                />
-                <div className={styles.description}>
-                  <h3 className={styles.desc_title}>Image title</h3>
-                  <p className={styles.desc_text}>
-                    Short description..., sit amet consectetur adipisicing elit.
-                    Odio culpa dicta distinctio quos eveniet qui tenetur ad
-                    impedit officia, expedita sed est necessitatibus, eligendi
-                    quam perspiciatis maiores in saepe beatae.
-                  </p>
-                </div>
+            </div>
+            {/* photo 5 */}
+            <div className={styles.img_wrapper}>
+              <Image
+                src={gallery_img5}
+                alt="członkowie zespołu Bimber Boys"
+                placeholder="blur"
+              />
+              <div className={styles.description}>
+                <h3 className={styles.desc_title}>Image title</h3>
+                <p className={styles.desc_text}>
+                  Short description..., sit amet consectetur adipisicing elit.
+                  Odio culpa dicta distinctio quos eveniet qui tenetur ad
+                  impedit officia, expedita sed est necessitatibus, eligendi
+                  quam perspiciatis maiores in saepe beatae.
+                </p>
               </div>
-              {/* photo 6*/}
-              <div className={styles.img_wrapper}>
-                <Image
-                  src={gallery_img6}
-                  alt="członkowie zespołu Bimber Boys"
-                  layout="responsive"
-                  placeholder="blur"
-                />
-                <div className={styles.description}>
-                  <h3 className={styles.desc_title}>Image title</h3>
-                  <p className={styles.desc_text}>
-                    Short description..., sit amet consectetur adipisicing elit.
-                    Odio culpa dicta distinctio quos eveniet qui tenetur ad
-                    impedit officia, expedita sed est necessitatibus, eligendi
-                    quam perspiciatis maiores in saepe beatae.
-                  </p>
-                </div>
+            </div>
+            {/* photo 6*/}
+            <div className={styles.img_wrapper}>
+              <Image
+                src={gallery_img6}
+                alt="członkowie zespołu Bimber Boys"
+                layout="responsive"
+                placeholder="blur"
+              />
+              <div className={styles.description}>
+                <h3 className={styles.desc_title}>Image title</h3>
+                <p className={styles.desc_text}>
+                  Short description..., sit amet consectetur adipisicing elit.
+                  Odio culpa dicta distinctio quos eveniet qui tenetur ad
+                  impedit officia, expedita sed est necessitatibus, eligendi
+                  quam perspiciatis maiores in saepe beatae.
+                </p>
               </div>
-              {/* photo 7 */}
-              <div className={styles.img_wrapper}>
-                <Image
-                  src={gallery_img7}
-                  alt="członkowie zespołu Bimber Boys"
-                  placeholder="blur"
-                />
-                <div className={styles.description}>
-                  <h3 className={styles.desc_title}>Image title</h3>
-                  <p className={styles.desc_text}>
-                    Short description..., sit amet consectetur adipisicing elit.
-                    Odio culpa dicta distinctio quos eveniet qui tenetur ad
-                    impedit officia, expedita sed est necessitatibus, eligendi
-                    quam perspiciatis maiores in saepe beatae.
-                  </p>
-                </div>
+            </div>
+            {/* photo 7 */}
+            <div className={styles.img_wrapper}>
+              <Image
+                src={gallery_img7}
+                alt="członkowie zespołu Bimber Boys"
+                placeholder="blur"
+              />
+              <div className={styles.description}>
+                <h3 className={styles.desc_title}>Image title</h3>
+                <p className={styles.desc_text}>
+                  Short description..., sit amet consectetur adipisicing elit.
+                  Odio culpa dicta distinctio quos eveniet qui tenetur ad
+                  impedit officia, expedita sed est necessitatibus, eligendi
+                  quam perspiciatis maiores in saepe beatae.
+                </p>
               </div>
-              {/* photo 8 */}
-              <div className={styles.img_wrapper}>
-                <Image
-                  src={gallery_img8}
-                  alt="członkowie zespołu Bimber Boys"
-                  placeholder="blur"
-                />
-                <div className={styles.description}>
-                  <h3 className={styles.desc_title}>Image title</h3>
-                  <p className={styles.desc_text}>
-                    Short description..., sit amet consectetur adipisicing elit.
-                    Odio culpa dicta distinctio quos eveniet qui tenetur ad
-                    impedit officia, expedita sed est necessitatibus, eligendi
-                    quam perspiciatis maiores in saepe beatae.
-                  </p>
-                </div>
+            </div>
+            {/* photo 8 */}
+            <div className={styles.img_wrapper}>
+              <Image
+                src={gallery_img8}
+                alt="członkowie zespołu Bimber Boys"
+                placeholder="blur"
+              />
+              <div className={styles.description}>
+                <h3 className={styles.desc_title}>Image title</h3>
+                <p className={styles.desc_text}>
+                  Short description..., sit amet consectetur adipisicing elit.
+                  Odio culpa dicta distinctio quos eveniet qui tenetur ad
+                  impedit officia, expedita sed est necessitatibus, eligendi
+                  quam perspiciatis maiores in saepe beatae.
+                </p>
               </div>
             </div>
           </div>
-        </Layout>
+        </div>
+      </Layout>
     </>
   );
 };

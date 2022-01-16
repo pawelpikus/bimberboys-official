@@ -42,22 +42,18 @@
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
 
-.nav_link:hover,
-.nav_link:focus {
-  color: $accent;
-}
+  &:hover {
+    color: $accent;
+    transition: 250ms ease-in-out;
+  }
 
-.nav_link:hover {
-  transition: 250ms ease-in-out;
-}
-
-.nav_link:focus {
-  color: #fff;
-  outline: 3px solid $accent;
-  outline-offset: 3px;
-  transition: none;
+  &:focus {
+    color: #fff;
+    outline: 3px solid $accent;
+    outline-offset: 3px;
+    transition: none;
+  }
 }
 
 .container_social {

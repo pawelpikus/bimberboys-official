@@ -104,7 +104,6 @@ const ContactForm = () => {
             zapytania przedstawienia oferty.{" "}
           </p>
           <Checkbox
-            lightTheme
             name="acceptTerms"
             setChecked={setChecked}
             checked={checked}
