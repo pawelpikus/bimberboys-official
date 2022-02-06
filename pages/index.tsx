@@ -6,6 +6,7 @@ import Image from "next/image";
 import logo from "../public/bimber-logo2.png";
 import CookieConsent from "react-cookie-consent";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
   return (
@@ -40,15 +41,20 @@ const Home: NextPage = () => {
       <Layout>
         <div className={styles.main_container}>
           <div className={styles.content}>
-            <div className={styles.img_container}>
-              <Image
-                src={logo}
-                alt="Bimber Boys logo"
-                layout="intrinsic"
-                placeholder="blur"
-                priority
-              />
-            </div>
+            <motion.div
+              animate={{ x: [-500, 100] }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className={styles.img_container}>
+                <Image
+                  src={logo}
+                  alt="Bimber Boys logo"
+                  layout="intrinsic"
+                  placeholder="blur"
+                  priority
+                />
+              </div>
+            </motion.div>
           </div>
           <CookieConsent
             location="bottom"
