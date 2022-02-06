@@ -10,11 +10,12 @@
   height: 95vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("/background_img-main.jpg") no-repeat center top;
+  background: url("/background_img-main.jpg") no-repeat center top;
   background-size: cover;
   position: relative;
 }
+
+// linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))
 
 .img_container {
   max-width: 90%;

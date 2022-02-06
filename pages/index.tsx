@@ -41,7 +41,7 @@ const Home: NextPage = () => {
       <Layout>
         <div className={styles.main_container}>
           <div className={styles.content}>
-            <motion.div
+            {/* <motion.div
               animate={{ x: [-500, 100] }}
               transition={{ duration: 0.7 }}
             >
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
                   priority
                 />
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
           <CookieConsent
             location="bottom"
