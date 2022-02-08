@@ -10,7 +10,7 @@
   height: 95vh;
   display: flex;
   align-items: center;
-  background: url("/background_img-main.jpg") no-repeat center top;
+  background: url("/tv.webp") no-repeat center top;
   background-size: cover;
   position: relative;
 }
@@ -18,12 +18,32 @@
 // linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))
 
 .img_container {
+  position: relative;
   max-width: 90%;
   margin-bottom: 3em;
+  z-index: 10;
 }
 
 .logo {
   max-width: 100px;
+}
+
+.marek {
+  max-width: 1200px;
+  position: absolute;
+  margin-left: -500px;
+  margin-top: -250px;
+  top: 45%;
+  left: 50%;
+  z-index: 1;
+}
+
+.band_right {
+  max-width: 900px;
+  top: 50%;
+  right: 50%;
+  position: absolute;
+  z-index: 7;
 }
 
 .error {

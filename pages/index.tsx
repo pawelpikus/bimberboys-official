@@ -4,6 +4,8 @@ import styles from "../styles/Home.module.scss";
 import { Layout } from "../components";
 import Image from "next/image";
 import logo from "../public/bimber-logo2.png";
+import marek from "../public/marek-sm.webp";
+import band from "../public/bartol-tulik-krzysiek.webp";
 import CookieConsent from "react-cookie-consent";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -41,20 +43,15 @@ const Home: NextPage = () => {
       <Layout>
         <div className={styles.main_container}>
           <div className={styles.content}>
-            {/* <motion.div
-              animate={{ x: [-500, 100] }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className={styles.img_container}>
-                <Image
-                  src={logo}
-                  alt="Bimber Boys logo"
-                  layout="intrinsic"
-                  placeholder="blur"
-                  priority
-                />
-              </div>
-            </motion.div> */}
+            <div className={styles.img_container}>
+              <Image
+                src={logo}
+                alt="Bimber Boys logo"
+                layout="intrinsic"
+                placeholder="blur"
+                priority
+              />
+            </div>
           </div>
           <CookieConsent
             location="bottom"
@@ -77,6 +74,31 @@ const Home: NextPage = () => {
               </Link>
             </span>
           </CookieConsent>
+          <motion.div
+            animate={{ opacity: [0, 1] }}
+            transition={{ duration: 1.4 }}
+          >
+            <div className={styles.marek}>
+              <Image
+                src={marek}
+                alt="Bimber Boys logo"
+                layout="intrinsic"
+                placeholder="blur"
+                priority
+              />
+            </div>
+          </motion.div>
+          <motion.div animate={{ x: [0, -700] }} transition={{ duration: 1 }}>
+            <div className={styles.band_right}>
+              <Image
+                src={band}
+                alt="Bimber Boys logo"
+                layout="intrinsic"
+                placeholder="blur"
+                priority
+              />
+            </div>
+          </motion.div>
         </div>
       </Layout>
     </>
