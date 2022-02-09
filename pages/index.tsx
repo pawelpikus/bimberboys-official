@@ -44,13 +44,18 @@ const Home: NextPage = () => {
         <div className={styles.main_container}>
           <div className={styles.content}>
             <div className={styles.img_container}>
-              <Image
-                src={logo}
-                alt="Bimber Boys logo"
-                layout="intrinsic"
-                placeholder="blur"
-                priority
-              />
+              <motion.div
+                animate={{ opacity: [0, 1] }}
+                transition={{ duration: 2 }}
+              >
+                <Image
+                  src={logo}
+                  alt="Bimber Boys logo"
+                  layout="intrinsic"
+                  placeholder="blur"
+                  priority
+                />
+              </motion.div>
             </div>
           </div>
           <CookieConsent
@@ -74,31 +79,6 @@ const Home: NextPage = () => {
               </Link>
             </span>
           </CookieConsent>
-          <motion.div
-            animate={{ opacity: [0, 1] }}
-            transition={{ duration: 1.4 }}
-          >
-            <div className={styles.marek}>
-              <Image
-                src={marek}
-                alt="Bimber Boys logo"
-                layout="intrinsic"
-                placeholder="blur"
-                priority
-              />
-            </div>
-          </motion.div>
-          <motion.div animate={{ x: [0, -700] }} transition={{ duration: 1 }}>
-            <div className={styles.band_right}>
-              <Image
-                src={band}
-                alt="Bimber Boys logo"
-                layout="intrinsic"
-                placeholder="blur"
-                priority
-              />
-            </div>
-          </motion.div>
         </div>
       </Layout>
     </>
