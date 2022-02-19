@@ -7,9 +7,8 @@ import Botpoison from "@botpoison/browser";
 import axios from "axios";
 
 const FORMSPARK_ACTION_URL = process.env.NEXT_FORMSPARK_ACTION_URL;
-const botpoisonPublicKey = process.env.NEXT_BOTPOISON_PUBLIC_KEY;
 const botpoison = new Botpoison({
-  publicKey: botpoisonPublicKey || "",
+  publicKey: "pk_62e6f8fe-3509-4f52-bac4-4e95be8b1876",
 });
 
 const ContactForm = () => {
@@ -29,7 +28,7 @@ const ContactForm = () => {
     setSubmitting(true);
     const { solution } = await botpoison.challenge();
     try {
-      if (FORMSPARK_ACTION_URL && botpoisonPublicKey)
+      if (FORMSPARK_ACTION_URL)
         await axios.post(FORMSPARK_ACTION_URL, {
           name: data.name,
           email: data.email,
