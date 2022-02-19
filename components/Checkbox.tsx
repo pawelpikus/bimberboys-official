@@ -17,7 +17,7 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
   return (
     <>
       <div className={styles.terms_wrapper}>
-        <label className={styles.terms_label}>
+        <label className={styles.terms_label} htmlFor={name}>
           <input
             id={name}
             className={styles.terms}
