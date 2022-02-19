@@ -1,16 +1,13 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import { Layout } from "../components";
 import Image from "next/image";
 import logo from "../public/bimber-logo2.png";
-import marek from "../public/marek-sm.webp";
-import band from "../public/bartol-tulik-krzysiek.webp";
 import CookieConsent from "react-cookie-consent";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <>
       <Head>
