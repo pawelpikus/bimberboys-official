@@ -5,7 +5,7 @@ import { Layout } from "../components";
 import Image from "next/image";
 import aboutPic from "../public/about.jpg";
 
-const About: NextPage = () => {
+const About = () => {
   return (
     <>
       <Head>
@@ -52,6 +52,22 @@ const About: NextPage = () => {
               szlagiery dwudziestolecia międzywojennego, miejski folk z różnych
               stron świata oraz... poetyckie ballady.
             </p>
+            <p>
+              Podczas występów, oprócz naszych własnych kompozycji, usłyszycie
+              między innymi piosenki z repertuaru: St. Grzesiuka, A. Awdiejewa,
+              B. Okudżawy, M. Fogga, W. Wysockiego i... K. Krawczyka.
+            </p>
+            <p>
+              Zgodnie z nazwą wypracowaliśmy początkowo nieco chropawy, rubaszny
+              styl ale z czasem do naszej muzyki wkradły się niespodziewanie
+              sentymentalne nuty i nieco poważniejsze treści. Dziś z taką samą
+              radością gramy szalone potańcówkowe programy w stylu retro, jak i
+              delikatne koncerty złożone z poetyckich ballad.
+            </p>
+            <p>
+              A poza tym - jesteśmy pierwszym w świecie boys bandem, który nie
+              tańczy, za to gra na akustycznych instrumentach…
+            </p>
             <div className={styles.band_members_container}>
               <div className={styles.col}>
                 <p className={styles.name}>KRZYSZTOF BUDA</p>
@@ -70,7 +86,7 @@ const About: NextPage = () => {
                 <p className={styles.caption}>śpiew i gitara akustyczna</p>
               </div>
               <div className={styles.col}>
-                <p className={styles.name}>Cory Younts</p>
+                <p className={styles.name}>Marek Pukas</p>
                 <p className={styles.caption}>perkusja</p>
               </div>
             </div>

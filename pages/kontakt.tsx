@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/ListenContact.module.scss";
@@ -7,7 +6,7 @@ import logo_sm from "../public/bimberboys-logo-sm.png";
 import contact_img from "../public/contact_img.jpg";
 import React from "react";
 
-const Contact: NextPage = () => {
+const Contact = () => {
   return (
     <>
       <Head>

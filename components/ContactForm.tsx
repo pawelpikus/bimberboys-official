@@ -6,9 +6,10 @@ import Checkbox from "./Checkbox";
 import Botpoison from "@botpoison/browser";
 import axios from "axios";
 
-const FORMSPARK_ACTION_URL = "https://submit-form.com/H4gj2GtK";
+const FORMSPARK_ACTION_URL = process.env.NEXT_FORMSPARK_ACTION_URL;
+const botpoisonPublicKey = process.env.NEXT_BOTPOISON_PUBLIC_KEY;
 const botpoison = new Botpoison({
-  publicKey: "pk_62e6f8fe-3509-4f52-bac4-4e95be8b1876",
+  publicKey: botpoisonPublicKey || "",
 });
 
 const ContactForm = () => {
@@ -28,12 +29,13 @@ const ContactForm = () => {
     setSubmitting(true);
     const { solution } = await botpoison.challenge();
     try {
-      await axios.post(FORMSPARK_ACTION_URL, {
-        name: data.name,
-        email: data.email,
-        message: data.message,
-        _botpoison: solution,
-      });
+      if (FORMSPARK_ACTION_URL && botpoisonPublicKey)
+        await axios.post(FORMSPARK_ACTION_URL, {
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          _botpoison: solution,
+        });
       setMessage(`${data.name}, dziękujemy za wysłanie wiadomości!`);
       reset();
       setSubmitting(false);

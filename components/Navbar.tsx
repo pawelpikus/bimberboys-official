@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
+import { ROUTES } from "../routes/routes";
 
 const Navbar: FunctionComponent<Props> = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,28 +36,28 @@ const Navbar: FunctionComponent<Props> = () => {
             </Link>
           </li>
           <li>
-            <Link href="/about">
+            <Link href={ROUTES.O_NAS}>
               <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
                 O nas
               </a>
             </Link>
           </li>
           <li>
-            <Link href="/listen">
+            <Link href={ROUTES.POSLUCHAJ}>
               <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
                 Posłuchaj
               </a>
             </Link>
           </li>
           <li>
-            <Link href="/gallery">
+            <Link href={ROUTES.GALERIA}>
               <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
                 Galeria
               </a>
             </Link>
           </li>
           <li>
-            <Link href="/contact">
+            <Link href={ROUTES.KONTAKT}>
               <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
                 Kontakt
               </a>

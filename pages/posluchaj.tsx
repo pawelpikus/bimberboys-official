@@ -1,14 +1,13 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/ListenContact.module.scss";
 import { Layout } from "../components";
 import logo_sm from "../public/bimberboys-logo-sm.png";
-import YouTube from "react-youtube"
+import YouTube from "react-youtube";
 import React from "react";
 import Player from "../components/Player/Player";
 
-const Listen: NextPage = () => {
+const Listen = () => {
   return (
     <>
       <Head>
@@ -54,14 +53,16 @@ const Listen: NextPage = () => {
                   Posłuchaj naszych piosenek
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  luctus convallis nisi et malesuada. Integer lobortis quam quis
-                  ante ultrices, vitae dignissim enim ultricies. Nam sit amet
-                  efficitur nulla. Nulla nulla neque, maximus a neque nec,
-                  convallis euismod dui. Cras eu velit a neque pretium cursus.
-                  Etiam feugiat lectus sed nulla pretium ultricies. Nulla
-                  aliquam neque placerat augue dapibus blandit. Proin efficitur
-                  gravida orci id feugiat.{" "}
+                  Tutaj możecie nas posłuchać. I zobaczyć :) Te utwory to w
+                  większości piosenki zarejestrowane dość spontanicznie podczas
+                  występów „na żywo”. Nawet balladę „Chłopcy źli” (to oczywiście
+                  cover Aloszy Awdiejewa) zarejestrowaliśmy na tak zwaną
+                  „setkę”. Za to teledysk to już poważna praca wielu naszych
+                  przyjaciółek i przyjaciół.
+                </p>
+                <p>
+                  Cały czas tworzymy własne piosenki z myślą o autorskiej
+                  płycie. Pierwsze z tych utworów pojawią się tu już niebawem :)
                 </p>
               </article>
               <Player />

@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import { Layout } from "../components";
@@ -6,8 +5,9 @@ import Image from "next/image";
 import logo from "../public/bimber-logo2.png";
 import CookieConsent from "react-cookie-consent";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <>
       <Head>
@@ -41,13 +41,18 @@ const Home: NextPage = () => {
         <div className={styles.main_container}>
           <div className={styles.content}>
             <div className={styles.img_container}>
-              <Image
-                src={logo}
-                alt="Bimber Boys logo"
-                layout="intrinsic"
-                placeholder="blur"
-                priority
-              />
+              <motion.div
+                animate={{ opacity: [0, 1] }}
+                transition={{ duration: 2 }}
+              >
+                <Image
+                  src={logo}
+                  alt="Bimber Boys logo"
+                  layout="intrinsic"
+                  placeholder="blur"
+                  priority
+                />
+              </motion.div>
             </div>
           </div>
           <CookieConsent
