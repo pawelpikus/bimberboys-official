@@ -141,7 +141,10 @@ const Gallery = () => {
                 layout="responsive"
                 placeholder="blur"
               />
-              <div className={styles.description}>
+              <div
+                style={{ marginBottom: "0px" }}
+                className={styles.description}
+              >
                 <h3 className={styles.desc_title}>Bogdan zwany Bodkiem</h3>
                 <p className={styles.desc_text}>
                   Bogdan zwany Bodkiem, oprócz śpiewania, grania na akordeonie,

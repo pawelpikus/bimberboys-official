@@ -39,6 +39,7 @@ const ContactForm = () => {
       reset();
       setSubmitting(false);
       setChecked(false);
+      window.scrollTo(0, 0);
     } catch (error) {
       console.log(error);
     }
