@@ -18,7 +18,7 @@
   .description {
     visibility: visible;
     background: rgba(0, 0, 0, 0.7);
-    overflow-x: scroll;
+    overflow-y: scroll;
   }
 }
 
@@ -50,5 +50,11 @@
 
   .img_wrapper {
     margin-bottom: 0;
+  }
+
+  .img_wrapper:hover {
+    .description {
+      overflow-y: auto;
+    }
   }
 }
