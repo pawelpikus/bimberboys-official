@@ -47,13 +47,14 @@ You will also see any lint errors in the console.
 ## 🤔 Solutions provided in the project
 
 - mock pages were designed using Figma prototyping tool:
-  &nbsp;
-  <img src="./wireframes/figma/bimber-boys-portfolio-index.png" alt="mockup 1" width="200"/>
-  <img src="./wireframes/figma/bimber-boys-portfolio-o-nas.png" alt="mockup 2" width="200"/>
-  <img src="./wireframes/figma/bimber-boys-portfolio-galeria.png" alt="mockup 3" width="200"/>
-  <img src="./wireframes/figma/bimber-boys-portfolio-posluchaj.png" alt="mockup 4" width="200"/>
-  <img src="./wireframes/figma/bimber-boys-portfolio-kontakt.png" alt="mockup 5" width="200"/>
-  &nbsp;
+  <br/>
+    <div>
+    <img src="./wireframes/figma/bimber-boys-portfolio-index.png" alt="mockup 1" width="200"/>
+    <img src="./wireframes/figma/bimber-boys-portfolio-o-nas.png" alt="mockup 2" width="200"/>
+    <img src="./wireframes/figma/bimber-boys-portfolio-galeria.png" alt="mockup 3" width="200"/>
+    <img src="./wireframes/figma/bimber-boys-portfolio-posluchaj.png" alt="mockup 4" width="200"/>
+    <img src="./wireframes/figma/bimber-boys-portfolio-kontakt.png" alt="mockup 5" width="200"/>
+    </div>
 
   -
 
