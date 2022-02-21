@@ -20,7 +20,7 @@ The project is a semi-commercial realisation of a successful cooperation with on
 
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Sass](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Sass](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 &nbsp;
 
 ## 💿 Installation
@@ -47,7 +47,15 @@ You will also see any lint errors in the console.
 ## 🤔 Solutions provided in the project
 
 - mock pages were designed using Figma prototyping tool:
-  <img src="./wireframes/figma/bimber-boys-portfolio-galeria.png" alt="mockup 1" width="200"/>
+  &nbsp;
+  <img src="./wireframes/figma/bimber-boys-portfolio-index.png" alt="mockup 1" width="200"/>
+  <img src="./wireframes/figma/bimber-boys-portfolio-o-nas.png" alt="mockup 2" width="200"/>
+  <img src="./wireframes/figma/bimber-boys-portfolio-galeria.png" alt="mockup 3" width="200"/>
+  <img src="./wireframes/figma/bimber-boys-portfolio-posluchaj.png" alt="mockup 4" width="200"/>
+  <img src="./wireframes/figma/bimber-boys-portfolio-kontakt.png" alt="mockup 5" width="200"/>
+  &nbsp;
+
+  -
 
 ## 💭 Conclusions
 
