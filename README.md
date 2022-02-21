@@ -18,7 +18,7 @@ The project is a semi-commercial realisation of a successful cooperation with on
 
 ## 💡 Technologies
 
-![Next.js](https://nextjs.org/)
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Sass](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 &nbsp;
