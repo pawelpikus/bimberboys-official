@@ -1,34 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![screenshots of bimber-boys-official](./wireframes/readme/pages_all_devices.PNG)
 
-## Getting Started
+# Bimber Boys Band Official Web Page
 
-First, run the development server:
+See the [demo version](https://bimberboys-official.vercel.app/) deployed to [Vercel](https://vercel.com/), you can check the live production version at [Bimber Boys Official](https://bimberboys.pl)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The project is a semi-commercial realisation of a successful cooperation with one of the coolest local folk cover bands in Poland. It is a statically generated landing page written in NextJs, typed with Typescript and styled using Sass with CSS modules.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Main features**:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- subscribing to the newsletter by typing in their email address.
+- user can see the gallery of images with their descriptions on hover/tap.
+- user can listen to the band's music samples using a custom audio player
+- user can watch the band's video clips using a Youtube player
+- sending a message to the band using a provided contact form
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+&nbsp;
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 💡 Technologies
 
-## Learn More
+![Next.js](https://nextjs.org/)
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Sass](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+&nbsp;
 
-To learn more about Next.js, take a look at the following resources:
+## 💿 Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project uses [node ver16.13.0](https://nodejs.org/en/) and [npm ver8.1.0](https://www.npmjs.com/).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. `git fork`
+2. `git clone` your repo.
+3. `cd` into project root directory
+4. `npm i`
 
-## Deploy on Vercel
+Then, you can run:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### `npm run dev`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+&nbsp;
+
+## 🤔 Solutions provided in the project
+
+- mock pages were designed using Figma prototyping tool:
+  <img src="./wireframes/figma/bimber-boys-portfolio-galeria.png" alt="mockup 1" width="200"/>
+
+## 💭 Conclusions
+
+## 🙋‍♂️ Feel free to contact me
+
+LinkedIn - [/in/pawel-pikus](https://www.linkedin.com/in/pawel-pikus/)
+
+&nbsp;
+
+## 👏 Thanks / Special thanks / Credits
+
+Thanks to [dribbble.com](https://dribbble.com/) for inspiration on UI design.
+Thanks to [devmentor.pl](https://devmentor.pl/) - for a cool Readme.md template.
