@@ -10,9 +10,9 @@ const Layout = ({ children }: Props) => {
     <div className={styles.page_container}>
       <div>
         <div className={styles.header_container}>
-          <section className={styles.content}>
+          <div className={styles.content}>
             <Navbar />
-          </section>
+          </div>
         </div>
 
         {children}
@@ -31,9 +31,9 @@ const Layout = ({ children }: Props) => {
         </section>
       </div>
       <div className={styles.footer_container}>
-        <section className={styles.content}>
+        <div className={styles.content}>
           <Footer />
-        </section>
+        </div>
       </div>
     </div>
   );
