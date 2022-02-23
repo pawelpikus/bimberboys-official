@@ -125,7 +125,21 @@ const handlePlay = () => {
 
 #### Mailchimp integration
 
-I used [Mailchimp](https://mailchimp.com/) for the subscribe feature.
+I used [Mailchimp](https://mailchimp.com/) for the subscribe feature. It handles a lot more than just collecting emails and sending them every day to your inbox. Yet, the popularity and ease of use made me take that shot. Well, as it turned out it wasn't so easy to query Mailchimp API to handle my subscribe input field, so I reached for `react-mailchimp-subscribe` npm package, which did the heavy part.
+All I needed is to get the embedded form from Mailchimp and submit the data in the form of a proper object.
+
+```js
+const onSubmit: SubmitHandler<ISubscribeInputs> = (data) => {
+    data.email &&
+      onValidated({
+        MERGE0: data.email,
+      });
+    reset();
+    setisChecked(false);
+  };
+```
+
+As described in this nice [blog post](https://dev.to/gedalyakrycer/create-an-email-list-with-react-mailchimp-965) by Gedalya Krycer.
 
 ## 🙋‍♂️ Feel free to contact me
 

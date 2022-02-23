@@ -5,6 +5,7 @@ import { useState } from "react";
 import Checkbox from "./Checkbox";
 import Botpoison from "@botpoison/browser";
 import axios from "axios";
+import { useWrapFormToConsiderWhitespacesAsEmpty } from "../hooks/useWrapFormToConsiderWhitespacesAsEmpty";
 
 const FORMSPARK_ACTION_URL = process.env.NEXT_FORMSPARK_ACTION_URL;
 const botpoison = new Botpoison({
@@ -14,14 +15,16 @@ const botpoison = new Botpoison({
 const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [checked, setChecked] = useState(false);
+  const methodsOriginal = useForm<ICheckboxInputs & IFormInputs>({
+    criteriaMode: "all",
+  });
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<ICheckboxInputs & IFormInputs>({
-    criteriaMode: "all",
-  });
+  } = useWrapFormToConsiderWhitespacesAsEmpty(methodsOriginal);
   const [submitting, setSubmitting] = useState(false);
 
   const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
