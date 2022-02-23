@@ -5,7 +5,7 @@ export interface Props {
   children?: React.ReactNode;
 }
 
-export interface CTAProps {
+export interface CTAProps extends CheckboxState {
   status: "error" | "success" | "sending" | null;
   message: string | Error | null;
   onValidated: (formData: any) => void;
@@ -47,10 +47,8 @@ export interface ICheckboxInputs {
   acceptTerms: boolean;
 }
 
-export interface CheckboxProps {
+export interface CheckboxProps extends CheckboxState {
   name: "register" | "name" | "email" | "acceptTerms" | "message";
-  setChecked: (checked: boolean | ((prev: boolean) => boolean)) => void;
-  checked: boolean;
   checkboxMessage: string;
   requiredMessage: string;
   register: UseFormRegister<ICheckboxInputs & IFormInputs>;
@@ -59,3 +57,13 @@ export interface CheckboxProps {
 export interface ISubscribeInputs {
   email: string;
 }
+
+export interface CheckboxState {
+  setChecked: (checked: Checked | ((prev: Checked) => Checked)) => void;
+  checked: Checked;
+}
+
+export type Checked = {
+  contactForm: boolean;
+  subscribe: boolean;
+};

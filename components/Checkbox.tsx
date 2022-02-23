@@ -1,19 +1,18 @@
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import React, { FunctionComponent } from "react";
 import { ROUTES } from "../routes/routes";
 import styles from "../styles/Form.module.scss";
 import { CheckboxProps } from "../types/props";
 
-const Checkbox: FunctionComponent<CheckboxProps> = ({
+const Checkbox = ({
   setChecked,
   checked,
   checkboxMessage,
   requiredMessage,
   register,
   name,
-}) => {
+}: CheckboxProps) => {
   return (
     <>
       <div className={styles.terms_wrapper}>
@@ -22,7 +21,12 @@ const Checkbox: FunctionComponent<CheckboxProps> = ({
             id={name}
             className={styles.terms}
             type="checkbox"
-            onClick={() => setChecked(!checked)}
+            onClick={() =>
+              setChecked({
+                ...checked,
+                subscribe: !checked.subscribe,
+              })
+            }
             {...register(name, {
               required: requiredMessage,
             })}

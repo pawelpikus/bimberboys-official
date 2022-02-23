@@ -1,11 +1,12 @@
 import styles from "../styles/Form.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ICheckboxInputs, IFormInputs } from "../types/props";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Checkbox from "./Checkbox";
 import Botpoison from "@botpoison/browser";
 import axios from "axios";
 import { useWrapFormToConsiderWhitespacesAsEmpty } from "../hooks/useWrapFormToConsiderWhitespacesAsEmpty";
+import { checkboxContext } from "../context/checkboxContext";
 
 const FORMSPARK_ACTION_URL = process.env.NEXT_FORMSPARK_ACTION_URL;
 const botpoison = new Botpoison({
@@ -14,7 +15,6 @@ const botpoison = new Botpoison({
 
 const ContactForm = () => {
   const [message, setMessage] = useState("");
-  const [checked, setChecked] = useState(false);
   const methodsOriginal = useForm<ICheckboxInputs & IFormInputs>({
     criteriaMode: "all",
   });
@@ -26,6 +26,7 @@ const ContactForm = () => {
     formState: { errors },
   } = useWrapFormToConsiderWhitespacesAsEmpty(methodsOriginal);
   const [submitting, setSubmitting] = useState(false);
+  const { checked, setChecked } = useContext(checkboxContext);
 
   const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
     setSubmitting(true);
@@ -41,7 +42,10 @@ const ContactForm = () => {
       setMessage(`${data.name}, dziękujemy za wysłanie wiadomości!`);
       reset();
       setSubmitting(false);
-      setChecked(false);
+      setChecked({
+        ...checked,
+        contactForm: !checked.contactForm,
+      });
       window.scrollTo(0, 0);
     } catch (error) {
       console.log(error);

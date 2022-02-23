@@ -1,5 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
-import { Props } from "../types/props";
+import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +6,7 @@ import { faFacebookF, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import { ROUTES } from "../routes/routes";
 
-const Navbar: FunctionComponent<Props> = () => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
