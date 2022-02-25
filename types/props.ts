@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { UseFormRegister } from "react-hook-form";
 
 export interface Props {
@@ -48,6 +48,7 @@ export interface ICheckboxInputs {
 }
 
 export interface CheckboxProps extends CheckboxState {
+  index: number;
   name: "register" | "name" | "email" | "acceptTerms" | "message";
   checkboxMessage: string;
   requiredMessage: string;
@@ -59,11 +60,6 @@ export interface ISubscribeInputs {
 }
 
 export interface CheckboxState {
-  setChecked: (checked: Checked | ((prev: Checked) => Checked)) => void;
-  checked: Checked;
+  setChecked: Dispatch<SetStateAction<boolean[]>>;
+  checked: boolean[];
 }
-
-export type Checked = {
-  contactForm: boolean;
-  subscribe: boolean;
-};

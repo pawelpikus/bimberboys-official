@@ -7,10 +7,7 @@ import { checkboxContext } from "../context/checkboxContext";
 
 const Layout = ({ children }: Props) => {
   const postUrl = `https://gmail.us20.list-manage.com/subscribe/post?u=${process.env.NEXT_PUBLIC_MAILCHIMP_U}&id=${process.env.NEXT_PUBLIC_MAILCHIMP_ID}`;
-  const [checked, setChecked] = useState({
-    contactForm: false,
-    subscribe: false,
-  });
+  const [checked, setChecked] = useState([false, false]);
 
   return (
     <checkboxContext.Provider value={{ checked, setChecked }}>

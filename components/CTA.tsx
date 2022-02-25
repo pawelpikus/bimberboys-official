@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import styles from "../styles/Home.module.scss";
 import {
@@ -9,9 +9,11 @@ import {
 } from "../types/props";
 import Checkbox from "./Checkbox";
 import parse from "html-react-parser";
+import { checkboxContext } from "../context/checkboxContext";
+const ctaCheckboxIndex = 0;
 
 const CTA = ({ status, message, onValidated }: CTAProps) => {
-  const [checked, setChecked] = useState(false);
+  const { checked, setChecked } = useContext(checkboxContext);
 
   const {
     register,
@@ -27,7 +29,9 @@ const CTA = ({ status, message, onValidated }: CTAProps) => {
         MERGE0: data.email,
       });
     reset();
-    setChecked(false);
+    setChecked(
+      checked.map((element, i) => (i === ctaCheckboxIndex ? !element : element))
+    );
   };
 
   return (
@@ -62,6 +66,7 @@ const CTA = ({ status, message, onValidated }: CTAProps) => {
           )}
           <Checkbox
             name="acceptTerms"
+            index={ctaCheckboxIndex}
             setChecked={setChecked}
             checked={checked}
             checkboxMessage="Wyrażam zgodę na newsletter. "

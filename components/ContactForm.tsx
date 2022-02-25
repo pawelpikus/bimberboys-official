@@ -12,6 +12,7 @@ const FORMSPARK_ACTION_URL = process.env.NEXT_FORMSPARK_ACTION_URL;
 const botpoison = new Botpoison({
   publicKey: "pk_62e6f8fe-3509-4f52-bac4-4e95be8b1876",
 });
+const contactFormIndex = 1;
 
 const ContactForm = () => {
   const [message, setMessage] = useState("");
@@ -42,10 +43,11 @@ const ContactForm = () => {
       setMessage(`${data.name}, dziękujemy za wysłanie wiadomości!`);
       reset();
       setSubmitting(false);
-      setChecked({
-        ...checked,
-        contactForm: !checked.contactForm,
-      });
+      setChecked(
+        checked.map((element, i) =>
+          i === contactFormIndex ? !element : element
+        )
+      );
       window.scrollTo(0, 0);
     } catch (error) {
       console.log(error);
@@ -113,6 +115,7 @@ const ContactForm = () => {
             zapytania przedstawienia oferty.{" "}
           </p>
           <Checkbox
+            index={contactFormIndex}
             name="acceptTerms"
             setChecked={setChecked}
             checked={checked}

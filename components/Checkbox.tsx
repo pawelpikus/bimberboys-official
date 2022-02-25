@@ -12,7 +12,13 @@ const Checkbox = ({
   requiredMessage,
   register,
   name,
+  index,
 }: CheckboxProps) => {
+  const handleClick = () => {
+    const updatedState = checked.map((item, i) => (i === index ? !item : item));
+    setChecked(updatedState);
+  };
+
   return (
     <>
       <div className={styles.terms_wrapper}>
@@ -21,17 +27,12 @@ const Checkbox = ({
             id={name}
             className={styles.terms}
             type="checkbox"
-            onClick={() =>
-              setChecked({
-                ...checked,
-                subscribe: !checked.subscribe,
-              })
-            }
+            onClick={handleClick}
             {...register(name, {
               required: requiredMessage,
             })}
           />
-          {checked && (
+          {checked[index] && (
             <FontAwesomeIcon icon={faCheck} className={styles.check_icon} />
           )}
         </label>
