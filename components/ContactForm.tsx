@@ -2,7 +2,7 @@ import styles from "../styles/Form.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ICheckboxInputs, IFormInputs } from "../types/props";
 import { useContext, useState } from "react";
-import Checkbox from "./Checkbox";
+import { Checkbox } from "./Checkbox";
 import Botpoison from "@botpoison/browser";
 import axios from "axios";
 import { useWrapForm } from "../hooks/useWrapForm";
@@ -15,7 +15,7 @@ const botpoison = new Botpoison({
 });
 const contactFormIndex = 1;
 
-const ContactForm = () => {
+export const ContactForm = () => {
   const [message, setMessage] = useState("");
   const methodsOriginal = useForm<ICheckboxInputs & IFormInputs>({
     criteriaMode: "all",
@@ -147,5 +147,3 @@ const ContactForm = () => {
     </div>
   );
 };
-
-export default ContactForm;

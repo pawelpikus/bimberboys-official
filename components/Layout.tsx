@@ -1,11 +1,13 @@
 import { Props } from "../types/props";
-import { Navbar, Footer, CTA } from "../components";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
+import { CTA } from "../components/CTA";
 import styles from "../styles/Home.module.scss";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import { useState } from "react";
 import { checkboxContext } from "../context/checkboxContext";
 
-const Layout = ({ children }: Props) => {
+export const Layout = ({ children }: Props) => {
   const postUrl = `https://gmail.us20.list-manage.com/subscribe/post?u=${process.env.NEXT_PUBLIC_MAILCHIMP_U}&id=${process.env.NEXT_PUBLIC_MAILCHIMP_ID}`;
   const [checked, setChecked] = useState([false, false]);
 
@@ -45,5 +47,3 @@ const Layout = ({ children }: Props) => {
     </checkboxContext.Provider>
   );
 };
-
-export default Layout;

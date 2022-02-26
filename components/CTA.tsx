@@ -7,12 +7,12 @@ import {
   ISubscribeInputs,
   CTAProps,
 } from "../types/props";
-import Checkbox from "./Checkbox";
+import { Checkbox } from "./Checkbox";
 import parse from "html-react-parser";
 import { checkboxContext } from "../context/checkboxContext";
 const ctaCheckboxIndex = 0;
 
-const CTA = ({ status, message, onValidated }: CTAProps) => {
+export const CTA = ({ status, message, onValidated }: CTAProps) => {
   const { checked, setChecked } = useContext(checkboxContext);
 
   const {
@@ -86,5 +86,3 @@ const CTA = ({ status, message, onValidated }: CTAProps) => {
     </div>
   );
 };
-
-export default CTA;

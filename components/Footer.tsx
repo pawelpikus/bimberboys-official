@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.scss";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>
@@ -10,5 +10,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

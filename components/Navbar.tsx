@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.scss";
 import Link from "next/link";
 import { links, socialLinks } from "../data/links";
 
-const Navbar = () => {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -51,5 +51,3 @@ const Navbar = () => {
     </header>
   );
 };
-
-export default Navbar;

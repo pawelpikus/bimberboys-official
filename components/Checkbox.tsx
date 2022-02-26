@@ -5,7 +5,7 @@ import { ROUTES } from "../routes/routes";
 import styles from "../styles/Form.module.scss";
 import { CheckboxProps } from "../types/props";
 
-const Checkbox = ({
+export const Checkbox = ({
   setChecked,
   checked,
   checkboxMessage,
@@ -50,5 +50,3 @@ const Checkbox = ({
     </>
   );
 };
-
-export default Checkbox;
