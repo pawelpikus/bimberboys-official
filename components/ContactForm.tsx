@@ -7,7 +7,7 @@ import Botpoison from "@botpoison/browser";
 import axios from "axios";
 import { useWrapForm } from "../hooks/useWrapForm";
 import { checkboxContext } from "../context/checkboxContext";
-import AlertBanner from "./common/alert";
+import { AlertBanner } from "./common/Alert";
 
 const FORMSPARK_ACTION_URL = process.env.NEXT_FORMSPARK_ACTION_URL;
 const botpoison = new Botpoison({

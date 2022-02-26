@@ -5,7 +5,7 @@ type Props = {
   text: string;
 };
 
-const AlertBanner = ({ text }: Props) => {
+export const AlertBanner = ({ text }: Props) => {
   const [open, setOpen] = useState(true);
   console.log(open);
   return open ? (
@@ -28,5 +28,3 @@ const AlertBanner = ({ text }: Props) => {
     </div>
   ) : null;
 };
-
-export default AlertBanner;
