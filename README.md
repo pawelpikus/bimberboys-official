@@ -46,7 +46,7 @@ You will also see any lint errors in the console.
   ![figma mocks](./wireframes/figma/figma-mocks.jpg)
   &nbsp;
 
-- Mogo created in [Canva.com](https://canva.com)
+- Logo created in [Canva.com](https://canva.com)
 - I built a custom audio player using React hooks: `useRef`, `useState` and `useEffect`, which were used to wire up the HTML `audio` Element. The global player state (the current audio track and setters for previous and next track) was based on Context API, and `useContext` hook.
 - All images are served locally and wrapped in the Next.js's `<Image>` Component, which accounted for an automatic image resize and optimisation, as described in the documentation: [Image Component and Image Optimization](https://nextjs.org/docs/basic-features/image-optimization)
 - The icons used in this project come from [fontawsome.com](https://fontawesome.com/)
@@ -126,17 +126,17 @@ const handlePlay = () => {
 #### Mailchimp integration
 
 I used [Mailchimp](https://mailchimp.com/) for the subscribe feature. It handles a lot more than just collecting emails and sending them every day to your inbox. Yet, the popularity and ease of use made me take that shot. Well, as it turned out it wasn't so easy to query Mailchimp API to handle my subscribe input field, so I reached for `react-mailchimp-subscribe` npm package, which did the heavy part.
-All I needed is to get the embedded form from Mailchimp and submit the data in the form of a proper object.
+All I needed was to get the embedded form from Mailchimp and submit the data in the form of a proper object.
 
 ```js
 const onSubmit: SubmitHandler<ISubscribeInputs> = (data) => {
-    data.email &&
-      onValidated({
-        MERGE0: data.email,
-      });
-    reset();
-    setisChecked(false);
-  };
+  data.email &&
+    onValidated({
+      MERGE0: data.email,
+    });
+  reset();
+  setisChecked(false);
+};
 ```
 
 As described in this nice [blog post](https://dev.to/gedalyakrycer/create-an-email-list-with-react-mailchimp-965) by Gedalya Krycer.
