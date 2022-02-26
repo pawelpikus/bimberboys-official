@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "../styles/Home.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookF, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
-import { ROUTES } from "../routes/routes";
+import { links, socialLinks } from "../data/links";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,62 +22,29 @@ const Navbar = () => {
       </button>
       <nav className={`${styles.nav}`}>
         <ul className={styles.nav_list}>
-          <li>
-            <Link href="/">
-              <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
-                <span className={styles.logo}>
-                  <FontAwesomeIcon icon={faHome} size="lg" />
-                </span>
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href={ROUTES.O_NAS}>
-              <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
-                O nas
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href={ROUTES.POSLUCHAJ}>
-              <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
-                Posłuchaj
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href={ROUTES.GALERIA}>
-              <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
-                Galeria
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href={ROUTES.KONTAKT}>
-              <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
-                Kontakt
-              </a>
-            </Link>
-          </li>
+          {links.map((link, i) => (
+            <li key={i}>
+              <Link href={link.route}>
+                <a onClick={() => setIsOpen(false)} className={styles.nav_link}>
+                  {link.text}
+                </a>
+              </Link>
+            </li>
+          ))}
+
           <div className={styles.container_social}>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.facebook.com/Bimber-Boys-620956691363884/"
-              onClick={() => setIsOpen(false)}
-              className={styles.nav_link}
-            >
-              <FontAwesomeIcon icon={faFacebookF} size="lg" />
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.youtube.com/channel/UCaaWhs9s5f8kImfIML_zYRA"
-              onClick={() => setIsOpen(false)}
-              className={styles.nav_link}
-            >
-              <FontAwesomeIcon icon={faYoutube} size="lg" />
-            </a>
+            {socialLinks.map((link, i) => (
+              <a
+                key={i}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={link.route}
+                onClick={() => setIsOpen(false)}
+                className={styles.nav_link}
+              >
+                {link.text}
+              </a>
+            ))}
           </div>
         </ul>
       </nav>
