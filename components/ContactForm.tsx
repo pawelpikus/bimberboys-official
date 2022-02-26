@@ -5,8 +5,9 @@ import { useContext, useState } from "react";
 import Checkbox from "./Checkbox";
 import Botpoison from "@botpoison/browser";
 import axios from "axios";
-import { useWrapFormToConsiderWhitespacesAsEmpty } from "../hooks/useWrapFormToConsiderWhitespacesAsEmpty";
+import { useWrapForm } from "../hooks/useWrapForm";
 import { checkboxContext } from "../context/checkboxContext";
+import AlertBanner from "./common/alert";
 
 const FORMSPARK_ACTION_URL = process.env.NEXT_FORMSPARK_ACTION_URL;
 const botpoison = new Botpoison({
@@ -25,9 +26,10 @@ const ContactForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useWrapFormToConsiderWhitespacesAsEmpty(methodsOriginal);
+  } = useWrapForm(methodsOriginal);
   const [submitting, setSubmitting] = useState(false);
   const { checked, setChecked } = useContext(checkboxContext);
+  const [apiError, setApiError] = useState(false);
 
   const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
     setSubmitting(true);
@@ -50,13 +52,17 @@ const ContactForm = () => {
       );
       window.scrollTo(0, 0);
     } catch (error) {
-      console.log(error);
+      setApiError(true);
+      window.scrollTo(0, 0);
     }
   };
 
   return (
     <div className={styles.form_wrapper}>
       <p className={styles.message}>{message}</p>
+      {apiError ? (
+        <AlertBanner text="Wystąpił problem z wysłaniem formularza. Spróbuj później." />
+      ) : null}
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className={styles.input_wrapper}>
           <label className={styles.label} htmlFor="name">

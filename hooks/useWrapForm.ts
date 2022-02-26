@@ -6,7 +6,7 @@ const validateNotWhitespaceOnly = <T>(value: T): true | string =>
     ? value.trim().length > 0 || "To pole jest wymagane!"
     : true;
 
-export const useWrapFormToConsiderWhitespacesAsEmpty = <T>(
+export const useWrapForm = <T>(
   formMethods: UseFormReturn<T>
 ): UseFormReturn<T> => {
   const { register } = formMethods;
