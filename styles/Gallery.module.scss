@@ -43,6 +43,10 @@
 }
 
 @media (min-width: 800px) {
+  .content {
+    margin-top: 2em;
+  }
+
   .gallery_container {
     display: grid;
     gap: $base-padding;
