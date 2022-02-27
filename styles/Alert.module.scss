@@ -1,0 +1,51 @@
+@import "variables";
+@import "title";
+@import "button";
+
+.alert_container {
+  position: relative;
+  background-color: $accent;
+  border: $accent;
+  color: white;
+  padding: 0.5em 3.5em 0.5em 0.5em;
+  border-radius: 5px;
+}
+
+.exit_button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0.2em 0.25em;
+  cursor: pointer;
+}
+
+.svg_container {
+  fill: currentColor;
+  height: 50px;
+  width: 50px;
+  color: white;
+}
+
+.alert_text {
+  margin: 0;
+}
+
+@media (min-width: 800px) {
+  .svg_container {
+    height: 25px;
+    width: 25px;
+  }
+  .alert_container {
+    padding: 1em 3.5em 1em 1em;
+  }
+
+  .exit_button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1em 0.75em;
+    cursor: pointer;
+  }
+}

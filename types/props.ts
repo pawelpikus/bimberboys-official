@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { UseFormRegister } from "react-hook-form";
 
 export interface Props {
   children?: React.ReactNode;
 }
 
-export interface CTAProps {
+export interface CTAProps extends CheckboxState {
   status: "error" | "success" | "sending" | null;
   message: string | Error | null;
   onValidated: (formData: any) => void;
@@ -47,10 +47,9 @@ export interface ICheckboxInputs {
   acceptTerms: boolean;
 }
 
-export interface CheckboxProps {
+export interface CheckboxProps extends CheckboxState {
+  index: number;
   name: "register" | "name" | "email" | "acceptTerms" | "message";
-  setChecked: (checked: boolean | ((prev: boolean) => boolean)) => void;
-  checked: boolean;
   checkboxMessage: string;
   requiredMessage: string;
   register: UseFormRegister<ICheckboxInputs & IFormInputs>;
@@ -58,4 +57,9 @@ export interface CheckboxProps {
 
 export interface ISubscribeInputs {
   email: string;
+}
+
+export interface CheckboxState {
+  setChecked: Dispatch<SetStateAction<boolean[]>>;
+  checked: boolean[];
 }

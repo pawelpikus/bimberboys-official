@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import styles from "../styles/Home.module.scss";
 import {
@@ -7,11 +7,13 @@ import {
   ISubscribeInputs,
   CTAProps,
 } from "../types/props";
-import Checkbox from "./Checkbox";
+import { Checkbox } from "./Checkbox";
 import parse from "html-react-parser";
+import { checkboxContext } from "../context/checkboxContext";
+const ctaCheckboxIndex = 0;
 
-const CTA: FunctionComponent<CTAProps> = ({ status, message, onValidated }) => {
-  const [ischecked, setisChecked] = useState(false);
+export const CTA = ({ status, message, onValidated }: CTAProps) => {
+  const { checked, setChecked } = useContext(checkboxContext);
 
   const {
     register,
@@ -27,7 +29,9 @@ const CTA: FunctionComponent<CTAProps> = ({ status, message, onValidated }) => {
         MERGE0: data.email,
       });
     reset();
-    setisChecked(false);
+    setChecked(
+      checked.map((element, i) => (i === ctaCheckboxIndex ? !element : element))
+    );
   };
 
   return (
@@ -62,8 +66,9 @@ const CTA: FunctionComponent<CTAProps> = ({ status, message, onValidated }) => {
           )}
           <Checkbox
             name="acceptTerms"
-            setChecked={setisChecked}
-            checked={ischecked}
+            index={ctaCheckboxIndex}
+            setChecked={setChecked}
+            checked={checked}
             checkboxMessage="Wyrażam zgodę na newsletter. "
             requiredMessage="Zgoda jest wymagana!"
             register={register}
@@ -81,5 +86,3 @@ const CTA: FunctionComponent<CTAProps> = ({ status, message, onValidated }) => {
     </div>
   );
 };
-
-export default CTA;

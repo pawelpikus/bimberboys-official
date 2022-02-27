@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
-import { Layout } from "../components";
+import { Layout } from "../components/Layout";
 import Image from "next/image";
 import logo from "../public/bimber-logo2.png";
 import CookieConsent from "react-cookie-consent";

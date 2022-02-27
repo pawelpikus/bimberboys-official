@@ -1,7 +1,6 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/About.module.scss";
-import { Layout } from "../components";
+import { Layout } from "../components/Layout";
 import Image from "next/image";
 import aboutPic from "../public/about.jpg";
 

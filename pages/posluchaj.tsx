@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/ListenContact.module.scss";
-import { Layout } from "../components";
+import { Layout } from "../components/Layout";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import YouTube from "react-youtube";
 import React from "react";

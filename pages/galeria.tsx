@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Gallery.module.scss";
-import { Layout } from "../components";
+import { Layout } from "../components/Layout";
 import Image from "next/image";
 import gallery_img1 from "../public/img_gallery/1.jpg";
 import gallery_img2 from "../public/img_gallery/2.jpg";
@@ -17,7 +17,7 @@ const Gallery = () => {
   return (
     <>
       <Head>
-        <title>Bimber Boys - Galeria Zdjęć</title>
+        <title>Bimber Boys - Galeria</title>
         <meta
           name="description"
           content="Oficjalna strona zespołu Bimber Boys... czyli retro and folk band. Naszą specjalnością są stare, niezapomniane przeboje w akustycznych aranżacjach. Inspirują nas szlagiery dwudziestolecia międzywojennego, miejski folk z różnych stron świata oraz... poetyckie ballady."

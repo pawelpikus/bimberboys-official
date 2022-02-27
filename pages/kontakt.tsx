@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/ListenContact.module.scss";
-import { Layout, ContactForm } from "../components";
+import { Layout } from "../components/Layout";
 import logo_sm from "../public/bimberboys-logo-sm.png";
 import contact_img from "../public/contact_img.jpg";
 import React from "react";
+import { ContactForm } from "../components/ContactForm";
 
 const Contact = () => {
   return (

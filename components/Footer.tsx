@@ -1,8 +1,6 @@
 import styles from "../styles/Home.module.scss";
-import { FunctionComponent } from "react";
-import { Props } from "../types/props";
 
-const Footer: FunctionComponent<Props> = () => {
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>
@@ -12,5 +10,3 @@ const Footer: FunctionComponent<Props> = () => {
     </footer>
   );
 };
-
-export default Footer;
