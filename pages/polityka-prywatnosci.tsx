@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/RODOPolicyCookies.module.scss";
-import { Layout } from "../components";
+import { Layout } from "../components/Layout";
 import React from "react";
 
 const RODOPolicy = () => {
