@@ -19,7 +19,7 @@ const TrackList = ({ playlist }: PlaylistProps) => {
               : `${styles.list_item}`
           }
           onClick={() => {
-            load({ src: track.source, autoplay: !playing });
+            load({ src: track.source, autoplay: !playing, html5: true });
             setActive(track.id);
           }}
         >

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { PlaylistContext } from "../../context/playlistContext";
 import Controls from "./Controls";
-import Playlist from "./Playlist";
+import Playlist from "./TrackList";
 import styles from "../../styles/AudioPlayer.module.scss";
 import { songs } from "../../data/songs";
+import { AudioPlayerProvider } from "react-use-audio-player";
+import TrackList from "./TrackList";
 
 const Player = () => {
   const [currentTrack, setCurrentTrack] = useState(0);
@@ -29,17 +31,12 @@ const Player = () => {
     setCurrentTrack(currentTrack - 1);
   };
   return (
-    <div className={styles.player_container}>
-      <PlaylistContext.Provider
-        value={{ handleNextTrack, handlePrevTrack, active, setActive }}
-      >
-        <Controls
-          src={songs[currentTrack].source}
-          trackId={songs[currentTrack].id}
-        />
-        <Playlist onChangeTrack={handleChangeTrack} playlist={songs} />
-      </PlaylistContext.Provider>
-    </div>
+    <AudioPlayerProvider>
+      <div className={styles.player_container}>
+        <div>Playbar</div>
+        <TrackList playlist={songs} onChangeTrack={handleChangeTrack} />
+      </div>
+    </AudioPlayerProvider>
   );
 };
 
