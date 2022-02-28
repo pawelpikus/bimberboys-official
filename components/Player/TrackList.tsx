@@ -1,16 +1,13 @@
-import { useContext } from "react";
 import { PlaylistProps } from "../../types/props";
 import styles from "../../styles/AudioPlayer.module.scss";
-import { PlaylistContext } from "../../context/playlistContext";
 import { useAudioPlayer } from "react-use-audio-player";
 
-const TrackList = ({ playlist }: PlaylistProps) => {
-  const { active, setActive } = useContext(PlaylistContext);
+const TrackList = ({ songs, active, setActive }: PlaylistProps) => {
   const { load, playing } = useAudioPlayer();
 
   return (
     <>
-      {playlist.map((track, i) => (
+      {songs.map((track, i) => (
         <div
           key={track.id}
           className={
