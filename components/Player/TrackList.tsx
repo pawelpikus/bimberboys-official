@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { PlaylistProps } from "../../types/props";
 import styles from "../../styles/AudioPlayer.module.scss";
 import { PlaylistContext } from "../../context/playlistContext";
+import { useAudioPlayer } from "react-use-audio-player";
 
-const Playlist = ({ playlist, onChangeTrack }: PlaylistProps) => {
+const TrackList = ({ playlist }: PlaylistProps) => {
   const { active, setActive } = useContext(PlaylistContext);
+  const { load, playing } = useAudioPlayer();
+
   return (
     <>
       {playlist.map((track, i) => (
@@ -16,7 +19,7 @@ const Playlist = ({ playlist, onChangeTrack }: PlaylistProps) => {
               : `${styles.list_item}`
           }
           onClick={() => {
-            onChangeTrack(track.id);
+            load({ src: track.source, autoplay: !playing });
             setActive(track.id);
           }}
         >
@@ -31,4 +34,4 @@ const Playlist = ({ playlist, onChangeTrack }: PlaylistProps) => {
   );
 };
 
-export default Playlist;
+export default TrackList;
