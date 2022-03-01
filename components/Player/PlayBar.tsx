@@ -10,12 +10,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useAudioPlayer } from "react-use-audio-player";
 import styles from "../../styles/AudioPlayer.module.scss";
-import AudioProgressBar from "./AudioProgressBar";
-import TimeLabel from "./TimeLabel";
+import { AudioProgressBar } from "./AudioProgressBar";
+import { TimeLabel } from "./TimeLabel";
 
 interface PlaybarProps {}
 
-const PlayBar = (props: PlaybarProps) => {
+export const PlayBar = (props: PlaybarProps) => {
   const { togglePlayPause, playing, ready, mute } = useAudioPlayer();
   const [muted, setMuted] = useState(false);
 
@@ -70,5 +70,3 @@ const PlayBar = (props: PlaybarProps) => {
     </div>
   );
 };
-
-export default PlayBar;

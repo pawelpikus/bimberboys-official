@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "../../styles/AudioPlayer.module.scss";
 import { songs } from "../../data/songs";
 import { AudioPlayerProvider } from "react-use-audio-player";
-import TrackList from "./TrackList";
-import PlayBar from "./Playbar";
+import { TrackList } from "./TrackList";
+import { PlayBar } from "./PlayBar";
 
 const Player = () => {
   // const [currentTrack, setCurrentTrack] = useState(0);

@@ -2,7 +2,7 @@ import { PlaylistProps } from "../../types/props";
 import styles from "../../styles/AudioPlayer.module.scss";
 import { useAudioPlayer } from "react-use-audio-player";
 
-const TrackList = ({ songs, active, setActive }: PlaylistProps) => {
+export const TrackList = ({ songs, active, setActive }: PlaylistProps) => {
   const { load, playing } = useAudioPlayer();
 
   return (
@@ -30,5 +30,3 @@ const TrackList = ({ songs, active, setActive }: PlaylistProps) => {
     </>
   );
 };
-
-export default TrackList;

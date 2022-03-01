@@ -76,90 +76,63 @@
   display: inline-block;
 }
 
+.progressBar_container {
+  position: relative;
+}
+
 .progressBar {
-  --bar-before-width: 0;
   background: $bar-bg;
-  appearance: none;
   border-radius: 5px;
-  position: relative;
   width: 100%;
-  height: 2px;
-  outline: none;
+  height: 5px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-// progressbar -firefox
-.progressBar::moz-range-track {
-  background: $bar-bg;
-  appearance: none;
-  border-radius: 5px;
-  position: relative;
-  width: 100%;
-  height: 2px;
-  outline: none;
-}
-
-.progressBar::-moz-focus-outer {
-  border: 0;
-}
-
-// bar before - chrome and safari
-.progressBar::before {
-  content: "";
-  height: 2px;
-  width: var(--bar-before-width);
+.progressBar_tick {
+  height: 100%;
+  width: inherit;
   background: $bar-before-color;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
   cursor: pointer;
 }
 
-// bar before - firefox
-.progressBar::-moz-range-progress {
-  background: $bar-before-color;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  height: 2px;
-}
+// // knob - safari and chrome
+// .progressBar::-webkit-slider-thumb {
+//   -webkit-appearance: none;
+//   width: 10px;
+//   height: 10px;
+//   border-radius: 50%;
+//   border: none;
+//   background: $knob;
+//   cursor: pointer;
+//   position: relative;
+//   margin: -1px 0 0 0;
+//   z-index: 3;
+// }
+// // knob while dragging
+// .progressBar:active::-webkit-slider-thumb {
+//   transform: scale(1.2);
+//   background: $selectedKnob;
+// }
 
-// knob - safari and chrome
-.progressBar::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: $knob;
-  cursor: pointer;
-  position: relative;
-  margin: -1px 0 0 0;
-  z-index: 3;
-}
-// knob while dragging
-.progressBar:active::-webkit-slider-thumb {
-  transform: scale(1.2);
-  background: $selectedKnob;
-}
-
-// knob-firefox
-.progressBar::-moz-range-thumb {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: transparent;
-  background: $knob;
-  cursor: pointer;
-  position: relative;
-  z-index: 3;
-}
-// knob while dragging
-.progressBar:active::-moz-range-thumb {
-  transform: scale(1.2);
-  background: $selectedKnob;
-}
+// // knob-firefox
+// .progressBar::-moz-range-thumb {
+//   width: 10px;
+//   height: 10px;
+//   border-radius: 50%;
+//   border: transparent;
+//   background: $knob;
+//   cursor: pointer;
+//   position: relative;
+//   z-index: 3;
+// }
+// // knob while dragging
+// .progressBar:active::-moz-range-thumb {
+//   transform: scale(1.2);
+//   background: $selectedKnob;
+// }
 
 .list_item {
   width: 100%;
