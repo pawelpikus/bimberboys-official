@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAudioPosition } from "react-use-audio-player";
 import styles from "../../styles/AudioPlayer.module.scss";
-type ProgressBarProps = {};
 
-export const AudioProgressBar = (props: ProgressBarProps) => {
+export const AudioProgressBar = () => {
   const { duration, seek, percentComplete } = useAudioPosition({
     highRefreshRate: true,
   });
@@ -18,13 +17,11 @@ export const AudioProgressBar = (props: ProgressBarProps) => {
   const goTo = useCallback(
     (event: React.MouseEvent) => {
       const { pageX: eventOffsetX } = event;
-
       if (progressBar.current) {
         const elementOffsetX = progressBar.current.offsetLeft;
         const elementWidth = progressBar.current.clientWidth;
         const percent = (eventOffsetX - elementOffsetX) / elementWidth;
         seek(percent * duration);
-        console.log(elementOffsetX, elementWidth, eventOffsetX);
       }
     },
     [duration, seek]
