@@ -5,6 +5,10 @@
 @import "footer";
 @import "layout";
 
+.content {
+  align-items: flex-start;
+}
+
 .gallery_container {
   margin: $base-margin 0;
 }

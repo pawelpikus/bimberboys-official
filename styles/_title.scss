@@ -12,9 +12,10 @@
 .title {
   color: $accent;
   margin: 0;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-size: $font-size-lg;
 }
 
 @media (min-width: 800px) {

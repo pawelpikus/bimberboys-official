@@ -5,22 +5,26 @@
 @import "footer";
 @import "layout";
 
+.container {
+  text-align: left;
+}
+
 .logo_wrapper {
   position: relative;
   width: 150px;
   max-width: 100%;
-  margin: -1em auto;
+  margin: -1em 0;
 }
 
 .main_text {
-  text-align: center;
+  text-align: left;
 }
 
 .col {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .flex_between {
@@ -63,16 +67,8 @@
     margin: -1em 0;
   }
 
-  .main_text {
-    text-align: left;
-  }
-
   .col {
     align-items: flex-start;
     width: 46%;
-  }
-
-  .title_light {
-    text-align: left;
   }
 }

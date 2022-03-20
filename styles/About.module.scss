@@ -6,7 +6,7 @@
 @import "layout";
 
 .article_container {
-  text-align: center;
+  text-align: left;
   justify-content: flex-start;
 }
 
@@ -24,10 +24,6 @@
   align-items: center;
 }
 
-.main_text {
-  margin: 0;
-}
-
 .name {
   font-weight: bold;
   text-transform: uppercase;
@@ -41,16 +37,12 @@
 
 .col {
   width: fit-content;
+  text-align: center;
 }
 
 @media (min-width: 800px) {
   .article_container {
     margin-top: 2em;
-  }
-
-  .article_container h1,
-  .article_container p {
-    text-align: left;
   }
 
   .title_about {

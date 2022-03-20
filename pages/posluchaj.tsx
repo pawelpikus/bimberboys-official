@@ -49,7 +49,7 @@ const Listen = () => {
                 />
               </div>
               <article className={styles.main_text}>
-                <h1 className={`${styles.title} ${styles.title_light}`}>
+                <h1 className={`${styles.title}`}>
                   Posłuchaj naszych piosenek
                 </h1>
                 <p>
