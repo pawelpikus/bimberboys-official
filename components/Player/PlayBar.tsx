@@ -16,7 +16,10 @@ import { TimeLabel } from "./TimeLabel";
 interface PlaybarProps {}
 
 export const PlayBar = (props: PlaybarProps) => {
-  const { togglePlayPause, playing, ready, mute } = useAudioPlayer();
+  const { togglePlayPause, playing, ready, mute, loading, error } =
+    useAudioPlayer({
+      src: "/audio/chlopcy_zli.mp3",
+    });
   const [muted, setMuted] = useState(false);
 
   useEffect(() => {
@@ -32,41 +35,49 @@ export const PlayBar = (props: PlaybarProps) => {
   };
 
   return (
-    <div className={styles.audioPlayer}>
-      <button
-        className={styles.playPause}
-        onClick={togglePlayPause}
-        disabled={!ready}
-      >
-        {playing ? (
-          <FontAwesomeIcon icon={faPause} />
-        ) : (
-          <FontAwesomeIcon icon={faPlay} />
-        )}
-      </button>
-      <button className={styles.forwardBackward} onClick={backThirty}>
-        <FontAwesomeIcon icon={faBackward} />
-        30s
-      </button>
-      <button className={styles.forwardBackward} onClick={forwardThirty}>
-        <FontAwesomeIcon icon={faForward} />
-        30s
-      </button>
-      {/* progress bar */}
-      <AudioProgressBar />
-      {/* current time / duration*/}
-      <TimeLabel />
-      {/* mute button */}
-      <button
-        className={styles.volumeMute}
-        onClick={() => setMuted((prevState) => !prevState)}
-      >
-        {muted ? (
-          <FontAwesomeIcon icon={faVolumeMute} />
-        ) : (
-          <FontAwesomeIcon icon={faVolumeUp} />
-        )}
-      </button>
-    </div>
+    <>
+      {!error && !ready && loading ? (
+        <div>Loading audio...</div>
+      ) : (
+        <div style={{ visibility: "hidden" }}>Audio ready</div>
+      )}
+
+      <div className={styles.audioPlayer}>
+        <button
+          className={styles.playPause}
+          onClick={togglePlayPause}
+          disabled={!ready}
+        >
+          {playing ? (
+            <FontAwesomeIcon icon={faPause} />
+          ) : (
+            <FontAwesomeIcon icon={faPlay} />
+          )}
+        </button>
+        <button className={styles.forwardBackward} onClick={backThirty}>
+          <FontAwesomeIcon icon={faBackward} />
+          30s
+        </button>
+        <button className={styles.forwardBackward} onClick={forwardThirty}>
+          <FontAwesomeIcon icon={faForward} />
+          30s
+        </button>
+        {/* progress bar */}
+        <AudioProgressBar />
+        {/* current time / duration*/}
+        <TimeLabel />
+        {/* mute button */}
+        <button
+          className={styles.volumeMute}
+          onClick={() => setMuted((prevState) => !prevState)}
+        >
+          {muted ? (
+            <FontAwesomeIcon icon={faVolumeMute} />
+          ) : (
+            <FontAwesomeIcon icon={faVolumeUp} />
+          )}
+        </button>
+      </div>
+    </>
   );
 };
