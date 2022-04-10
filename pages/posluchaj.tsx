@@ -5,6 +5,7 @@ import logo_sm from "../public/bimberboys-logo-sm.png";
 import YouTube from "react-youtube";
 import React from "react";
 import Player from "../components/Player/Player";
+import { YTVideoIds } from "../data/YTubeVideoIds";
 
 const Listen = () => {
   return (
@@ -37,16 +38,11 @@ const Listen = () => {
             <Player />
           </section>
           <section className={styles.col}>
-            <div className={styles.video_wrapper}>
-              <YouTube videoId="Y5xyvx4hAKg" className={styles.video} />
-            </div>
-
-            <div className={styles.video_wrapper}>
-              <YouTube videoId="t0mzXsh45Q4" className={styles.video} />
-            </div>
-            <div className={styles.video_wrapper}>
-              <YouTube videoId="d6X35Y30p2A" className={styles.video} />
-            </div>
+            {YTVideoIds.map((videoId, i) => {
+              <div key={i} className={styles.video_wrapper}>
+                <YouTube videoId={videoId} className={styles.video} />
+              </div>;
+            })}
           </section>
         </div>
       </div>
