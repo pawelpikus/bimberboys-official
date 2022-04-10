@@ -9,14 +9,14 @@
   margin-top: $base-margin;
   margin-bottom: $base-margin * 2;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 4px;
 }
 
 .player_container {
   width: 100%;
-  margin: $base-margin * 3 0;
+  margin: $base-margin 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,6 +74,8 @@
   min-width: 53px;
   max-width: 53px;
   display: inline-block;
+  margin: 0 $base-margin;
+  text-align: center;
 }
 
 .progressBar_container {

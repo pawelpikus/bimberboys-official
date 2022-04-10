@@ -163,7 +163,6 @@ const Controls = ({ src, trackId }: AudioPlayerProps) => {
         <FontAwesomeIcon icon={faForward} />
         30s
       </button>
-      {/* progress bar */}
       <input
         type="range"
         value={currentTrackMoment}
@@ -171,12 +170,10 @@ const Controls = ({ src, trackId }: AudioPlayerProps) => {
         className={styles.progressBar}
         onChange={changeRange}
       />
-      {/* current time / duration*/}
       <div className={styles.currentTimeDuration}>
         {calculateTime(currentTrackMoment) || "00:00"}/
         {calculateTime(currentTrackDuration) || "00:00"}
       </div>
-      {/* mute button */}
       <button className={styles.volumeMute} onClick={handleMute}>
         {isMuted ? (
           <FontAwesomeIcon icon={faVolumeMute} />
