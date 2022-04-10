@@ -1,7 +1,16 @@
 import React from "react";
+import { useAudioPosition } from "react-use-audio-player";
+import { calculateTime } from "../../utils/calculateTime";
+import styles from "../../styles/AudioPlayer.module.scss";
 
-type TimeLabelProps = {};
+export const TimeLabel = () => {
+  const { duration, position } = useAudioPosition({ highRefreshRate: true });
+  if (duration === Infinity) return null;
+  const elapsed = typeof position === "number" ? position : 0;
 
-export const TimeLabel = (props: TimeLabelProps) => {
-  return <div>TimeLabel</div>;
+  return (
+    <div className={styles.currentTimeDuration}>{`${calculateTime(
+      elapsed
+    )} / ${calculateTime(duration)}`}</div>
+  );
 };

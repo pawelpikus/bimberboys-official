@@ -37,7 +37,7 @@ export const PlayBar = (props: PlaybarProps) => {
   return (
     <>
       {!error && !ready && loading ? (
-        <div>Loading audio...</div>
+        <div>Wczytuję...</div>
       ) : (
         <div style={{ visibility: "hidden" }}>Audio ready</div>
       )}
