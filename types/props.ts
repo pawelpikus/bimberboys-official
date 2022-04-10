@@ -21,13 +21,14 @@ export interface AudioPlayerProps {
 }
 
 export interface PlaylistProps {
-  playlist: {
+  songs: {
     id: number;
     title: string;
     source: string;
     duration: string;
   }[];
-  onChangeTrack: (id: number) => void;
+  active: number;
+  setActive: Dispatch<SetStateAction<number>>;
 }
 
 export interface PlaylistContext {
